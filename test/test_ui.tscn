@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://cc428mpqi1iys"]
+
+[ext_resource type="PackedScene" uid="uid://cpgfng8f560jg" path="res://content/scene/ui/common/texture_button/common_texture_button.tscn" id="1_uf8k3"]
+[ext_resource type="Texture2D" uid="uid://denb6ti5hyuc6" path="res://test/icon.svg" id="2_c34xx"]
+
+[sub_resource type="Curve" id="Curve_c34xx"]
+resource_local_to_scene = true
+_limits = [-0.5, 0.5, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.2, 0.4), 0.0, 0.0, 0, 0, Vector2(0.6, -0.15), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[node name="TestUi" type="Control" unique_id=270527524]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CommonTextureButton" parent="." unique_id=1745348350 instance=ExtResource("1_uf8k3")]
+layout_mode = 0
+texture_normal = ExtResource("2_c34xx")
+texture_pressed = ExtResource("2_c34xx")
+texture_hover = ExtResource("2_c34xx")
+texture_disabled = ExtResource("2_c34xx")
+texture_focused = ExtResource("2_c34xx")
+ease_curve = SubResource("Curve_c34xx")

@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://mog0gkgc86de"]
+
+[ext_resource type="Script" uid="uid://cdka56s2jhb81" path="res://content/script/ui/ui_stack/ui_stack_manager.gd" id="1_mgr"]
+[ext_resource type="Script" uid="uid://06ruujfss51n" path="res://content/script/ui/ui_stack/ui_stack_layer.gd" id="2_layer"]
+
+[node name="UIStackManager" type="Node" unique_id=278017058]
+script = ExtResource("1_mgr")
+
+[node name="HudLayer" type="CanvasLayer" parent="." unique_id=472643894]
+layer = 126
+script = ExtResource("2_layer")
+layer_id = "hud"
+
+[node name="MenuLayer" type="CanvasLayer" parent="." unique_id=1171727145]
+layer = 127
+script = ExtResource("2_layer")
+layer_id = "menu"
+
+[node name="PopupLayer" type="CanvasLayer" parent="." unique_id=733285316]
+layer = 128
+script = ExtResource("2_layer")
+layer_id = "popup"

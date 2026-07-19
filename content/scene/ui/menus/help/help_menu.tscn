@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://cc0nrwa3fdppv"]
+
+[ext_resource type="PackedScene" uid="uid://bkjowivgs5uon" path="res://content/scene/ui/common/button/common_button.tscn" id="1_btn"]
+[ext_resource type="Script" uid="uid://uawb8gduvhwb" path="res://content/scene/ui/menus/help/help_menu.gd" id="2_script"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_help"]
+line_spacing = 10.0
+font_size = 24
+
+[sub_resource type="Curve" id="Curve_k3ps2"]
+resource_local_to_scene = true
+_limits = [-0.5, 0.5, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.2, 0.4), 0.0, 0.0, 0, 0, Vector2(0.6, -0.15), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[node name="HelpMenu" type="Control" unique_id=373912757 node_paths=PackedStringArray("focus_target")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_script")
+focus_target = NodePath("Panel/MarginContainer/VBoxContainer/Back")
+
+[node name="Panel" type="Panel" parent="." unique_id=1349124682]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=470635540]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer" unique_id=125618755]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="HelpContent" type="Label" parent="Panel/MarginContainer/VBoxContainer" unique_id=2095216330]
+layout_mode = 2
+size_flags_vertical = 3
+text = "HELP_CONTENT"
+label_settings = SubResource("LabelSettings_help")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Back" parent="Panel/MarginContainer/VBoxContainer" unique_id=407025315 instance=ExtResource("1_btn")]
+custom_minimum_size = Vector2(160, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "BACK"
+ease_curve = SubResource("Curve_k3ps2")
+
+[connection signal="button_anim_finish" from="Panel/MarginContainer/VBoxContainer/Back" to="." method="_on_back_anim_finish"]

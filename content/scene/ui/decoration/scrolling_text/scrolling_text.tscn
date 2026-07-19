@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://ej3yyjr1ccyp"]
+
+[ext_resource type="Script" uid="uid://dv7wdxb4dcx1q" path="res://content/scene/ui/decoration/scrolling_text/scrolling_text.gd" id="1_403pj"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_news"]
+font_size = 20
+
+[node name="ScrollingText" type="Control" unique_id=316447972]
+clip_contents = true
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 3
+script = ExtResource("1_403pj")
+text_pool = Array[String](["PlaceHolder Text 1", "PlaceHolder Text 2"])
+label_settings = SubResource("LabelSettings_news")

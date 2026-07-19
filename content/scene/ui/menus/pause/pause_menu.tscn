@@ -1,0 +1,118 @@
+[gd_scene format=3 uid="uid://bsasunuf55rsk"]
+
+[ext_resource type="PackedScene" uid="uid://bkjowivgs5uon" path="res://content/scene/ui/common/button/common_button.tscn" id="1_btn"]
+[ext_resource type="Script" uid="uid://drkjqakad8mk3" path="res://content/scene/ui/menus/pause/pause_menu.gd" id="2_script"]
+[ext_resource type="PackedScene" uid="uid://cc0nrwa3fdppv" path="res://content/scene/ui/menus/help/help_menu.tscn" id="3_help"]
+[ext_resource type="PackedScene" uid="uid://s5jmpb74xkon" path="res://content/scene/ui/menus/settings/settings_menu.tscn" id="3_settings"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_title"]
+font_size = 36
+
+[sub_resource type="Curve" id="Curve_3yq31"]
+resource_local_to_scene = true
+_limits = [-0.5, 0.5, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.2, 0.4), 0.0, 0.0, 0, 0, Vector2(0.6, -0.15), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Curve" id="Curve_7tbfl"]
+resource_local_to_scene = true
+_limits = [-0.5, 0.5, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.2, 0.4), 0.0, 0.0, 0, 0, Vector2(0.6, -0.15), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Curve" id="Curve_sy466"]
+resource_local_to_scene = true
+_limits = [-0.5, 0.5, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.2, 0.4), 0.0, 0.0, 0, 0, Vector2(0.6, -0.15), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Curve" id="Curve_l3om0"]
+resource_local_to_scene = true
+_limits = [-0.5, 0.5, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.2, 0.4), 0.0, 0.0, 0, 0, Vector2(0.6, -0.15), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Curve" id="Curve_ie260"]
+resource_local_to_scene = true
+_limits = [-0.5, 0.5, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.2, 0.4), 0.0, 0.0, 0, 0, Vector2(0.6, -0.15), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[node name="PauseMenu" type="Control" unique_id=19894013 node_paths=PackedStringArray("focus_target")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_script")
+settings_menu_packed = ExtResource("3_settings")
+help_menu_packed = ExtResource("3_help")
+focus_target = NodePath("MainPanel/VBoxContainer/Buttons/Resume")
+
+[node name="MainPanel" type="Panel" parent="." unique_id=1764744950]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainPanel" unique_id=361138714]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="Title" type="Label" parent="MainPanel/VBoxContainer" unique_id=1148959018]
+layout_mode = 2
+text = "PAUSE"
+label_settings = SubResource("LabelSettings_title")
+horizontal_alignment = 1
+
+[node name="Buttons" type="VBoxContainer" parent="MainPanel/VBoxContainer" unique_id=1028191723]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 20
+
+[node name="Resume" parent="MainPanel/VBoxContainer/Buttons" unique_id=1769110768 instance=ExtResource("1_btn")]
+layout_mode = 2
+text = "RESUME"
+ease_curve = SubResource("Curve_3yq31")
+
+[node name="SaveGame" parent="MainPanel/VBoxContainer/Buttons" unique_id=962221927 instance=ExtResource("1_btn")]
+layout_mode = 2
+text = "SAVE_GAME"
+ease_curve = SubResource("Curve_7tbfl")
+
+[node name="Settings" parent="MainPanel/VBoxContainer/Buttons" unique_id=2084197765 instance=ExtResource("1_btn")]
+layout_mode = 2
+text = "SETTINGS"
+ease_curve = SubResource("Curve_sy466")
+
+[node name="Help" parent="MainPanel/VBoxContainer/Buttons" unique_id=1700443550 instance=ExtResource("1_btn")]
+layout_mode = 2
+text = "HELP"
+ease_curve = SubResource("Curve_l3om0")
+
+[node name="BackToStart" parent="MainPanel/VBoxContainer/Buttons" unique_id=1928213011 instance=ExtResource("1_btn")]
+layout_mode = 2
+text = "BACK_TO_START"
+ease_curve = SubResource("Curve_ie260")
+
+[connection signal="button_anim_finish" from="MainPanel/VBoxContainer/Buttons/Resume" to="." method="_on_resume_anim_finish"]
+[connection signal="button_anim_finish" from="MainPanel/VBoxContainer/Buttons/SaveGame" to="." method="_on_save_game_button_anim_finish"]
+[connection signal="button_anim_finish" from="MainPanel/VBoxContainer/Buttons/Settings" to="." method="_on_settings_anim_finish"]
+[connection signal="button_anim_finish" from="MainPanel/VBoxContainer/Buttons/Help" to="." method="_on_help_anim_finish"]
+[connection signal="button_anim_finish" from="MainPanel/VBoxContainer/Buttons/BackToStart" to="." method="_on_back_to_start_anim_finish"]

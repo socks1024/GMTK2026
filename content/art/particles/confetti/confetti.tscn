@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://c0w4swb0la857"]
+
+[ext_resource type="Texture2D" uid="uid://ds46wxjmw2syc" path="res://content/art/sprite/place_holder/white.png" id="1_tex"]
+
+[sub_resource type="Gradient" id="Gradient_color"]
+interpolation_color_space = 1
+offsets = PackedFloat32Array(0, 0.166, 0.333, 0.5, 0.666, 0.833, 1)
+colors = PackedColorArray(1, 0.35, 0.35, 1, 1, 0.72, 0.3, 1, 1, 0.95, 0.35, 1, 0.45, 0.9, 0.45, 1, 0.4, 0.7, 1, 1, 0.75, 0.45, 1, 1, 1, 0.45, 0.7, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_color"]
+gradient = SubResource("Gradient_color")
+
+[sub_resource type="Curve" id="Curve_scale"]
+_data = [Vector2(0, 0.5), 0.0, 0.0, 0, 0, Vector2(0.3, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.3), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_scale"]
+curve = SubResource("Curve_scale")
+
+[sub_resource type="ParticleProcessMaterial" id="ProcessMaterial_confetti"]
+particle_flag_disable_z = true
+angle_min = -360.0
+angle_max = 360.0
+spread = 60.0
+initial_velocity_min = 400.0
+initial_velocity_max = 800.0
+angular_velocity_min = -200.0
+angular_velocity_max = 200.0
+gravity = Vector3(0, 500, 0)
+damping_min = 20.0
+damping_max = 50.0
+scale_min = 0.3
+scale_curve = SubResource("CurveTexture_scale")
+color_initial_ramp = SubResource("GradientTexture1D_color")
+
+[node name="Confetti" type="GPUParticles2D" unique_id=540855787]
+emitting = false
+amount = 200
+texture = ExtResource("1_tex")
+lifetime = 4.0
+one_shot = true
+explosiveness = 0.9
+visibility_rect = Rect2(-200, -200, 2200, 1400)
+process_material = SubResource("ProcessMaterial_confetti")

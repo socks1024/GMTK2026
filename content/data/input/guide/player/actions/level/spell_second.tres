@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="GUIDEAction" format=3 uid="uid://dl7nwui2sjiw6"]
+
+[ext_resource type="Script" uid="uid://cluhc11vixkf1" path="res://addons/guide/guide_action.gd" id="1_av3a5"]
+
+[resource]
+script = ExtResource("1_av3a5")
+is_remappable = true
+display_name = "Second Spell"
+display_category = "Player"

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="GUIDEAction" format=3 uid="uid://c48xlf5db3y4x"]
+
+[ext_resource type="Script" uid="uid://cluhc11vixkf1" path="res://addons/guide/guide_action.gd" id="1_hwotu"]
+
+[resource]
+script = ExtResource("1_hwotu")
+is_remappable = true
+display_name = "Pause"
+display_category = "Player"

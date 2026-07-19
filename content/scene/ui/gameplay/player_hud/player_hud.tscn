@@ -1,0 +1,111 @@
+[gd_scene format=3 uid="uid://mkdqv2iywvoy"]
+
+[ext_resource type="Script" uid="uid://c6yifr5w5myjv" path="res://content/scene/ui/gameplay/player_hud/player_hud.gd" id="1_07tnl"]
+[ext_resource type="PackedScene" uid="uid://bkqi4nluf1v2n" path="res://content/scene/ui/common/progress_baar/feel_progress_bar.tscn" id="2_w43ji"]
+[ext_resource type="Texture2D" uid="uid://dubqju0ble3d2" path="res://content/art/sprite/items/items.png" id="3_w43ji"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vkqoe"]
+atlas = ExtResource("3_w43ji")
+region = Rect2(48, 0, 16, 16)
+
+[node name="PlayerHud" type="Control" unique_id=40743865 node_paths=PackedStringArray("focus_target")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_07tnl")
+back_action_enabled = false
+focus_target = NodePath(".")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=125497765]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=621884316]
+layout_mode = 2
+
+[node name="Health" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1846641596]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Health" unique_id=1800278375]
+layout_mode = 2
+text = "生命值"
+
+[node name="FeelProgressBar" parent="MarginContainer/VBoxContainer/Health" unique_id=215658329 instance=ExtResource("2_w43ji")]
+layout_mode = 2
+bar_color = Color(0.85784197, 0.24931026, 0.18138245, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Health/FeelProgressBar" unique_id=152375261]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Value" type="Label" parent="MarginContainer/VBoxContainer/Health/FeelProgressBar/HBoxContainer" unique_id=194400999]
+layout_mode = 2
+text = "12"
+
+[node name="Slash" type="Label" parent="MarginContainer/VBoxContainer/Health/FeelProgressBar/HBoxContainer" unique_id=1099186519]
+layout_mode = 2
+text = "/"
+
+[node name="MaxValue" type="Label" parent="MarginContainer/VBoxContainer/Health/FeelProgressBar/HBoxContainer" unique_id=409633507]
+layout_mode = 2
+text = "12"
+
+[node name="Magic" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1574141798]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Magic" unique_id=17912599]
+layout_mode = 2
+text = "献祭值"
+
+[node name="FeelProgressBar" parent="MarginContainer/VBoxContainer/Magic" unique_id=1371102649 instance=ExtResource("2_w43ji")]
+layout_mode = 2
+bar_color = Color(0.80112565, 0.0011895996, 0.89772606, 1)
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Magic/FeelProgressBar" unique_id=1804281203]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Value" type="Label" parent="MarginContainer/VBoxContainer/Magic/FeelProgressBar/HBoxContainer2" unique_id=1567746341]
+layout_mode = 2
+text = "9"
+
+[node name="Slash" type="Label" parent="MarginContainer/VBoxContainer/Magic/FeelProgressBar/HBoxContainer2" unique_id=860195280]
+layout_mode = 2
+text = "/"
+
+[node name="MaxValue" type="Label" parent="MarginContainer/VBoxContainer/Magic/FeelProgressBar/HBoxContainer2" unique_id=479617348]
+layout_mode = 2
+text = "9"
+
+[node name="KeyCount" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1137983195]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/KeyCount" unique_id=97307085]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = SubResource("AtlasTexture_vkqoe")
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/KeyCount" unique_id=1592091158]
+layout_mode = 2
+text = "0"

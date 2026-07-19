@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cpgfng8f560jg"]
+
+[ext_resource type="Script" uid="uid://d24lupgxwcene" path="res://content/scene/ui/common/texture_button/common_texture_button.gd" id="1_ctbtn"]
+[ext_resource type="Resource" uid="uid://b7tq72k7uildv" path="res://content/art/audio/events/ui/common_button_pressed.tres" id="2_ctbtn"]
+[ext_resource type="Resource" path="res://content/art/audio/events/ui/common_button_hover.tres" id="3_8vgga"]
+
+[sub_resource type="Curve" id="Curve_ctbtn"]
+resource_local_to_scene = true
+_limits = [-0.5, 0.5, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.2, 0.4), 0.0, 0.0, 0, 0, Vector2(0.6, -0.15), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[node name="CommonTextureButton" type="TextureButton" unique_id=1745348350]
+offset_right = 64.0
+offset_bottom = 64.0
+pivot_offset = Vector2(32, 32)
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("1_ctbtn")
+ease_curve = SubResource("Curve_ctbtn")
+press_sound = ExtResource("2_ctbtn")
+hover_sound = ExtResource("3_8vgga")

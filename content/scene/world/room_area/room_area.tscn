@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bkrrhl582620g"]
+
+[ext_resource type="Script" uid="uid://chy7m3j5j3jq3" path="res://content/scene/world/room_area/room_area.gd" id="1_67xyi"]
+[ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="1_yskm7"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="2_67xyi"]
+
+[sub_resource type="Resource" id="Resource_wa43y"]
+script = ExtResource("2_67xyi")
+
+[node name="RoomArea" type="Area2D" unique_id=159423725]
+script = ExtResource("1_67xyi")
+
+[node name="PhantomCamera2D" type="Node2D" parent="." unique_id=1705373826]
+top_level = true
+position = Vector2(640, 360)
+script = ExtResource("1_yskm7")
+follow_mode = 2
+tween_resource = SubResource("Resource_wa43y")
+dead_zone_width = 0.4
+dead_zone_height = 0.3
+metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

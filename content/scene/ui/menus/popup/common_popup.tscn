@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://dfvm5cs6ka3lt"]
+
+[ext_resource type="Script" uid="uid://dung811q85jxe" path="res://content/scene/ui/menus/popup/common_popup.gd" id="1_6uan0"]
+[ext_resource type="PackedScene" uid="uid://bkjowivgs5uon" path="res://content/scene/ui/common/button/common_button.tscn" id="2_jubbv"]
+
+[sub_resource type="Curve" id="Curve_6uan0"]
+resource_local_to_scene = true
+_limits = [-0.5, 0.5, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.2, 0.4), 0.0, 0.0, 0, 0, Vector2(0.6, -0.15), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[node name="CommonPopup" type="Control" unique_id=1201465350 node_paths=PackedStringArray("focus_target")]
+modulate = Color(1, 1, 1, 0.6156863)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6uan0")
+layer_id = "popup"
+back_action_enabled = false
+focus_target = NodePath("InnerPanel/MarginContainer/VBox/BottomBar/NextBtn")
+
+[node name="InnerPanel" type="PanelContainer" parent="." unique_id=91957125]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(600, 400)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -200.0
+offset_right = 300.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="InnerPanel" unique_id=2049940025]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBox" type="VBoxContainer" parent="InnerPanel/MarginContainer" unique_id=1924634242]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="PopupTitle" type="Label" parent="InnerPanel/MarginContainer/VBox" unique_id=1563367677]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "POPUP_TITLE"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="InnerPanel/MarginContainer/VBox" unique_id=1422349020]
+layout_mode = 2
+
+[node name="ContentLabel" type="RichTextLabel" parent="InnerPanel/MarginContainer/VBox" unique_id=1706714100]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+scroll_following = true
+
+[node name="BottomBar" type="HBoxContainer" parent="InnerPanel/MarginContainer/VBox" unique_id=2127511048]
+layout_mode = 2
+alignment = 2
+
+[node name="PageLabel" type="Label" parent="InnerPanel/MarginContainer/VBox/BottomBar" unique_id=996534729]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 14
+text = "1 / 4"
+vertical_alignment = 1
+
+[node name="NextBtn" parent="InnerPanel/MarginContainer/VBox/BottomBar" unique_id=659666038 instance=ExtResource("2_jubbv")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(160, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "NEXT"
+ease_curve = SubResource("Curve_6uan0")

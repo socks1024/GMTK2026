@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="GUIDEAction" format=3 uid="uid://d23w4yctnt6xy"]
+
+[ext_resource type="Script" uid="uid://cluhc11vixkf1" path="res://addons/guide/guide_action.gd" id="1_emm04"]
+
+[resource]
+script = ExtResource("1_emm04")
+is_remappable = true
+display_name = "Evade"
+display_category = "Player"

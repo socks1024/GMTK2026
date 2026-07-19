@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://c3lso300yfoep"]
+
+[ext_resource type="Script" uid="uid://dksbae5wxuiyc" path="res://content/scene/core/main.gd" id="1_mk4ev"]
+[ext_resource type="PackedScene" uid="uid://blo0dey15c4q" path="res://content/scene/ui/menus/start/start_menu.tscn" id="1_wqkls"]
+[ext_resource type="PackedScene" uid="uid://bsasunuf55rsk" path="res://content/scene/ui/menus/pause/pause_menu.tscn" id="5_pause"]
+
+[node name="Main" type="Node" unique_id=82085738]
+script = ExtResource("1_mk4ev")
+game_world_path = "uid://b350sxue7g686"
+loading_scene_path = "uid://dnyha205h1sve"
+start_menu_packed = ExtResource("1_wqkls")
+pause_menu_packed = ExtResource("5_pause")
+
+[node name="World" type="Node" parent="." unique_id=77097175]
+process_mode = 1

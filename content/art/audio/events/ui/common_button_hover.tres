@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="AudioEvent" format=3 uid="uid://dctbhvrsnd001"]
+
+[ext_resource type="AudioStream" uid="uid://cyfbwrkwsjh6f" path="res://content/art/audio/raw/sfx/Card and Board/card_draw_3.wav" id="1_hover"]
+[ext_resource type="Script" uid="uid://b8l57kl8oyb2f" path="res://content/script/audio/audio_event.gd" id="2_hover"]
+
+[resource]
+script = ExtResource("2_hover")
+name = &"CommonButtonHover"
+audio_stream = ExtResource("1_hover")
+bus = &"UI"
+random_volume_range = 1.0
+random_pitch_range = 0.2
+metadata/_custom_type_script = "uid://b8l57kl8oyb2f"
