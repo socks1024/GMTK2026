@@ -42,6 +42,7 @@ layout_mode = 2
 text = "生命值"
 
 [node name="FeelProgressBar" parent="MarginContainer/VBoxContainer/Health" unique_id=215658329 instance=ExtResource("2_w43ji")]
+custom_minimum_size = Vector2(240, 20)
 layout_mode = 2
 bar_color = Color(0.85784197, 0.24931026, 0.18138245, 1)
 
@@ -67,6 +68,7 @@ layout_mode = 2
 text = "12"
 
 [node name="Magic" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1574141798]
+visible = false
 layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Magic" unique_id=17912599]

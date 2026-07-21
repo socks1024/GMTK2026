@@ -9,6 +9,8 @@ extends StackableControl
 @onready var key_count: Label = $MarginContainer/VBoxContainer/KeyCount/Label
 
 var _player: Player
+var _max_health_unit: float
+
 
 func connect_to_player(player: Player):
 	player.max_health_changed.connect(_on_player_max_health_changed)
@@ -17,11 +19,14 @@ func connect_to_player(player: Player):
 	player.magic_changed.connect(_on_player_magic_changed)
 	player.key_count_changed.connect(_on_player_key_count_changed)
 	
+	_max_health_unit = health_progress_bar.custom_minimum_size.x / player.max_health
+	
 	_player = player
 
 
 func _on_player_max_health_changed(value: int):
-	health_progress_bar.value = float(_player.health) / _player.max_health
+	health_progress_bar.custom_minimum_size.x = value * _max_health_unit
+	health_progress_bar.set_value(float(_player.health) / _player.max_health, false)
 	max_health_value.text = str(value)
 
 func _on_player_health_changed(value: int):

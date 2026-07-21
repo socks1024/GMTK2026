@@ -52,10 +52,6 @@ window/stretch/mode="canvas_items"
 
 enabled=PackedStringArray("res://addons/CodeEditorSwitch/plugin.cfg", "res://addons/animation_copier/plugin.cfg", "res://addons/cheatsheet/plugin.cfg", "res://addons/clog/plugin.cfg", "res://addons/guide/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
 
-[global_group]
-
-Player=""
-
 [gui]
 
 theme/custom="uid://2qh3aix7i37a"

@@ -6,7 +6,6 @@
 [ext_resource type="TileSet" uid="uid://bx3upxfac3mlx" path="res://content/art/sprite/dungeon_old/dungeon_/dungeon_tiles.tres" id="3_apdbo"]
 [ext_resource type="PackedScene" uid="uid://dayl62ethbi41" path="res://content/scene/world/map_items/door/door.tscn" id="5_nt158"]
 [ext_resource type="PackedScene" uid="uid://b28cplo5qguxq" path="res://content/scene/world/map_items/key/key.tscn" id="6_apdbo"]
-[ext_resource type="PackedScene" uid="uid://cho17x2fn4qh3" path="res://content/scene/world/map_items/teleport/teleport.tscn" id="6_jau6q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6ugpd"]
 size = Vector2(1280, 720)
@@ -90,18 +89,6 @@ position = Vector2(120, 600)
 [node name="Key3" parent="Level1" unique_id=1816956936 instance=ExtResource("6_apdbo")]
 position = Vector2(360, 520)
 
-[node name="Teleport" parent="Level1" unique_id=454613580 node_paths=PackedStringArray("to") instance=ExtResource("6_jau6q")]
-position = Vector2(1080, 840)
-to = NodePath("../Teleport2")
-
-[node name="Teleport2" parent="Level1" unique_id=1392007978 node_paths=PackedStringArray("to") instance=ExtResource("6_jau6q")]
-position = Vector2(1160, 920)
-to = NodePath("../Teleport")
-
-[node name="Elevator1" parent="Level1" unique_id=846779249 node_paths=PackedStringArray("to") instance=ExtResource("6_jau6q")]
-position = Vector2(1560, 840)
-to = NodePath("../../Level2/Elevator2")
-
 [node name="Level2" type="Node2D" parent="." unique_id=853015035]
 position = Vector2(0, 1800)
 
@@ -167,18 +154,6 @@ position = Vector2(120, 600)
 [node name="Key3" parent="Level2" unique_id=421617546 instance=ExtResource("6_apdbo")]
 position = Vector2(760, 520)
 
-[node name="Teleport" parent="Level2" unique_id=751825900 node_paths=PackedStringArray("to") instance=ExtResource("6_jau6q")]
-position = Vector2(1080, 840)
-to = NodePath("../Teleport2")
-
-[node name="Teleport2" parent="Level2" unique_id=1357877232 node_paths=PackedStringArray("to") instance=ExtResource("6_jau6q")]
-position = Vector2(1160, 920)
-to = NodePath("../Teleport")
-
-[node name="Elevator2" parent="Level2" unique_id=33492052 node_paths=PackedStringArray("to") instance=ExtResource("6_jau6q")]
-position = Vector2(360, 1080)
-to = NodePath("../../Level1/Elevator1")
-
-[node name="Player" parent="." unique_id=859753476 groups=["Player"] instance=ExtResource("2_4jt3r")]
+[node name="Player" parent="." unique_id=859753476 instance=ExtResource("2_4jt3r")]
 position = Vector2(120, 200)
 speed = 200.0

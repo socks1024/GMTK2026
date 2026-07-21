@@ -82,11 +82,6 @@ func _ready() -> void:
 		func(v): facing_direction = v
 	)
 	
-	var hud: StackableControl = player_hud.instantiate()
-	UIStackManager.push(hud, "hud")
-	hud.connect_to_player(self)
-	self.tree_exited.connect(UIStackManager.pop.bind("hud")) #感觉这样后面会出问题，不过先这样吧
-	
 	# Load
 	saved_position = AutoSerializeVector2.new("Player","Pos",position,tree_exited)
 	position = saved_position.value
@@ -106,6 +101,11 @@ func _ready() -> void:
 	saved_key_count = AutoSerializeInt.new("Player","KeyCount",0,tree_exited)
 	key_count = saved_key_count.value
 	# Load
+	
+	var hud: StackableControl = player_hud.instantiate()
+	UIStackManager.push(hud, "hud")
+	hud.connect_to_player(self)
+	self.tree_exited.connect(UIStackManager.pop.bind("hud")) #感觉这样后面会出问题，不过先这样吧
 
 
 func _physics_process(_delta: float) -> void:
@@ -129,3 +129,4 @@ func _on_hit_box_body_entered(body: Node2D) -> void:
 
 func _on_sword_hitbox_body_entered(body: Node2D) -> void:
 	CLog.o("sword hit target : " + body.name)
+	max_health += 1
