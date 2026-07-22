@@ -8,6 +8,10 @@ signal max_magic_changed(value: int)
 signal key_count_changed(value: int)
 signal money_count_changed(value: int)
 
+signal live_form_changed(is_living: bool)
+
+static var instance: Player
+
 @export_group("Data")
 @export var speed: float = 100
 @export var default_max_health: int = 12
@@ -37,9 +41,15 @@ var health: int:
 	get():
 		return _health
 	set(v):
+		var last_health: int = health
 		_health = clampi(v, 0, max_health)
 		if saved_health: saved_health.value = health
-		health_changed.emit(health)
+		if last_health != health:
+			health_changed.emit(health)
+			if last_health == 0 && health > 0:
+				live_form_changed.emit(true)
+			elif last_health > 0 && health == 0:
+				live_form_changed.emit(false)
 var saved_health: AutoSerializeInt
 
 var _max_magic: int = 1
@@ -87,8 +97,15 @@ var facing_direction: Vector2 = Vector2.RIGHT
 
 @onready var player_controller: PlayerController = $PlayerController
 
+
+static func quick_get_player() -> Player:
+	return instance
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	instance = self
+	
 	player_controller.facing_direction_changed.connect(
 		func(v): facing_direction = v
 	)
@@ -160,9 +177,13 @@ func take_common_damage(damage: int) -> void:
 		take_max_health_damage(max_health_damage)
 
 
+func is_living() -> bool:
+	return health > 0
+
+
 func _on_hit_box_area_entered(area: Area2D) -> void:	
 	var item: MapItem = area.get_parent() as MapItem
-	if item: 
+	if item:
 		item.touch_interact(self)
 
 

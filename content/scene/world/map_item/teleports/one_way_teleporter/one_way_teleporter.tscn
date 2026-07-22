@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://hrswpvjhduc7"]
 
-[ext_resource type="Script" uid="uid://5bmslvk745ik" path="res://content/scene/world/map_items/teleports/one_way_teleporter/one_way_teleporter.gd" id="1_t0815"]
+[ext_resource type="Script" uid="uid://5bmslvk745ik" path="res://content/scene/world/map_item/teleports/one_way_teleporter/one_way_teleporter.gd" id="1_t0815"]
 [ext_resource type="Texture2D" uid="uid://ceakdbvybs0ge" path="res://content/art/sprite/2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png" id="2_m0c3u"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t0815"]

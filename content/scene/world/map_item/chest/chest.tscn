@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://b3tofj61waqlx"]
+
+[ext_resource type="Script" uid="uid://74s3asaef4r4" path="res://content/scene/world/map_item/chest/chest.gd" id="1_s50gg"]
+[ext_resource type="Texture2D" uid="uid://ceakdbvybs0ge" path="res://content/art/sprite/2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png" id="2_k2et5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dcnw5"]
+atlas = ExtResource("2_k2et5")
+region = Rect2(64, 128, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vkqoe"]
+size = Vector2(80, 80)
+
+[node name="Chest" type="Node2D" unique_id=1556116169]
+script = ExtResource("1_s50gg")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1914353797]
+scale = Vector2(5, 5)
+texture = SubResource("AtlasTexture_dcnw5")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1580511282]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=26786171]
+shape = SubResource("RectangleShape2D_vkqoe")

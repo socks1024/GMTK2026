@@ -1,20 +1,20 @@
-[gd_scene format=3 uid="uid://bt2kmq76nh8n6"]
+[gd_scene format=3 uid="uid://bjpr5smutipww"]
 
-[ext_resource type="Script" uid="uid://eeasaae0roa1" path="res://content/scene/world/map_items/mechanics/mechanic_door/mechanic_door.gd" id="1_5gixe"]
-[ext_resource type="Texture2D" uid="uid://ceakdbvybs0ge" path="res://content/art/sprite/2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png" id="2_2k86f"]
+[ext_resource type="Script" uid="uid://bktvm6fcmc3un" path="res://content/scene/world/map_item/mechanics/live_detection_door/live_detection_door.gd" id="1_fq4fg"]
+[ext_resource type="Texture2D" uid="uid://ceakdbvybs0ge" path="res://content/art/sprite/2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png" id="2_gjspu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dcnw5"]
-atlas = ExtResource("2_2k86f")
+atlas = ExtResource("2_gjspu")
 region = Rect2(96, 48, 16, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vkqoe"]
 size = Vector2(80, 80)
 
-[node name="MechanicDoor" type="Node2D" unique_id=1556116169]
-script = ExtResource("1_5gixe")
+[node name="LiveDetectionDoor" type="Node2D" unique_id=1556116169]
+script = ExtResource("1_fq4fg")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=1914353797]
-self_modulate = Color(0, 1, 1, 1)
+self_modulate = Color(1, 0, 1, 1)
 scale = Vector2(5, 5)
 texture = SubResource("AtlasTexture_dcnw5")
 

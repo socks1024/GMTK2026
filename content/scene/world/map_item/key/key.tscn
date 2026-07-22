@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b28cplo5qguxq"]
 
-[ext_resource type="Script" uid="uid://dlxatn10psxv5" path="res://content/scene/world/map_items/key/key.gd" id="1_amgaj"]
+[ext_resource type="Script" uid="uid://dlxatn10psxv5" path="res://content/scene/world/map_item/key/key.gd" id="1_amgaj"]
 [ext_resource type="Texture2D" uid="uid://ceakdbvybs0ge" path="res://content/art/sprite/2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png" id="2_pdpjb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_otnv7"]

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://byamdgyw4hhtj"]
 
-[ext_resource type="Script" uid="uid://bjtj73yfad8du" path="res://content/scene/world/map_items/mechanics/missile_shooter/missile_shooter.gd" id="1_5xs2h"]
+[ext_resource type="Script" uid="uid://bjtj73yfad8du" path="res://content/scene/world/map_item/mechanics/missile_shooter/missile_shooter.gd" id="1_5xs2h"]
 [ext_resource type="Texture2D" uid="uid://ceakdbvybs0ge" path="res://content/art/sprite/2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png" id="2_knges"]
 [ext_resource type="PackedScene" uid="uid://cnatycbh2lybr" path="res://content/scene/world/magic_missile/magic_missile.tscn" id="2_p6wlh"]
 
