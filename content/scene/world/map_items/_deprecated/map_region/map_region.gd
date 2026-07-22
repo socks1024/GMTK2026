@@ -44,5 +44,9 @@ func unlock_region(is_unlock: bool) -> void:
 		self.hide()
 
 
-func interact(player: Player) -> void:
+func touch_interact(player: Player) -> void:
+	unlock_region(true)
+
+
+func hit_interact(player: Player) -> void:
 	unlock_region(true)

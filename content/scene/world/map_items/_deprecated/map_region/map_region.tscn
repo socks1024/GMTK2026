@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://d0pmh55wp6bfr"]
 
-[ext_resource type="Script" uid="uid://lkljfajkti22" path="res://content/scene/world/map_items/map_region/map_region.gd" id="1_b037b"]
+[ext_resource type="Script" uid="uid://lkljfajkti22" path="res://content/scene/world/map_items/_deprecated/map_region/map_region.gd" id="1_b037b"]
 
 [node name="MapRegion" type="Node2D" unique_id=561290041]
 script = ExtResource("1_b037b")

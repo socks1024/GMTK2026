@@ -106,6 +106,10 @@ func _ready() -> void:
 	UIStackManager.push(hud, "hud")
 	hud.connect_to_player(self)
 	self.tree_exited.connect(UIStackManager.pop.bind("hud")) #感觉这样后面会出问题，不过先这样吧
+	
+	Console.register("gain_key", func(amount:int):key_count += amount)\
+		.arg("amount", TYPE_INT)\
+		.info("gain small keys by given amount.")
 
 
 func _physics_process(_delta: float) -> void:
@@ -119,14 +123,20 @@ func _physics_process(_delta: float) -> void:
 
 func _on_hit_box_area_entered(area: Area2D) -> void:	
 	var item: MapItem = area.get_parent() as MapItem
-	if item: item.interact(self)
+	if item: item.touch_interact(self)
 
 
 func _on_hit_box_body_entered(body: Node2D) -> void:
 	var item: MapItem = body.get_parent() as MapItem
-	if item: item.interact(self)
+	if item: item.touch_interact(self)
 
 
 func _on_sword_hitbox_body_entered(body: Node2D) -> void:
-	CLog.o("sword hit target : " + body.name)
-	max_health += 1
+	var item: MapItem = body.get_parent() as MapItem
+	if item: item.hit_interact(self)
+
+
+func _input(event: InputEvent) -> void:
+	if Input.is_key_pressed(KEY_F):
+		health -= 2
+		max_health -= 1

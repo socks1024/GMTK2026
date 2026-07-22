@@ -1,4 +1,4 @@
-class_name Door
+class_name Altar
 extends MapItem
 
 @onready var sprite: Sprite2D = $Sprite
@@ -9,18 +9,10 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 
-func open() -> void:
-	sprite.hide()
-	collision_shape_2d.set_deferred("disabled", true)
-
-
 func touch_interact(player: Player) -> void:
-	if player.key_count > 0:
-		open()
-		player.key_count -= 1
+	pass
 
 
 func hit_interact(player: Player) -> void:
-	if player.key_count > 0:
-		open()
-		player.key_count -= 1
+	player.max_health = player.default_max_health
+	player.health = player.max_health

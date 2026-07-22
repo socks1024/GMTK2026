@@ -1,5 +1,5 @@
-class_name Door
-extends MapItem
+class_name MechanicDoor
+extends MechanicItem
 
 @onready var sprite: Sprite2D = $Sprite
 @onready var collision_shape_2d: CollisionShape2D = $StaticBody2D/CollisionShape2D
@@ -11,16 +11,16 @@ func _ready() -> void:
 
 func open() -> void:
 	sprite.hide()
-	collision_shape_2d.set_deferred("disabled", true)
+	collision_shape_2d.set_deferred("disabled",true)
 
 
 func touch_interact(player: Player) -> void:
-	if player.key_count > 0:
-		open()
-		player.key_count -= 1
+	pass
 
 
 func hit_interact(player: Player) -> void:
-	if player.key_count > 0:
-		open()
-		player.key_count -= 1
+	pass
+
+
+func mechanic_interact(is_on: bool) -> void:
+	open()
