@@ -9,6 +9,7 @@ script = ExtResource("2_67xyi")
 duration = 0.0
 
 [node name="RoomArea" type="Area2D" unique_id=159423725]
+collision_layer = 4
 script = ExtResource("1_67xyi")
 
 [node name="PhantomCamera2D" type="Node2D" parent="." unique_id=1705373826]

@@ -127,7 +127,7 @@ locale/translations=PackedStringArray("res://content/data/localization/localizat
 
 2d_physics/layer_1="Player"
 2d_physics/layer_2="Walls"
-2d_physics/layer_3="MapRegion"
+2d_physics/layer_3="RoomBox"
 2d_physics/layer_4="Sword"
 2d_physics/layer_5="Missile"
 

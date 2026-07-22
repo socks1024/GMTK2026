@@ -134,8 +134,6 @@ func _ready() -> void:
 		.info("gain health by given amount.")
 
 
-
-
 func _physics_process(_delta: float) -> void:
 	if movable:
 		velocity = player_controller.move_direction * speed
@@ -145,9 +143,27 @@ func _physics_process(_delta: float) -> void:
 	saved_position.value = position
 
 
+func take_health_damage(damage: int) -> void:
+	health -= damage
+
+
+func take_max_health_damage(damage: int) -> void:
+	max_health -= damage
+
+
+func take_common_damage(damage: int) -> void:
+	if damage <= health:
+		take_health_damage(damage)
+	else:
+		var max_health_damage: int = damage - health
+		take_health_damage(health)
+		take_max_health_damage(max_health_damage)
+
+
 func _on_hit_box_area_entered(area: Area2D) -> void:	
 	var item: MapItem = area.get_parent() as MapItem
-	if item: item.touch_interact(self)
+	if item: 
+		item.touch_interact(self)
 
 
 func _on_hit_box_body_entered(body: Node2D) -> void:
@@ -158,9 +174,3 @@ func _on_hit_box_body_entered(body: Node2D) -> void:
 func _on_sword_hitbox_body_entered(body: Node2D) -> void:
 	var item: MapItem = body.get_parent() as MapItem
 	if item: item.hit_interact(self)
-
-
-func _input(event: InputEvent) -> void:
-	if Input.is_key_pressed(KEY_F):
-		health -= 2
-		max_health -= 1

@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://cnatycbh2lybr"]
+
+[ext_resource type="Texture2D" uid="uid://cbrjb2cs0trl4" path="res://content/art/sprite/2D Pixel Dungeon Asset Pack/items and trap_animation/arrow/arrow_4.png" id="1_ey76e"]
+[ext_resource type="Script" uid="uid://dasw6e1m5imhg" path="res://content/scene/world/magic_missile/magic_missile.gd" id="1_l6gio"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pooin"]
+atlas = ExtResource("1_ey76e")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vkqoe"]
+size = Vector2(40, 20)
+
+[node name="MagicMissile" type="Node2D" unique_id=1215991036]
+z_index = 2
+script = ExtResource("1_l6gio")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1911362750]
+rotation = -1.5707964
+scale = Vector2(5, 5)
+texture = SubResource("AtlasTexture_pooin")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1475079299]
+collision_layer = 16
+collision_mask = 27
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=460248877]
+shape = SubResource("RectangleShape2D_vkqoe")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
