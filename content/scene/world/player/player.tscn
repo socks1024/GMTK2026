@@ -607,6 +607,7 @@ position = Vector2(15.000002, -30)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_vkqoe")
 animation = &"idle"
+frame = 1
 
 [node name="BodyCheckbox" type="Area2D" parent="Pivot" unique_id=1667274517]
 collision_mask = 31
@@ -635,12 +636,13 @@ spell_1_action = ExtResource("8_ki48b")
 spell_2_action = ExtResource("9_822h6")
 metadata/_custom_type_script = "uid://b0gpbsm0fm4l0"
 
-[node name="PlayerAnimator" type="Node" parent="." unique_id=875770617 node_paths=PackedStringArray("animation_tree", "player", "player_controller", "pivot")]
+[node name="PlayerAnimator" type="Node" parent="." unique_id=875770617 node_paths=PackedStringArray("animation_tree", "player", "player_controller", "pivot", "animated_sprite_2d")]
 script = ExtResource("16_4ivt4")
 animation_tree = NodePath("../AnimationTree")
 player = NodePath("..")
 player_controller = NodePath("../PlayerController")
 pivot = NodePath("../Pivot")
+animated_sprite_2d = NodePath("../Pivot/AnimatedSprite2D")
 metadata/_custom_type_script = "uid://bss2rdtqssvja"
 
 [node name="AnimationTree" type="AnimationTree" parent="." unique_id=417357673]

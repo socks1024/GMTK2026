@@ -5,6 +5,7 @@ extends Node
 @export var player: Player
 @export var player_controller: PlayerController
 @export var pivot: Node2D
+@export var animated_sprite_2d: AnimatedSprite2D
 
 func _ready() -> void:
 	player_controller.attack_power_input.power_completed.connect(
@@ -12,6 +13,13 @@ func _ready() -> void:
 	)
 	player_controller.attack_power_input.power_completed.connect(
 		func(t): if t > 0.5: missile_launch()
+	)
+	player.live_form_changed.connect(
+		func(b):
+			if b:
+				animated_sprite_2d.self_modulate = Color.WHITE
+			else:
+				animated_sprite_2d.self_modulate = Color(0.263, 0.329, 1.0)
 	)
 
 
