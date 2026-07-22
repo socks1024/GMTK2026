@@ -6,6 +6,7 @@ signal max_health_changed(value: int)
 signal magic_changed(value: int)
 signal max_magic_changed(value: int)
 signal key_count_changed(value: int)
+signal money_count_changed(value: int)
 
 @export_group("Data")
 @export var speed: float = 100
@@ -72,6 +73,16 @@ var key_count: int:
 		key_count_changed.emit(_key_count)
 var saved_key_count: AutoSerializeInt
 
+var _money_count: int = 0
+var money_count: int:
+	get():
+		return _money_count
+	set(v):
+		_money_count = maxi(0, v)
+		if saved_money_count: saved_money_count.value = money_count
+		money_count_changed.emit(_money_count)
+var saved_money_count: AutoSerializeInt
+
 var facing_direction: Vector2 = Vector2.RIGHT
 
 @onready var player_controller: PlayerController = $PlayerController
@@ -100,6 +111,9 @@ func _ready() -> void:
 	
 	saved_key_count = AutoSerializeInt.new("Player","KeyCount",0,tree_exited)
 	key_count = saved_key_count.value
+	
+	saved_money_count = AutoSerializeInt.new("Player","MoneyCount",0,tree_exited)
+	money_count = saved_money_count.value
 	# Load
 	
 	var hud: StackableControl = player_hud.instantiate()
@@ -110,6 +124,16 @@ func _ready() -> void:
 	Console.register("gain_key", func(amount:int):key_count += amount)\
 		.arg("amount", TYPE_INT)\
 		.info("gain small keys by given amount.")
+	
+	Console.register("gain_max_health", func(amount:int):max_health += amount)\
+		.arg("amount", TYPE_INT)\
+		.info("gain max_health by given amount.")
+	
+	Console.register("gain_health", func(amount:int):health += amount)\
+		.arg("amount", TYPE_INT)\
+		.info("gain health by given amount.")
+
+
 
 
 func _physics_process(_delta: float) -> void:
