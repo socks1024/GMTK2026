@@ -33,7 +33,8 @@ func copy_animations(animated_sprite: AnimatedSprite2D):
 		animation.length = animation_duration
 
 		var track_index = animation.add_track(Animation.TYPE_VALUE)
-		var path_to_sprite = animation_player.get_node(animated_sprite.get_path()).get_path()
+		var path_to_sprite = "."
+		printerr("插件经过了修改，AnimationPlayer节点只能作为AnimatedSprite2D节点的直接子节点！")
 		animation.track_set_path(track_index, NodePath(str(path_to_sprite) + ":animation"))
 		animation.track_insert_key(track_index, 0, anim_name)
 

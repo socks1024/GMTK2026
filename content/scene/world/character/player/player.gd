@@ -116,6 +116,5 @@ func _on_sword_hitbox_body_entered(body: Node2D) -> void:
 	if item: item.on_hit_by_sword(facing_direction, self)
 	
 	var enemy: Enemy = body as Enemy
-	CLog.o(enemy)
 	if enemy:
 		enemy.take_health_damage(melee_damage)
