@@ -13,6 +13,7 @@ extends Node
 @export var down_sword_hitbox: CollisionShape2D
 @export var up_sword_hitbox: CollisionShape2D
 
+
 func _ready() -> void:
 	player_controller.attack_power_input.power_completed.connect(
 		func(t): if t < 0.5: sword_attack()
@@ -27,14 +28,6 @@ func _ready() -> void:
 			else:
 				animated_sprite_2d.self_modulate = Color(0.263, 0.329, 1.0)
 	)
-
-
-func _process(_delta: float) -> void:
-	if player.movable:
-		if player.facing_direction.x < -0.1:
-			pivot.scale.x = -1
-		elif player.facing_direction.x > 0.1:
-			pivot.scale.x = 1
 
 
 func set_sword_hitbox(enable: bool) -> void:

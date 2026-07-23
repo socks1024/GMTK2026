@@ -11,6 +11,9 @@ signal facing_direction_changed(facing_direction_changed: Vector2)
 @export var spell_1_action: GUIDEAction
 @export var spell_2_action: GUIDEAction
 
+@export_group("Animatable")
+@export var movable: bool = true
+
 var attack_power_input: PowerInput
 var evade_power_input: PowerInput
 var spell_1_power_input: PowerInput
@@ -28,7 +31,7 @@ func _ready() -> void:
 
 
 func _physics_process(_delta: float) -> void:
-	if move_action.value_axis_2d.length() > 0.1:
+	if movable && move_action.value_axis_2d.length() > 0.1:
 		#var angle = move_action.value_axis_2d.normalized().angle()
 		#var snapped_vec = round(angle / (PI / 2)) * (PI / 2)
 		#move_direction = Vector2.RIGHT.rotated(snapped_vec).normalized()
