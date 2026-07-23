@@ -1,6 +1,6 @@
 keys,en,zh
 LANG_SETTING,Language,语言
-TITLE,This is a game,这是游戏标题
+TITLE,Dummy Dark Fantasy,呆子黑暗幻想
 NEW_GAME,New Game,新游戏
 CONTINUE_GAME,Continue,继续游戏
 SETTINGS,Settings,设置
@@ -21,3 +21,4 @@ PAUSE,Paused,暂停
 RESUME,Resume,恢复游戏
 HELP,Help,帮助
 BACK_TO_START,Back to Start,回到主界面
+SAVE_GAME,Save Game,保存游戏

@@ -174,14 +174,17 @@ func take_common_damage(damage: int) -> void:
 		take_max_health_damage(max_health_damage)
 
 
+func heal_health(amount: int) -> void:
+	health += amount
+
+
 func is_living() -> bool:
 	return health > 0
 
 
-func _on_hit_box_area_entered(area: Area2D) -> void:	
+func _on_hit_box_area_entered(area: Area2D) -> void:
 	var item: MapItem = area.get_parent() as MapItem
-	if item:
-		item.touch_interact(self)
+	if item: item.touch_interact(self)
 
 
 func _on_hit_box_body_entered(body: Node2D) -> void:
@@ -192,3 +195,10 @@ func _on_hit_box_body_entered(body: Node2D) -> void:
 func _on_sword_hitbox_body_entered(body: Node2D) -> void:
 	var item: MapItem = body.get_parent() as MapItem
 	if item: item.hit_interact(self)
+	
+	var enemy: Enemy = body as Enemy
+	CLog.o(enemy)
+	if enemy:
+		enemy.take_health_damage(4)
+		self.heal_health(4)
+		CLog.o("hit enemy")

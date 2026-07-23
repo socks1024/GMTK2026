@@ -4,7 +4,6 @@ extends Node
 @export var animation_tree: AnimationTree
 @export var player: Player
 @export var player_controller: PlayerController
-@export var pivot: Node2D
 @export var animated_sprite_2d: AnimatedSprite2D
 
 @export_group("CollisionShapes")
@@ -13,6 +12,7 @@ extends Node
 @export var down_sword_hitbox: CollisionShape2D
 @export var up_sword_hitbox: CollisionShape2D
 
+@onready var state_machine: AnimationNodeStateMachinePlayback = animation_tree["parameters/playback"]
 
 func _ready() -> void:
 	player_controller.attack_power_input.power_completed.connect(
@@ -31,8 +31,9 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	animation_tree.set("parameters/Idle/blend_position", player.facing_direction)
-	animation_tree.set("parameters/Move/blend_position", player.facing_direction)
+	var dir: Vector2 = Vector2(player.facing_direction.x, -player.facing_direction.y)
+	animation_tree.set("parameters/Idle/blend_position", dir)
+	animation_tree.set("parameters/Move/blend_position", dir)
 
 
 func set_sword_hitbox(enable: bool) -> void:

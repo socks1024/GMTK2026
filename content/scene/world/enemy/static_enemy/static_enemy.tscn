@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://bsrjiqqiexeoq"]
+
+[ext_resource type="Script" uid="uid://y1yqnwmkmfue" path="res://content/scene/world/enemy/static_enemy/static_enemy.gd" id="1_d4wip"]
+[ext_resource type="Texture2D" uid="uid://ceakdbvybs0ge" path="res://content/art/sprite/2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png" id="1_uquw0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vkqoe"]
+size = Vector2(70, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_co6qv"]
+atlas = ExtResource("1_uquw0")
+region = Rect2(112, 112, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_co6qv"]
+size = Vector2(80, 80)
+
+[node name="StaticEnemy" type="CharacterBody2D" unique_id=1453818196]
+collision_layer = 32
+collision_mask = 59
+script = ExtResource("1_d4wip")
+default_max_health = 12
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=542205899]
+shape = SubResource("RectangleShape2D_vkqoe")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=545519280]
+scale = Vector2(5, 5)
+texture = SubResource("AtlasTexture_co6qv")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=657210750]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1556289908]
+shape = SubResource("RectangleShape2D_co6qv")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_hitbox_body_enter"]
