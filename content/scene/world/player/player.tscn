@@ -4,6 +4,7 @@
 [ext_resource type="Resource" uid="uid://dvphupq7ch3kl" path="res://content/data/input/guide/player/player_context.tres" id="3_nt54e"]
 [ext_resource type="Resource" uid="uid://fi6wj5ypp8vs" path="res://content/data/input/guide/player/actions/level/attack.tres" id="4_go70w"]
 [ext_resource type="Resource" uid="uid://b0qyywmqswhs4" path="res://content/data/input/guide/player/actions/level/move.tres" id="4_mytnv"]
+[ext_resource type="Texture2D" uid="uid://cpbygruflreg7" path="res://content/art/sprite/magika/magika.png" id="5_ab5xs"]
 [ext_resource type="PackedScene" uid="uid://mkdqv2iywvoy" path="res://content/scene/ui/gameplay/player_hud/player_hud.tscn" id="5_kqb8u"]
 [ext_resource type="Script" uid="uid://b0gpbsm0fm4l0" path="res://content/scene/world/player/logic/player_controller.gd" id="6_xd6f4"]
 [ext_resource type="Resource" uid="uid://d23w4yctnt6xy" path="res://content/data/input/guide/player/actions/level/evade.tres" id="7_xmv0y"]
@@ -11,8 +12,6 @@
 [ext_resource type="Resource" uid="uid://dl7nwui2sjiw6" path="res://content/data/input/guide/player/actions/level/spell_second.tres" id="9_822h6"]
 [ext_resource type="Texture2D" uid="uid://x3imjcuxafyw" path="res://content/art/sprite/2D Pixel Dungeon Asset Pack/Enemy_Animations_Set/skeleton1/enemies-skeleton1_attack.png" id="13_822h6"]
 [ext_resource type="Texture2D" uid="uid://bgi18a11ff4f0" path="res://content/art/sprite/2D Pixel Dungeon Asset Pack/Enemy_Animations_Set/skeleton1/enemies-skeleton1_death.png" id="14_ab5xs"]
-[ext_resource type="Texture2D" uid="uid://di75hnhl2r61y" path="res://content/art/sprite/2D Pixel Dungeon Asset Pack/Enemy_Animations_Set/skeleton1/enemies-skeleton1_idle.png" id="15_p765g"]
-[ext_resource type="Texture2D" uid="uid://b328pta8pnn7o" path="res://content/art/sprite/2D Pixel Dungeon Asset Pack/Enemy_Animations_Set/skeleton1/enemies-skeleton1_movement.png" id="16_2blu0"]
 [ext_resource type="Script" uid="uid://bss2rdtqssvja" path="res://content/scene/world/player/logic/player_animator.gd" id="16_4ivt4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_go70w"]
@@ -135,68 +134,116 @@ atlas = ExtResource("14_ab5xs")
 region = Rect2(512, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_87b40"]
-atlas = ExtResource("15_p765g")
-region = Rect2(0, 0, 32, 32)
+atlas = ExtResource("5_ab5xs")
+region = Rect2(64, 128, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jqm0g"]
-atlas = ExtResource("15_p765g")
-region = Rect2(32, 0, 32, 32)
+atlas = ExtResource("5_ab5xs")
+region = Rect2(0, 128, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6y6vj"]
-atlas = ExtResource("15_p765g")
-region = Rect2(64, 0, 32, 32)
+atlas = ExtResource("5_ab5xs")
+region = Rect2(0, 128, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c1qrk"]
-atlas = ExtResource("15_p765g")
-region = Rect2(96, 0, 32, 32)
+atlas = ExtResource("5_ab5xs")
+region = Rect2(128, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_822h6"]
+atlas = ExtResource("5_ab5xs")
+region = Rect2(384, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_owmcd"]
-atlas = ExtResource("15_p765g")
-region = Rect2(128, 0, 32, 32)
+atlas = ExtResource("5_ab5xs")
+region = Rect2(448, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q0c42"]
-atlas = ExtResource("15_p765g")
-region = Rect2(160, 0, 32, 32)
+atlas = ExtResource("5_ab5xs")
+region = Rect2(0, 64, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_krrpc"]
-atlas = ExtResource("16_2blu0")
-region = Rect2(0, 0, 32, 32)
+atlas = ExtResource("5_ab5xs")
+region = Rect2(64, 64, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fl10p"]
-atlas = ExtResource("16_2blu0")
-region = Rect2(32, 0, 32, 32)
+atlas = ExtResource("5_ab5xs")
+region = Rect2(128, 64, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cj1eq"]
-atlas = ExtResource("16_2blu0")
-region = Rect2(64, 0, 32, 32)
+atlas = ExtResource("5_ab5xs")
+region = Rect2(0, 64, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yjhl4"]
-atlas = ExtResource("16_2blu0")
-region = Rect2(96, 0, 32, 32)
+atlas = ExtResource("5_ab5xs")
+region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7or5g"]
-atlas = ExtResource("16_2blu0")
-region = Rect2(128, 0, 32, 32)
+atlas = ExtResource("5_ab5xs")
+region = Rect2(64, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_056jp"]
-atlas = ExtResource("16_2blu0")
-region = Rect2(160, 0, 32, 32)
+atlas = ExtResource("5_ab5xs")
+region = Rect2(128, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5abd3"]
-atlas = ExtResource("16_2blu0")
-region = Rect2(192, 0, 32, 32)
+atlas = ExtResource("5_ab5xs")
+region = Rect2(192, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v6xg3"]
-atlas = ExtResource("16_2blu0")
-region = Rect2(224, 0, 32, 32)
+atlas = ExtResource("5_ab5xs")
+region = Rect2(256, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pppto"]
-atlas = ExtResource("16_2blu0")
-region = Rect2(256, 0, 32, 32)
+atlas = ExtResource("5_ab5xs")
+region = Rect2(320, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0qvhu"]
-atlas = ExtResource("16_2blu0")
-region = Rect2(288, 0, 32, 32)
+atlas = ExtResource("5_ab5xs")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uurku"]
+atlas = ExtResource("5_ab5xs")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qrm5q"]
+atlas = ExtResource("5_ab5xs")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xu5lc"]
+atlas = ExtResource("5_ab5xs")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_117ac"]
+atlas = ExtResource("5_ab5xs")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_npqxd"]
+atlas = ExtResource("5_ab5xs")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4r4db"]
+atlas = ExtResource("5_ab5xs")
+region = Rect2(192, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6m7ey"]
+atlas = ExtResource("5_ab5xs")
+region = Rect2(256, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sx5yt"]
+atlas = ExtResource("5_ab5xs")
+region = Rect2(320, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uxqv6"]
+atlas = ExtResource("5_ab5xs")
+region = Rect2(384, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s3cmd"]
+atlas = ExtResource("5_ab5xs")
+region = Rect2(448, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ro44u"]
+atlas = ExtResource("5_ab5xs")
+region = Rect2(320, 64, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vkqoe"]
 animations = [{
@@ -229,7 +276,103 @@ animations = [{
 "texture": SubResource("AtlasTexture_7tvi7")
 }],
 "loop": 1,
-"name": &"attack",
+"name": &"attack_down",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ab5xs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p765g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2blu0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ivt4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h5bw6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c374h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_58hk6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k24ff")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7tvi7")
+}],
+"loop": 1,
+"name": &"attack_left",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ab5xs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p765g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2blu0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ivt4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h5bw6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c374h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_58hk6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k24ff")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7tvi7")
+}],
+"loop": 1,
+"name": &"attack_right",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ab5xs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p765g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2blu0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ivt4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h5bw6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c374h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_58hk6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k24ff")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7tvi7")
+}],
+"loop": 1,
+"name": &"attack_up",
 "speed": 12.0
 }, {
 "frames": [{
@@ -291,27 +434,45 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_87b40")
+}],
+"loop": 1,
+"name": &"idle_down",
+"speed": 12.0
 }, {
+"frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_jqm0g")
+}],
+"loop": 1,
+"name": &"idle_left",
+"speed": 12.0
 }, {
+"frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6y6vj")
+}],
+"loop": 1,
+"name": &"idle_right",
+"speed": 12.0
 }, {
+"frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_c1qrk")
+}],
+"loop": 1,
+"name": &"idle_up",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_822h6")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_owmcd")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_q0c42")
-}],
-"loop": 1,
-"name": &"idle",
-"speed": 12.0
 }, {
-"frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_krrpc")
 }, {
@@ -320,7 +481,12 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_cj1eq")
+}],
+"loop": 1,
+"name": &"move_down",
+"speed": 12.0
 }, {
+"frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_yjhl4")
 }, {
@@ -338,94 +504,57 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_pppto")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0qvhu")
 }],
 "loop": 1,
-"name": &"movement",
+"name": &"move_left",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0qvhu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uurku")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qrm5q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xu5lc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_117ac")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_npqxd")
+}],
+"loop": 1,
+"name": &"move_right",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4r4db")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6m7ey")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sx5yt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uxqv6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s3cmd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ro44u")
+}],
+"loop": 1,
+"name": &"move_up",
 "speed": 12.0
 }]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vkqoe"]
-size = Vector2(80, 80)
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_p765g"]
-animation = &"SpriteAnimations/attack"
-
-[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_ab5xs"]
-
-[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_p765g"]
-graph_offset = Vector2(-530, -203)
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2blu0"]
-animation = &"SpriteAnimations/death"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_c374h"]
-animation = &"SpriteAnimations/idle"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4ivt4"]
-animation = &"SpriteAnimations/idle"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_h5bw6"]
-animation = &"SpriteAnimations/movement"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_58hk6"]
-animation = &"SpriteAnimations/attack"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_c374h"]
-advance_mode = 2
-advance_expression = "true"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2blu0"]
-switch_mode = 2
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4ivt4"]
-advance_mode = 2
-advance_expression = "player.velocity.length()>0.1"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_h5bw6"]
-advance_mode = 2
-advance_expression = "player.velocity.length()<=0.1"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_58hk6"]
-switch_mode = 2
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_k24ff"]
-advance_mode = 2
-advance_expression = "player.max_health <= 0"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7tvi7"]
-advance_mode = 2
-advance_expression = "player.max_health <= 0"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ghv06"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ywj0m"]
-
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_p765g"]
-states/Attack/node = SubResource("AnimationNodeAnimation_p765g")
-states/Attack/position = Vector2(140, 120)
-states/BlendSpace2D/node = SubResource("AnimationNodeBlendSpace2D_ab5xs")
-states/BlendSpace2D/position = Vector2(761, 148)
-states/BlendTree/node = SubResource("AnimationNodeBlendTree_p765g")
-states/BlendTree/position = Vector2(617.00006, 356)
-states/Death/node = SubResource("AnimationNodeAnimation_2blu0")
-states/Death/position = Vector2(917, -88)
-states/End/position = Vector2(1219, -88)
-states/Evade/node = SubResource("AnimationNodeAnimation_c374h")
-states/Evade/position = Vector2(325.00006, 326)
-states/Idle/node = SubResource("AnimationNodeAnimation_4ivt4")
-states/Idle/position = Vector2(140, -83)
-states/Movement/node = SubResource("AnimationNodeAnimation_h5bw6")
-states/Movement/position = Vector2(550, 24)
-states/RangeAttack/node = SubResource("AnimationNodeAnimation_58hk6")
-states/RangeAttack/position = Vector2(162.00006, 210)
-states/Start/position = Vector2(-310, -83)
-transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_c374h"), "Death", "End", SubResource("AnimationNodeStateMachineTransition_2blu0"), "Idle", "Movement", SubResource("AnimationNodeStateMachineTransition_4ivt4"), "Movement", "Idle", SubResource("AnimationNodeStateMachineTransition_h5bw6"), "Attack", "Idle", SubResource("AnimationNodeStateMachineTransition_58hk6"), "Idle", "Death", SubResource("AnimationNodeStateMachineTransition_k24ff"), "Movement", "Death", SubResource("AnimationNodeStateMachineTransition_7tvi7"), "Idle", "Attack", SubResource("AnimationNodeStateMachineTransition_ghv06"), "Movement", "Attack", SubResource("AnimationNodeStateMachineTransition_ywj0m")]
-graph_offset = Vector2(-395, -156)
 
 [sub_resource type="Animation" id="Animation_c374h"]
 length = 0.001
@@ -440,6 +569,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_58hk6"]
@@ -506,6 +647,118 @@ tracks/3/keys = {
 "values": [false, true]
 }
 
+[sub_resource type="Animation" id="Animation_owmcd"]
+length = 0.75
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("/root/@EditorNode@19513/@Panel@14/@VBoxContainer@15/DockVSplitMain/DockHSplitMain/@VBoxContainer@37/DockVSplitCenter/@VSplitContainer@101/@VBoxContainer@102/@EditorMainScreen@160/MainScreen/@CanvasItemEditor@10138/@VSplitContainer@9897/@HSplitContainer@9899/@HSplitContainer@9901/@Control@9902/@SubViewportContainer@9903/@SubViewport@9904/Player/Pivot/AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": ["attack_down"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("/root/@EditorNode@19513/@Panel@14/@VBoxContainer@15/DockVSplitMain/DockHSplitMain/@VBoxContainer@37/DockVSplitCenter/@VSplitContainer@101/@VBoxContainer@102/@EditorMainScreen@160/MainScreen/@CanvasItemEditor@10138/@VSplitContainer@9897/@HSplitContainer@9899/@HSplitContainer@9901/@Control@9902/@SubViewportContainer@9903/@SubViewport@9904/Player/Pivot/AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.083333336, 0.16666667, 0.25, 0.33333334, 0.41666666, 0.5, 0.5833333, 0.6666667, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 8]
+}
+
+[sub_resource type="Animation" id="Animation_q0c42"]
+length = 0.75
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("/root/@EditorNode@19513/@Panel@14/@VBoxContainer@15/DockVSplitMain/DockHSplitMain/@VBoxContainer@37/DockVSplitCenter/@VSplitContainer@101/@VBoxContainer@102/@EditorMainScreen@160/MainScreen/@CanvasItemEditor@10138/@VSplitContainer@9897/@HSplitContainer@9899/@HSplitContainer@9901/@Control@9902/@SubViewportContainer@9903/@SubViewport@9904/Player/Pivot/AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": ["attack_left"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("/root/@EditorNode@19513/@Panel@14/@VBoxContainer@15/DockVSplitMain/DockHSplitMain/@VBoxContainer@37/DockVSplitCenter/@VSplitContainer@101/@VBoxContainer@102/@EditorMainScreen@160/MainScreen/@CanvasItemEditor@10138/@VSplitContainer@9897/@HSplitContainer@9899/@HSplitContainer@9901/@Control@9902/@SubViewportContainer@9903/@SubViewport@9904/Player/Pivot/AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.083333336, 0.16666667, 0.25, 0.33333334, 0.41666666, 0.5, 0.5833333, 0.6666667, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 8]
+}
+
+[sub_resource type="Animation" id="Animation_krrpc"]
+length = 0.75
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("/root/@EditorNode@19513/@Panel@14/@VBoxContainer@15/DockVSplitMain/DockHSplitMain/@VBoxContainer@37/DockVSplitCenter/@VSplitContainer@101/@VBoxContainer@102/@EditorMainScreen@160/MainScreen/@CanvasItemEditor@10138/@VSplitContainer@9897/@HSplitContainer@9899/@HSplitContainer@9901/@Control@9902/@SubViewportContainer@9903/@SubViewport@9904/Player/Pivot/AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": ["attack_right"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("/root/@EditorNode@19513/@Panel@14/@VBoxContainer@15/DockVSplitMain/DockHSplitMain/@VBoxContainer@37/DockVSplitCenter/@VSplitContainer@101/@VBoxContainer@102/@EditorMainScreen@160/MainScreen/@CanvasItemEditor@10138/@VSplitContainer@9897/@HSplitContainer@9899/@HSplitContainer@9901/@Control@9902/@SubViewportContainer@9903/@SubViewport@9904/Player/Pivot/AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.083333336, 0.16666667, 0.25, 0.33333334, 0.41666666, 0.5, 0.5833333, 0.6666667, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 8]
+}
+
+[sub_resource type="Animation" id="Animation_fl10p"]
+length = 0.75
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("/root/@EditorNode@19513/@Panel@14/@VBoxContainer@15/DockVSplitMain/DockHSplitMain/@VBoxContainer@37/DockVSplitCenter/@VSplitContainer@101/@VBoxContainer@102/@EditorMainScreen@160/MainScreen/@CanvasItemEditor@10138/@VSplitContainer@9897/@HSplitContainer@9899/@HSplitContainer@9901/@Control@9902/@SubViewportContainer@9903/@SubViewport@9904/Player/Pivot/AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": ["attack_up"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("/root/@EditorNode@19513/@Panel@14/@VBoxContainer@15/DockVSplitMain/DockHSplitMain/@VBoxContainer@37/DockVSplitCenter/@VSplitContainer@101/@VBoxContainer@102/@EditorMainScreen@160/MainScreen/@CanvasItemEditor@10138/@VSplitContainer@9897/@HSplitContainer@9899/@HSplitContainer@9901/@Control@9902/@SubViewportContainer@9903/@SubViewport@9904/Player/Pivot/AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.083333336, 0.16666667, 0.25, 0.33333334, 0.41666666, 0.5, 0.5833333, 0.6666667, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 8]
+}
+
 [sub_resource type="Animation" id="Animation_2blu0"]
 length = 1.4166666666666667
 tracks/0/type = "value"
@@ -533,32 +786,240 @@ tracks/1/keys = {
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 16]
 }
 
-[sub_resource type="Animation" id="Animation_4ivt4"]
-length = 0.5
+[sub_resource type="Animation" id="Animation_cj1eq"]
+length = 0.08333333333333333
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:animation")
+tracks/0/path = NodePath("/root/@EditorNode@19513/@Panel@14/@VBoxContainer@15/DockVSplitMain/DockHSplitMain/@VBoxContainer@37/DockVSplitCenter/@VSplitContainer@101/@VBoxContainer@102/@EditorMainScreen@160/MainScreen/@CanvasItemEditor@10138/@VSplitContainer@9897/@HSplitContainer@9899/@HSplitContainer@9901/@Control@9902/@SubViewportContainer@9903/@SubViewport@9904/Player/Pivot/AnimatedSprite2D:animation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": ["idle"]
+"values": ["idle_down"]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath(".:frame")
+tracks/1/path = NodePath("/root/@EditorNode@19513/@Panel@14/@VBoxContainer@15/DockVSplitMain/DockHSplitMain/@VBoxContainer@37/DockVSplitCenter/@VSplitContainer@101/@VBoxContainer@102/@EditorMainScreen@160/MainScreen/@CanvasItemEditor@10138/@VSplitContainer@9897/@HSplitContainer@9899/@HSplitContainer@9901/@Control@9902/@SubViewportContainer@9903/@SubViewport@9904/Player/Pivot/AnimatedSprite2D:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.083333336, 0.16666667, 0.25, 0.33333334, 0.41666666, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.083333336),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 0]
+}
+
+[sub_resource type="Animation" id="Animation_yjhl4"]
+length = 0.08333333333333333
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("/root/@EditorNode@19513/@Panel@14/@VBoxContainer@15/DockVSplitMain/DockHSplitMain/@VBoxContainer@37/DockVSplitCenter/@VSplitContainer@101/@VBoxContainer@102/@EditorMainScreen@160/MainScreen/@CanvasItemEditor@10138/@VSplitContainer@9897/@HSplitContainer@9899/@HSplitContainer@9901/@Control@9902/@SubViewportContainer@9903/@SubViewport@9904/Player/Pivot/AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0, 1, 2, 3, 4, 5, 5]
+"values": ["idle_left"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("/root/@EditorNode@19513/@Panel@14/@VBoxContainer@15/DockVSplitMain/DockHSplitMain/@VBoxContainer@37/DockVSplitCenter/@VSplitContainer@101/@VBoxContainer@102/@EditorMainScreen@160/MainScreen/@CanvasItemEditor@10138/@VSplitContainer@9897/@HSplitContainer@9899/@HSplitContainer@9901/@Control@9902/@SubViewportContainer@9903/@SubViewport@9904/Player/Pivot/AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.083333336),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_7or5g"]
+length = 0.08333333333333333
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("/root/@EditorNode@19513/@Panel@14/@VBoxContainer@15/DockVSplitMain/DockHSplitMain/@VBoxContainer@37/DockVSplitCenter/@VSplitContainer@101/@VBoxContainer@102/@EditorMainScreen@160/MainScreen/@CanvasItemEditor@10138/@VSplitContainer@9897/@HSplitContainer@9899/@HSplitContainer@9901/@Control@9902/@SubViewportContainer@9903/@SubViewport@9904/Player/Pivot/AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": ["idle_right"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("/root/@EditorNode@19513/@Panel@14/@VBoxContainer@15/DockVSplitMain/DockHSplitMain/@VBoxContainer@37/DockVSplitCenter/@VSplitContainer@101/@VBoxContainer@102/@EditorMainScreen@160/MainScreen/@CanvasItemEditor@10138/@VSplitContainer@9897/@HSplitContainer@9899/@HSplitContainer@9901/@Control@9902/@SubViewportContainer@9903/@SubViewport@9904/Player/Pivot/AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.083333336),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 0]
+}
+
+[sub_resource type="Animation" id="Animation_056jp"]
+length = 0.08333333333333333
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("/root/@EditorNode@19513/@Panel@14/@VBoxContainer@15/DockVSplitMain/DockHSplitMain/@VBoxContainer@37/DockVSplitCenter/@VSplitContainer@101/@VBoxContainer@102/@EditorMainScreen@160/MainScreen/@CanvasItemEditor@10138/@VSplitContainer@9897/@HSplitContainer@9899/@HSplitContainer@9901/@Control@9902/@SubViewportContainer@9903/@SubViewport@9904/Player/Pivot/AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": ["idle_up"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("/root/@EditorNode@19513/@Panel@14/@VBoxContainer@15/DockVSplitMain/DockHSplitMain/@VBoxContainer@37/DockVSplitCenter/@VSplitContainer@101/@VBoxContainer@102/@EditorMainScreen@160/MainScreen/@CanvasItemEditor@10138/@VSplitContainer@9897/@HSplitContainer@9899/@HSplitContainer@9901/@Control@9902/@SubViewportContainer@9903/@SubViewport@9904/Player/Pivot/AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.083333336),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 0]
+}
+
+[sub_resource type="Animation" id="Animation_5abd3"]
+length = 0.8333333333333334
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("/root/@EditorNode@19513/@Panel@14/@VBoxContainer@15/DockVSplitMain/DockHSplitMain/@VBoxContainer@37/DockVSplitCenter/@VSplitContainer@101/@VBoxContainer@102/@EditorMainScreen@160/MainScreen/@CanvasItemEditor@10138/@VSplitContainer@9897/@HSplitContainer@9899/@HSplitContainer@9901/@Control@9902/@SubViewportContainer@9903/@SubViewport@9904/Player/Pivot/AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": ["move_down"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("/root/@EditorNode@19513/@Panel@14/@VBoxContainer@15/DockVSplitMain/DockHSplitMain/@VBoxContainer@37/DockVSplitCenter/@VSplitContainer@101/@VBoxContainer@102/@EditorMainScreen@160/MainScreen/@CanvasItemEditor@10138/@VSplitContainer@9897/@HSplitContainer@9899/@HSplitContainer@9901/@Control@9902/@SubViewportContainer@9903/@SubViewport@9904/Player/Pivot/AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.083333336, 0.16666667, 0.25, 0.33333334, 0.41666666, 0.5, 0.5833333, 0.6666667, 0.75, 0.8333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 9]
+}
+
+[sub_resource type="Animation" id="Animation_v6xg3"]
+length = 0.8333333333333334
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("/root/@EditorNode@19513/@Panel@14/@VBoxContainer@15/DockVSplitMain/DockHSplitMain/@VBoxContainer@37/DockVSplitCenter/@VSplitContainer@101/@VBoxContainer@102/@EditorMainScreen@160/MainScreen/@CanvasItemEditor@10138/@VSplitContainer@9897/@HSplitContainer@9899/@HSplitContainer@9901/@Control@9902/@SubViewportContainer@9903/@SubViewport@9904/Player/Pivot/AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": ["move_left"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("/root/@EditorNode@19513/@Panel@14/@VBoxContainer@15/DockVSplitMain/DockHSplitMain/@VBoxContainer@37/DockVSplitCenter/@VSplitContainer@101/@VBoxContainer@102/@EditorMainScreen@160/MainScreen/@CanvasItemEditor@10138/@VSplitContainer@9897/@HSplitContainer@9899/@HSplitContainer@9901/@Control@9902/@SubViewportContainer@9903/@SubViewport@9904/Player/Pivot/AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.083333336, 0.16666667, 0.25, 0.33333334, 0.41666666, 0.5, 0.5833333, 0.6666667, 0.75, 0.8333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 9]
+}
+
+[sub_resource type="Animation" id="Animation_pppto"]
+length = 0.8333333333333334
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("/root/@EditorNode@19513/@Panel@14/@VBoxContainer@15/DockVSplitMain/DockHSplitMain/@VBoxContainer@37/DockVSplitCenter/@VSplitContainer@101/@VBoxContainer@102/@EditorMainScreen@160/MainScreen/@CanvasItemEditor@10138/@VSplitContainer@9897/@HSplitContainer@9899/@HSplitContainer@9901/@Control@9902/@SubViewportContainer@9903/@SubViewport@9904/Player/Pivot/AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": ["move_right"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("/root/@EditorNode@19513/@Panel@14/@VBoxContainer@15/DockVSplitMain/DockHSplitMain/@VBoxContainer@37/DockVSplitCenter/@VSplitContainer@101/@VBoxContainer@102/@EditorMainScreen@160/MainScreen/@CanvasItemEditor@10138/@VSplitContainer@9897/@HSplitContainer@9899/@HSplitContainer@9901/@Control@9902/@SubViewportContainer@9903/@SubViewport@9904/Player/Pivot/AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.083333336, 0.16666667, 0.25, 0.33333334, 0.41666666, 0.5, 0.5833333, 0.6666667, 0.75, 0.8333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 9]
+}
+
+[sub_resource type="Animation" id="Animation_0qvhu"]
+length = 0.8333333333333334
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("/root/@EditorNode@19513/@Panel@14/@VBoxContainer@15/DockVSplitMain/DockHSplitMain/@VBoxContainer@37/DockVSplitCenter/@VSplitContainer@101/@VBoxContainer@102/@EditorMainScreen@160/MainScreen/@CanvasItemEditor@10138/@VSplitContainer@9897/@HSplitContainer@9899/@HSplitContainer@9901/@Control@9902/@SubViewportContainer@9903/@SubViewport@9904/Player/Pivot/AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": ["move_up"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("/root/@EditorNode@19513/@Panel@14/@VBoxContainer@15/DockVSplitMain/DockHSplitMain/@VBoxContainer@37/DockVSplitCenter/@VSplitContainer@101/@VBoxContainer@102/@EditorMainScreen@160/MainScreen/@CanvasItemEditor@10138/@VSplitContainer@9897/@HSplitContainer@9899/@HSplitContainer@9901/@Control@9902/@SubViewportContainer@9903/@SubViewport@9904/Player/Pivot/AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.083333336, 0.16666667, 0.25, 0.33333334, 0.41666666, 0.5, 0.5833333, 0.6666667, 0.75, 0.8333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 9]
 }
 
 [sub_resource type="Animation" id="Animation_h5bw6"]
@@ -592,10 +1053,145 @@ tracks/1/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_c374h"]
 _data = {
 &"attack": SubResource("Animation_p765g"),
+&"attack_down": SubResource("Animation_owmcd"),
+&"attack_left": SubResource("Animation_q0c42"),
+&"attack_right": SubResource("Animation_krrpc"),
+&"attack_up": SubResource("Animation_fl10p"),
 &"death": SubResource("Animation_2blu0"),
-&"idle": SubResource("Animation_4ivt4"),
+&"idle_down": SubResource("Animation_cj1eq"),
+&"idle_left": SubResource("Animation_yjhl4"),
+&"idle_right": SubResource("Animation_7or5g"),
+&"idle_up": SubResource("Animation_056jp"),
+&"move_down": SubResource("Animation_5abd3"),
+&"move_left": SubResource("Animation_v6xg3"),
+&"move_right": SubResource("Animation_pppto"),
+&"move_up": SubResource("Animation_0qvhu"),
 &"movement": SubResource("Animation_h5bw6")
 }
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vkqoe"]
+size = Vector2(80, 80)
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_p765g"]
+animation = &"SpriteAnimations/attack"
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_p765g"]
+graph_offset = Vector2(-530, -203)
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2blu0"]
+animation = &"SpriteAnimations/death"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_c374h"]
+animation = &"SpriteAnimations/idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_uurku"]
+animation = &"SpriteAnimations/idle_left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qrm5q"]
+animation = &"SpriteAnimations/idle_down"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xu5lc"]
+animation = &"SpriteAnimations/idle_up"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_117ac"]
+animation = &"SpriteAnimations/idle_right"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_ghv06"]
+blend_mode = 1
+blend_point_0/node = SubResource("AnimationNodeAnimation_uurku")
+blend_point_0/pos = Vector2(-1, 0)
+blend_point_0/name = &"SpriteAnimations_idle_left"
+blend_point_1/node = SubResource("AnimationNodeAnimation_qrm5q")
+blend_point_1/pos = Vector2(0, -1)
+blend_point_1/name = &"SpriteAnimations_idle_down"
+blend_point_2/node = SubResource("AnimationNodeAnimation_xu5lc")
+blend_point_2/pos = Vector2(0, 1)
+blend_point_2/name = &"SpriteAnimations_idle_up"
+blend_point_3/node = SubResource("AnimationNodeAnimation_117ac")
+blend_point_3/pos = Vector2(1, 0)
+blend_point_3/name = &"SpriteAnimations_idle_right"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yav3l"]
+animation = &"SpriteAnimations/move_up"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_12g66"]
+animation = &"SpriteAnimations/move_left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_c2fio"]
+animation = &"SpriteAnimations/move_down"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_822h6"]
+animation = &"SpriteAnimations/move_right"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_ver01"]
+blend_mode = 1
+blend_point_0/node = SubResource("AnimationNodeAnimation_yav3l")
+blend_point_0/pos = Vector2(0, 1)
+blend_point_0/name = &"SpriteAnimations_move_up"
+blend_point_1/node = SubResource("AnimationNodeAnimation_12g66")
+blend_point_1/pos = Vector2(-1, 0)
+blend_point_1/name = &"SpriteAnimations_move_left"
+blend_point_2/node = SubResource("AnimationNodeAnimation_c2fio")
+blend_point_2/pos = Vector2(0, -1)
+blend_point_2/name = &"SpriteAnimations_move_down"
+blend_point_3/node = SubResource("AnimationNodeAnimation_822h6")
+blend_point_3/pos = Vector2(1, 0)
+blend_point_3/name = &"SpriteAnimations_move_right"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_58hk6"]
+animation = &"SpriteAnimations/attack"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2blu0"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_c374h"]
+advance_mode = 2
+advance_expression = "true"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_58hk6"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ghv06"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_k24ff"]
+advance_mode = 2
+advance_expression = "player.max_health <= 0"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4ivt4"]
+advance_mode = 2
+advance_expression = "player.velocity.length()>0.1"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ywj0m"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7tvi7"]
+advance_mode = 2
+advance_expression = "player.max_health <= 0"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_h5bw6"]
+advance_mode = 2
+advance_expression = "player.velocity.length()<=0.1"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_p765g"]
+states/Attack/node = SubResource("AnimationNodeAnimation_p765g")
+states/Attack/position = Vector2(140, 120)
+states/BlendTree/node = SubResource("AnimationNodeBlendTree_p765g")
+states/BlendTree/position = Vector2(617.00006, 356)
+states/Death/node = SubResource("AnimationNodeAnimation_2blu0")
+states/Death/position = Vector2(917, -88)
+states/End/position = Vector2(1219, -88)
+states/Evade/node = SubResource("AnimationNodeAnimation_c374h")
+states/Evade/position = Vector2(325.00006, 326)
+states/Idle/node = SubResource("AnimationNodeBlendSpace2D_ghv06")
+states/Idle/position = Vector2(138.8889, -81.703705)
+states/Move/node = SubResource("AnimationNodeBlendSpace2D_ver01")
+states/Move/position = Vector2(572.33325, 49.66666)
+states/RangeAttack/node = SubResource("AnimationNodeAnimation_58hk6")
+states/RangeAttack/position = Vector2(162.00006, 210)
+states/Start/position = Vector2(-310, -83)
+transitions = ["Death", "End", SubResource("AnimationNodeStateMachineTransition_2blu0"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_c374h"), "Attack", "Idle", SubResource("AnimationNodeStateMachineTransition_58hk6"), "Idle", "Attack", SubResource("AnimationNodeStateMachineTransition_ghv06"), "Idle", "Death", SubResource("AnimationNodeStateMachineTransition_k24ff"), "Idle", "Move", SubResource("AnimationNodeStateMachineTransition_4ivt4"), "Move", "Attack", SubResource("AnimationNodeStateMachineTransition_ywj0m"), "Move", "Death", SubResource("AnimationNodeStateMachineTransition_7tvi7"), "Move", "Idle", SubResource("AnimationNodeStateMachineTransition_h5bw6")]
+graph_offset = Vector2(-26, -109)
 
 [node name="Player" type="CharacterBody2D" unique_id=1051908149]
 self_modulate = Color(0.9598432, 0.20906258, 0, 1)
@@ -640,11 +1236,13 @@ debug_color = Color(0.4254151, 0.6030336, 1.92523e-07, 0.41960785)
 [node name="Pivot" type="Node2D" parent="." unique_id=1187242007]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pivot" unique_id=632609784]
-position = Vector2(15.000002, -30)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_vkqoe")
-animation = &"idle"
-frame = 4
+animation = &"idle_up"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Pivot/AnimatedSprite2D" unique_id=2016519025]
+libraries/ = SubResource("AnimationLibrary_58hk6")
+libraries/SpriteAnimations = SubResource("AnimationLibrary_c374h")
 
 [node name="BodyCheckbox" type="Area2D" parent="Pivot" unique_id=1667274517]
 collision_mask = 31
@@ -680,13 +1278,9 @@ metadata/_custom_type_script = "uid://bss2rdtqssvja"
 root_node = NodePath("../Pivot/AnimatedSprite2D")
 tree_root = SubResource("AnimationNodeStateMachine_p765g")
 advance_expression_base_node = NodePath("../PlayerAnimator")
-anim_player = NodePath("../AnimationPlayer")
-parameters/BlendSpace2D/blend_position = Vector2(0, 0)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2016519025]
-root_node = NodePath("../Pivot/AnimatedSprite2D")
-libraries/ = SubResource("AnimationLibrary_58hk6")
-libraries/SpriteAnimations = SubResource("AnimationLibrary_c374h")
+anim_player = NodePath("../Pivot/AnimatedSprite2D/AnimationPlayer")
+parameters/Idle/blend_position = Vector2(0.0041236877, 0.009174347)
+parameters/Move/blend_position = Vector2(0, -0.009174347)
 
 [connection signal="body_entered" from="SwordHitbox" to="." method="_on_sword_hitbox_body_entered"]
 [connection signal="area_entered" from="Pivot/BodyCheckbox" to="." method="_on_hit_box_area_entered"]
