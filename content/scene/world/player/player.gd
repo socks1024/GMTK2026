@@ -9,6 +9,7 @@ signal key_count_changed(value: int)
 signal money_count_changed(value: int)
 
 signal live_form_changed(is_living: bool)
+signal player_dead
 
 static var instance: Player
 
@@ -19,9 +20,6 @@ static var instance: Player
 
 @export_group("Ref")
 @export var player_hud: PackedScene
-
-@export_group("Animatables")
-@export var movable: bool = true
 
 var saved_position: AutoSerializeVector2
 
@@ -34,6 +32,8 @@ var max_health: int:
 		health = mini(max_health, health)
 		if saved_max_health: saved_max_health.value = max_health
 		max_health_changed.emit(max_health)
+		if max_health <= 0:
+			player_dead.emit()
 var saved_max_health: AutoSerializeInt
 
 var _health: int = 1
@@ -152,10 +152,7 @@ func _ready() -> void:
 
 
 func _physics_process(_delta: float) -> void:
-	if movable:
-		velocity = player_controller.move_direction * speed
-	else:
-		velocity = Vector2.ZERO
+	velocity = player_controller.move_direction * speed
 	move_and_slide()
 	saved_position.value = position
 
