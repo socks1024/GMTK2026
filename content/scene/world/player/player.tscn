@@ -353,6 +353,8 @@ size = Vector2(80, 80)
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_p765g"]
 animation = &"SpriteAnimations/attack"
 
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_ab5xs"]
+
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_p765g"]
 graph_offset = Vector2(-530, -203)
 
@@ -406,6 +408,8 @@ advance_expression = "player.max_health <= 0"
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_p765g"]
 states/Attack/node = SubResource("AnimationNodeAnimation_p765g")
 states/Attack/position = Vector2(140, 120)
+states/BlendSpace2D/node = SubResource("AnimationNodeBlendSpace2D_ab5xs")
+states/BlendSpace2D/position = Vector2(761, 148)
 states/BlendTree/node = SubResource("AnimationNodeBlendTree_p765g")
 states/BlendTree/position = Vector2(617.00006, 356)
 states/Death/node = SubResource("AnimationNodeAnimation_2blu0")
@@ -421,7 +425,7 @@ states/RangeAttack/node = SubResource("AnimationNodeAnimation_58hk6")
 states/RangeAttack/position = Vector2(162.00006, 210)
 states/Start/position = Vector2(-310, -83)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_c374h"), "Death", "End", SubResource("AnimationNodeStateMachineTransition_2blu0"), "Idle", "Movement", SubResource("AnimationNodeStateMachineTransition_4ivt4"), "Movement", "Idle", SubResource("AnimationNodeStateMachineTransition_h5bw6"), "Attack", "Idle", SubResource("AnimationNodeStateMachineTransition_58hk6"), "Idle", "Death", SubResource("AnimationNodeStateMachineTransition_k24ff"), "Movement", "Death", SubResource("AnimationNodeStateMachineTransition_7tvi7"), "Idle", "Attack", SubResource("AnimationNodeStateMachineTransition_ghv06"), "Movement", "Attack", SubResource("AnimationNodeStateMachineTransition_ywj0m")]
-graph_offset = Vector2(-435, -271)
+graph_offset = Vector2(-395, -156)
 
 [sub_resource type="Animation" id="Animation_c374h"]
 length = 0.001
@@ -639,7 +643,8 @@ debug_color = Color(0.4254151, 0.6030336, 1.92523e-07, 0.41960785)
 position = Vector2(15.000002, -30)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_vkqoe")
-animation = &"attack"
+animation = &"idle"
+frame = 4
 
 [node name="BodyCheckbox" type="Area2D" parent="Pivot" unique_id=1667274517]
 collision_mask = 31
@@ -676,6 +681,7 @@ root_node = NodePath("../Pivot/AnimatedSprite2D")
 tree_root = SubResource("AnimationNodeStateMachine_p765g")
 advance_expression_base_node = NodePath("../PlayerAnimator")
 anim_player = NodePath("../AnimationPlayer")
+parameters/BlendSpace2D/blend_position = Vector2(0, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2016519025]
 root_node = NodePath("../Pivot/AnimatedSprite2D")

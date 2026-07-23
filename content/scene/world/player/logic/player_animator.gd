@@ -30,6 +30,11 @@ func _ready() -> void:
 	)
 
 
+func _physics_process(delta: float) -> void:
+	animation_tree.set("parameters/Idle/blend_position", player.facing_direction)
+	animation_tree.set("parameters/Move/blend_position", player.facing_direction)
+
+
 func set_sword_hitbox(enable: bool) -> void:
 	match player.facing_direction:
 		Vector2.RIGHT:
