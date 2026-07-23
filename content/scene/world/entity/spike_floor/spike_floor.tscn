@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://csl5xwxdffsfk"]
+
+[ext_resource type="Script" uid="uid://be2vik8tmpufl" path="res://content/scene/world/entity/spike_floor/spike_floor.gd" id="1_1h7sj"]
+[ext_resource type="Texture2D" uid="uid://5h8s0n672nin" path="res://content/art/sprite/2D Pixel Dungeon Asset Pack/items and trap_animation/peaks/peaks_1.png" id="2_lbkrq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dcnw5"]
+atlas = ExtResource("2_lbkrq")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vkqoe"]
+size = Vector2(80, 80)
+
+[node name="SpikeFloor" type="Node2D" unique_id=1556116169]
+script = ExtResource("1_1h7sj")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1914353797]
+scale = Vector2(5, 5)
+texture = SubResource("AtlasTexture_dcnw5")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1585098003]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=26786171]
+shape = SubResource("RectangleShape2D_vkqoe")

@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://dayl62ethbi41"]
+
+[ext_resource type="Script" uid="uid://bdbwiwr6ljhek" path="res://content/scene/world/entity/door/door.gd" id="1_jtis2"]
+[ext_resource type="Texture2D" uid="uid://ceakdbvybs0ge" path="res://content/art/sprite/2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png" id="2_jtis2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dcnw5"]
+atlas = ExtResource("2_jtis2")
+region = Rect2(96, 48, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vkqoe"]
+size = Vector2(80, 80)
+
+[node name="Door" type="Node2D" unique_id=1556116169]
+script = ExtResource("1_jtis2")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1914353797]
+scale = Vector2(5, 5)
+texture = SubResource("AtlasTexture_dcnw5")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1580511282]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=26786171]
+shape = SubResource("RectangleShape2D_vkqoe")

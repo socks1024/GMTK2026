@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cqp010syu714"]
+
+[ext_resource type="Script" uid="uid://byiw6m7fa1r8l" path="res://content/scene/world/entity/pickable_entity/heart/heart.gd" id="1_8futx"]
+[ext_resource type="Texture2D" uid="uid://ceakdbvybs0ge" path="res://content/art/sprite/2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png" id="2_2344b"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_otnv7"]
+atlas = ExtResource("2_2344b")
+region = Rect2(144, 128, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vkqoe"]
+size = Vector2(60, 60)
+
+[node name="Heart" type="Node2D" unique_id=1987198981]
+script = ExtResource("1_8futx")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=407573481]
+scale = Vector2(5, 5)
+texture = SubResource("AtlasTexture_otnv7")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2063938649]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=475542684]
+shape = SubResource("RectangleShape2D_vkqoe")

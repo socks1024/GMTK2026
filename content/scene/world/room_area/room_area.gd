@@ -1,6 +1,9 @@
 class_name RoomArea
 extends Area2D
 
+signal player_enter_room(player: Player)
+signal player_exit_room(player: Player)
+
 @onready var phantom_camera_2d: PhantomCamera2D = $PhantomCamera2D
 
 # Called when the node enters the scene tree for the first time.
@@ -13,11 +16,13 @@ func _ready() -> void:
 func enter_room(player: Player) -> void:
 	phantom_camera_2d.follow_target = player
 	phantom_camera_2d.priority = 10
+	player_enter_room.emit(player)
 
 
 func exit_room(player: Player) -> void:
 	# phantom_camera_2d.follow_target = null
 	phantom_camera_2d.priority = 1
+	player_exit_room.emit(player)
 
 
 func _on_body_entered(body: Node2D) -> void:

@@ -1,21 +1,23 @@
 [gd_scene format=4 uid="uid://b350sxue7g686"]
 
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_x51ot"]
-[ext_resource type="PackedScene" uid="uid://btemjkkjcgi21" path="res://content/scene/world/player/player.tscn" id="2_4jt3r"]
+[ext_resource type="PackedScene" uid="uid://btemjkkjcgi21" path="res://content/scene/world/character/player/player.tscn" id="2_4jt3r"]
 [ext_resource type="PackedScene" uid="uid://bkrrhl582620g" path="res://content/scene/world/room_area/room_area.tscn" id="2_6ugpd"]
 [ext_resource type="TileSet" uid="uid://bx3upxfac3mlx" path="res://content/art/sprite/dungeon_old/dungeon_/dungeon_tiles.tres" id="3_apdbo"]
-[ext_resource type="PackedScene" uid="uid://dayl62ethbi41" path="res://content/scene/world/map_item/door/door.tscn" id="5_nt158"]
-[ext_resource type="PackedScene" uid="uid://b28cplo5qguxq" path="res://content/scene/world/map_item/key/key.tscn" id="6_apdbo"]
-[ext_resource type="PackedScene" uid="uid://ibutqbq3jafq" path="res://content/scene/world/map_item/altar/altar.tscn" id="7_x51ot"]
-[ext_resource type="PackedScene" uid="uid://bt2kmq76nh8n6" path="res://content/scene/world/map_item/mechanics/mechanic_door/mechanic_door.tscn" id="8_6ugpd"]
-[ext_resource type="PackedScene" uid="uid://dx2co7htn3cui" path="res://content/scene/world/map_item/mechanics/lever/lever.tscn" id="8_jau6q"]
-[ext_resource type="PackedScene" uid="uid://hrswpvjhduc7" path="res://content/scene/world/map_item/teleports/one_way_teleporter/one_way_teleporter.tscn" id="9_biapd"]
-[ext_resource type="PackedScene" uid="uid://cho17x2fn4qh3" path="res://content/scene/world/map_item/teleports/two_way_teleporter/two_way_teleporter.tscn" id="10_wa43y"]
-[ext_resource type="PackedScene" uid="uid://b3tofj61waqlx" path="res://content/scene/world/map_item/chest/chest.tscn" id="10_x3vh7"]
-[ext_resource type="PackedScene" uid="uid://byamdgyw4hhtj" path="res://content/scene/world/map_item/mechanics/missile_shooter/missile_shooter.tscn" id="11_hgsnx"]
-[ext_resource type="PackedScene" uid="uid://bjpr5smutipww" path="res://content/scene/world/map_item/mechanics/live_detection_door/live_detection_door.tscn" id="12_hgsnx"]
-[ext_resource type="PackedScene" uid="uid://csl5xwxdffsfk" path="res://content/scene/world/map_item/spike_floor/spike_floor.tscn" id="13_0r6q7"]
-[ext_resource type="PackedScene" uid="uid://bsrjiqqiexeoq" path="res://content/scene/world/enemy/static_enemy/static_enemy.tscn" id="14_x32wr"]
+[ext_resource type="PackedScene" uid="uid://dayl62ethbi41" path="res://content/scene/world/entity/door/door.tscn" id="5_nt158"]
+[ext_resource type="PackedScene" uid="uid://b28cplo5qguxq" path="res://content/scene/world/entity/pickable_entity/key/key.tscn" id="6_apdbo"]
+[ext_resource type="PackedScene" uid="uid://ibutqbq3jafq" path="res://content/scene/world/entity/altar/altar.tscn" id="7_x51ot"]
+[ext_resource type="PackedScene" uid="uid://bt2kmq76nh8n6" path="res://content/scene/world/entity/mechanic_door/mechanic_door.tscn" id="8_6ugpd"]
+[ext_resource type="PackedScene" uid="uid://dx2co7htn3cui" path="res://content/scene/world/entity/trigger_entity/lever/lever.tscn" id="8_jau6q"]
+[ext_resource type="PackedScene" uid="uid://hrswpvjhduc7" path="res://content/scene/world/entity/teleport_entity/hole/hole.tscn" id="9_biapd"]
+[ext_resource type="PackedScene" uid="uid://cho17x2fn4qh3" path="res://content/scene/world/entity/teleport_entity/ladder/ladder.tscn" id="10_wa43y"]
+[ext_resource type="PackedScene" uid="uid://b3tofj61waqlx" path="res://content/scene/world/entity/chest/chest.tscn" id="10_x3vh7"]
+[ext_resource type="PackedScene" uid="uid://byamdgyw4hhtj" path="res://content/scene/world/entity/missile_shooter/missile_shooter.tscn" id="11_hgsnx"]
+[ext_resource type="PackedScene" uid="uid://csl5xwxdffsfk" path="res://content/scene/world/entity/spike_floor/spike_floor.tscn" id="13_0r6q7"]
+[ext_resource type="PackedScene" uid="uid://cqp010syu714" path="res://content/scene/world/entity/pickable_entity/heart/heart.tscn" id="14_07gut"]
+[ext_resource type="PackedScene" uid="uid://bsrjiqqiexeoq" path="res://content/scene/world/character/enemy/static_enemy/static_enemy.tscn" id="14_x32wr"]
+[ext_resource type="PackedScene" uid="uid://t2v7i82oqewe" path="res://content/scene/world/entity/trigger_entity/pressure_plate/pressure_plate.tscn" id="15_07gut"]
+[ext_resource type="PackedScene" uid="uid://cejrxyawsm1je" path="res://content/scene/world/entity/box_entity/wood_box/wood_box.tscn" id="16_shtu1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6ugpd"]
 size = Vector2(1280, 720)
@@ -84,8 +86,9 @@ position = Vector2(1280, 600)
 [node name="Door3" parent="Level1" unique_id=401488579 instance=ExtResource("5_nt158")]
 position = Vector2(1280, 920)
 
-[node name="MechanicDoor" parent="Level1" unique_id=1470886768 instance=ExtResource("8_6ugpd")]
+[node name="MechanicDoor" parent="Level1" unique_id=1470886768 node_paths=PackedStringArray("trigger") instance=ExtResource("8_6ugpd")]
 position = Vector2(280, 520)
+trigger = NodePath("../Lever")
 
 [node name="Key" parent="Level1" unique_id=1987198981 instance=ExtResource("6_apdbo")]
 position = Vector2(600, 360)
@@ -93,66 +96,54 @@ position = Vector2(600, 360)
 [node name="Key3" parent="Level1" unique_id=1816956936 instance=ExtResource("6_apdbo")]
 position = Vector2(120, 520)
 
-[node name="Lever" parent="Level1" unique_id=1577327766 node_paths=PackedStringArray("binded_mechanics") instance=ExtResource("8_jau6q")]
+[node name="Lever" parent="Level1" unique_id=1577327766 instance=ExtResource("8_jau6q")]
 position = Vector2(1080, 200)
-binded_mechanics = [NodePath("../MechanicDoor")]
 
-[node name="OneWayTeleporter" parent="Level1" unique_id=1679444749 node_paths=PackedStringArray("to") instance=ExtResource("9_biapd")]
+[node name="Hole" parent="Level1" unique_id=1679444749 node_paths=PackedStringArray("to") instance=ExtResource("9_biapd")]
 position = Vector2(1640, 1080)
 to = NodePath("../../Level2/Marker2D")
 
-[node name="TwoWayTeleporter2" parent="Level1" unique_id=454613580 node_paths=PackedStringArray("to") instance=ExtResource("10_wa43y")]
+[node name="Ladder" parent="Level1" unique_id=454613580 node_paths=PackedStringArray("to") instance=ExtResource("10_wa43y")]
 position = Vector2(920, 1080)
-to = NodePath("../../Level2/TwoWayTeleporter")
+to = NodePath("../../Level2/Ladder")
 
 [node name="Chest" parent="Level1" unique_id=1556116169 instance=ExtResource("10_x3vh7")]
 position = Vector2(920, 920)
 key = 1
 
 [node name="MissileShooter" parent="Level1" unique_id=735257597 instance=ExtResource("11_hgsnx")]
-position = Vector2(520, 120)
+position = Vector2(440, 120)
 shoot_direction = Vector2(0, 1)
 auto_shoot = true
 auto_shoot_interval = 2.0
 
 [node name="MissileShooter2" parent="Level1" unique_id=1445932292 instance=ExtResource("11_hgsnx")]
-position = Vector2(680, 600)
+position = Vector2(760, 600)
 shoot_direction = Vector2(0, -1)
 auto_shoot = true
 auto_shoot_interval = 2.0
 
-[node name="LiveDetectionDoor" parent="Level1" unique_id=1091874423 instance=ExtResource("12_hgsnx")]
-position = Vector2(1640, 920)
-
 [node name="SpikeFloor" parent="Level1" unique_id=305443112 instance=ExtResource("13_0r6q7")]
-position = Vector2(1000, 600)
-
-[node name="SpikeFloor2" parent="Level1" unique_id=2075049620 instance=ExtResource("13_0r6q7")]
-position = Vector2(1080, 600)
-
-[node name="SpikeFloor3" parent="Level1" unique_id=246721916 instance=ExtResource("13_0r6q7")]
-position = Vector2(1160, 600)
-
-[node name="SpikeFloor4" parent="Level1" unique_id=585714629 instance=ExtResource("13_0r6q7")]
-position = Vector2(1000, 520)
-
-[node name="SpikeFloor5" parent="Level1" unique_id=210102869 instance=ExtResource("13_0r6q7")]
 position = Vector2(1080, 520)
 
-[node name="SpikeFloor6" parent="Level1" unique_id=1472107649 instance=ExtResource("13_0r6q7")]
-position = Vector2(1160, 520)
-
-[node name="SpikeFloor7" parent="Level1" unique_id=871559750 instance=ExtResource("13_0r6q7")]
-position = Vector2(1000, 440)
-
-[node name="SpikeFloor8" parent="Level1" unique_id=308523228 instance=ExtResource("13_0r6q7")]
-position = Vector2(1080, 440)
-
-[node name="SpikeFloor9" parent="Level1" unique_id=636121818 instance=ExtResource("13_0r6q7")]
-position = Vector2(1160, 440)
-
 [node name="StaticEnemy" parent="Level1" unique_id=2117049169 instance=ExtResource("14_x32wr")]
-position = Vector2(760, 200)
+position = Vector2(1720, 680)
+
+[node name="Heart" parent="Level1" unique_id=289509822 instance=ExtResource("14_07gut")]
+position = Vector2(1000, 200)
+
+[node name="Heart2" parent="Level1" unique_id=1892817108 instance=ExtResource("14_07gut")]
+position = Vector2(1160, 200)
+
+[node name="MechanicDoor2" parent="Level1" unique_id=1882440892 node_paths=PackedStringArray("trigger") instance=ExtResource("8_6ugpd")]
+position = Vector2(1880, 520)
+trigger = NodePath("../PressurePlate")
+
+[node name="PressurePlate" parent="Level1" unique_id=330251554 instance=ExtResource("15_07gut")]
+position = Vector2(1720, 520)
+
+[node name="WoodBox" parent="Level1" unique_id=1735990448 instance=ExtResource("16_shtu1")]
+position = Vector2(1560, 520)
 
 [node name="Level2" type="Node2D" parent="." unique_id=853015035]
 position = Vector2(0, 1800)
@@ -189,14 +180,14 @@ position = Vector2(1640, 1080)
 [node name="Altar" parent="Level2" unique_id=1581154257 instance=ExtResource("7_x51ot")]
 position = Vector2(1800, 1080)
 
-[node name="TwoWayTeleporter" parent="Level2" unique_id=172448437 node_paths=PackedStringArray("to") instance=ExtResource("10_wa43y")]
+[node name="Ladder" parent="Level2" unique_id=172448437 node_paths=PackedStringArray("to") instance=ExtResource("10_wa43y")]
 position = Vector2(920, 1080)
-to = NodePath("../../Level1/TwoWayTeleporter2")
+to = NodePath("../../Level1/Ladder")
 
 [node name="Chest2" parent="Level2" unique_id=1546241741 instance=ExtResource("10_x3vh7")]
 position = Vector2(1720, 920)
 money = 114514
 
 [node name="Player" parent="." unique_id=859753476 instance=ExtResource("2_4jt3r")]
-position = Vector2(120, 200)
+position = Vector2(1480, 280)
 speed = 200.0

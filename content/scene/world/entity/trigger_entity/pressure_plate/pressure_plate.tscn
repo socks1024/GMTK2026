@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://t2v7i82oqewe"]
+
+[ext_resource type="Script" uid="uid://wi8t4ie708yf" path="res://content/scene/world/entity/trigger_entity/pressure_plate/pressure_plate.gd" id="1_v2re7"]
+[ext_resource type="Texture2D" uid="uid://ceakdbvybs0ge" path="res://content/art/sprite/2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png" id="2_vtd1e"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dcnw5"]
+atlas = ExtResource("2_vtd1e")
+region = Rect2(128, 48, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vkqoe"]
+size = Vector2(80, 80)
+
+[node name="PressurePlate" type="Node2D" unique_id=1556116169]
+script = ExtResource("1_v2re7")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1914353797]
+scale = Vector2(5, 5)
+texture = SubResource("AtlasTexture_dcnw5")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=344641727]
+collision_layer = 64
+collision_mask = 161
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=26786171]
+shape = SubResource("RectangleShape2D_vkqoe")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
