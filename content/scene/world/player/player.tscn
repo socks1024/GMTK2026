@@ -18,6 +18,18 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_go70w"]
 size = Vector2(45, 60)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ab5xs"]
+size = Vector2(48, 80)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p765g"]
+size = Vector2(48, 80)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2jxm5"]
+size = Vector2(80, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2blu0"]
+size = Vector2(80, 48)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_ab5xs"]
 atlas = ExtResource("13_822h6")
 region = Rect2(0, 0, 32, 32)
@@ -338,9 +350,6 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vkqoe"]
 size = Vector2(80, 80)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2jxm5"]
-size = Vector2(48, 68)
-
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_p765g"]
 animation = &"SpriteAnimations/attack"
 
@@ -428,18 +437,6 @@ tracks/0/keys = {
 "update": 1,
 "values": [true]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../SwordHitbox/CollisionShape2D:disabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_58hk6"]
 _data = {
@@ -484,17 +481,25 @@ tracks/2/keys = {
 "update": 1,
 "values": [false, true]
 }
-tracks/3/type = "value"
+tracks/3/type = "method"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("../SwordHitbox/CollisionShape2D:disabled")
+tracks/3/path = NodePath("../../PlayerAnimator")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.5, 0.73333335),
 "transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [true, false, true]
+"values": [{
+"args": [false],
+"method": &"set_sword_hitbox"
+}, {
+"args": [true],
+"method": &"set_sword_hitbox"
+}, {
+"args": [false],
+"method": &"set_sword_hitbox"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_2blu0"]
@@ -600,6 +605,34 @@ player_hud = ExtResource("5_kqb8u")
 position = Vector2(0, 5)
 shape = SubResource("RectangleShape2D_go70w")
 
+[node name="SwordHitbox" type="Area2D" parent="." unique_id=1163223206]
+collision_layer = 8
+collision_mask = 14
+
+[node name="LeftCollisionShape2D" type="CollisionShape2D" parent="SwordHitbox" unique_id=1799644056]
+position = Vector2(-64, 0)
+shape = SubResource("RectangleShape2D_ab5xs")
+disabled = true
+debug_color = Color(0.4254151, 0.6030336, 1.92523e-07, 0.41960785)
+
+[node name="RightCollisionShape2D" type="CollisionShape2D" parent="SwordHitbox" unique_id=1188521174]
+position = Vector2(64, 0)
+shape = SubResource("RectangleShape2D_p765g")
+disabled = true
+debug_color = Color(0.4254151, 0.6030336, 1.92523e-07, 0.41960785)
+
+[node name="DownCollisionShape2D" type="CollisionShape2D" parent="SwordHitbox" unique_id=1947287349]
+position = Vector2(0, 64)
+shape = SubResource("RectangleShape2D_2jxm5")
+disabled = true
+debug_color = Color(0.4254151, 0.6030336, 1.92523e-07, 0.41960785)
+
+[node name="UpCollisionShape2D" type="CollisionShape2D" parent="SwordHitbox" unique_id=1790929301]
+position = Vector2(0, -64)
+shape = SubResource("RectangleShape2D_2blu0")
+disabled = true
+debug_color = Color(0.4254151, 0.6030336, 1.92523e-07, 0.41960785)
+
 [node name="Pivot" type="Node2D" parent="." unique_id=1187242007]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pivot" unique_id=632609784]
@@ -607,23 +640,13 @@ position = Vector2(15.000002, -30)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_vkqoe")
 animation = &"idle"
-frame = 1
+frame = 3
 
 [node name="BodyCheckbox" type="Area2D" parent="Pivot" unique_id=1667274517]
 collision_mask = 31
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/BodyCheckbox" unique_id=1417440360]
 shape = SubResource("RectangleShape2D_vkqoe")
-debug_color = Color(0.4254151, 0.6030336, 1.92523e-07, 0.41960785)
-
-[node name="SwordHitbox" type="Area2D" parent="Pivot" unique_id=1163223206]
-collision_layer = 8
-collision_mask = 14
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/SwordHitbox" unique_id=1799644056]
-position = Vector2(64, -6)
-shape = SubResource("RectangleShape2D_2jxm5")
-disabled = true
 debug_color = Color(0.4254151, 0.6030336, 1.92523e-07, 0.41960785)
 
 [node name="PlayerController" type="Node" parent="." unique_id=235256990]
@@ -636,13 +659,17 @@ spell_1_action = ExtResource("8_ki48b")
 spell_2_action = ExtResource("9_822h6")
 metadata/_custom_type_script = "uid://b0gpbsm0fm4l0"
 
-[node name="PlayerAnimator" type="Node" parent="." unique_id=875770617 node_paths=PackedStringArray("animation_tree", "player", "player_controller", "pivot", "animated_sprite_2d")]
+[node name="PlayerAnimator" type="Node" parent="." unique_id=875770617 node_paths=PackedStringArray("animation_tree", "player", "player_controller", "pivot", "animated_sprite_2d", "left_sword_hitbox", "right_sword_hitbox", "down_sword_hitbox", "up_sword_hitbox")]
 script = ExtResource("16_4ivt4")
 animation_tree = NodePath("../AnimationTree")
 player = NodePath("..")
 player_controller = NodePath("../PlayerController")
 pivot = NodePath("../Pivot")
 animated_sprite_2d = NodePath("../Pivot/AnimatedSprite2D")
+left_sword_hitbox = NodePath("../SwordHitbox/LeftCollisionShape2D")
+right_sword_hitbox = NodePath("../SwordHitbox/RightCollisionShape2D")
+down_sword_hitbox = NodePath("../SwordHitbox/DownCollisionShape2D")
+up_sword_hitbox = NodePath("../SwordHitbox/UpCollisionShape2D")
 metadata/_custom_type_script = "uid://bss2rdtqssvja"
 
 [node name="AnimationTree" type="AnimationTree" parent="." unique_id=417357673]
@@ -656,6 +683,6 @@ root_node = NodePath("../Pivot/AnimatedSprite2D")
 libraries/ = SubResource("AnimationLibrary_58hk6")
 libraries/SpriteAnimations = SubResource("AnimationLibrary_c374h")
 
+[connection signal="body_entered" from="SwordHitbox" to="." method="_on_sword_hitbox_body_entered"]
 [connection signal="area_entered" from="Pivot/BodyCheckbox" to="." method="_on_hit_box_area_entered"]
 [connection signal="body_entered" from="Pivot/BodyCheckbox" to="." method="_on_hit_box_body_entered"]
-[connection signal="body_entered" from="Pivot/SwordHitbox" to="." method="_on_sword_hitbox_body_entered"]

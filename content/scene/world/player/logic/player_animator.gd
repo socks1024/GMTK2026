@@ -7,6 +7,12 @@ extends Node
 @export var pivot: Node2D
 @export var animated_sprite_2d: AnimatedSprite2D
 
+@export_group("CollisionShapes")
+@export var left_sword_hitbox: CollisionShape2D
+@export var right_sword_hitbox: CollisionShape2D
+@export var down_sword_hitbox: CollisionShape2D
+@export var up_sword_hitbox: CollisionShape2D
+
 func _ready() -> void:
 	player_controller.attack_power_input.power_completed.connect(
 		func(t): if t < 0.5: sword_attack()
@@ -29,6 +35,21 @@ func _process(_delta: float) -> void:
 			pivot.scale.x = -1
 		elif player.facing_direction.x > 0.1:
 			pivot.scale.x = 1
+
+
+func set_sword_hitbox(enable: bool) -> void:
+	match player.facing_direction:
+		Vector2.RIGHT:
+			right_sword_hitbox.disabled = !enable
+		Vector2.LEFT:
+			left_sword_hitbox.disabled = !enable
+		Vector2.UP:
+			up_sword_hitbox.disabled = !enable
+		Vector2.DOWN:
+			down_sword_hitbox.disabled = !enable
+		_:
+			CLog.w("Invalid facing direction : " + str(player.facing_direction))
+			right_sword_hitbox.disabled = !enable
 
 
 func sword_attack():

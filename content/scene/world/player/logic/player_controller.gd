@@ -3,6 +3,7 @@ extends Node
 
 signal facing_direction_changed(facing_direction_changed: Vector2)
 
+@export_group("Input Actions")
 @export var player_input_context: GUIDEMappingContext
 @export var move_action: GUIDEAction
 @export var attack_action: GUIDEAction
@@ -16,6 +17,7 @@ var spell_1_power_input: PowerInput
 var spell_2_power_input: PowerInput
 
 var move_direction: Vector2 = Vector2.ZERO
+var facing_direction: Vector2 = Vector2.RIGHT
 
 func _ready() -> void:
 	GUIDE.enable_mapping_context(player_input_context)
@@ -24,15 +26,27 @@ func _ready() -> void:
 	spell_1_power_input = PowerInput.new(spell_1_action)
 	spell_2_power_input = PowerInput.new(spell_2_action)
 
+
 func _physics_process(_delta: float) -> void:
 	if move_action.value_axis_2d.length() > 0.1:
-		var angle = move_action.value_axis_2d.normalized().angle()
-		var snapped_vec = round(angle / (PI / 4)) * (PI / 4)
+		#var angle = move_action.value_axis_2d.normalized().angle()
+		#var snapped_vec = round(angle / (PI / 2)) * (PI / 2)
+		#move_direction = Vector2.RIGHT.rotated(snapped_vec).normalized()
 		
-		var last_direction = move_direction
-		move_direction = Vector2.RIGHT.rotated(snapped_vec).normalized()
-		if move_direction != last_direction:
-			facing_direction_changed.emit(move_direction)
+		if abs(move_action.value_axis_2d.x) > abs(move_action.value_axis_2d.y):
+			if move_action.value_axis_2d.x > 0:
+				move_direction = Vector2.RIGHT
+			else:
+				move_direction = Vector2.LEFT
+		else:
+			if move_action.value_axis_2d.y > 0:
+				move_direction = Vector2.DOWN
+			else:
+				move_direction = Vector2.UP
+		
+		if move_direction != facing_direction:
+			facing_direction = move_direction
+			facing_direction_changed.emit(facing_direction)
 	else:
 		move_direction = Vector2.ZERO
 

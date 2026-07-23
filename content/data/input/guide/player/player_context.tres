@@ -98,7 +98,7 @@ modifiers = Array[ExtResource("6_mip7f")]([SubResource("Resource_qgdsy")])
 script = ExtResource("1_fsfam")
 action = ExtResource("2_fso0w")
 input_mappings = Array[ExtResource("3_317tt")]([SubResource("Resource_317tt"), SubResource("Resource_qjtor"), SubResource("Resource_d8241"), SubResource("Resource_l01dy"), SubResource("Resource_84g6u")])
-metadata/_guide_input_mappings_collapsed = true
+metadata/_guide_input_mappings_collapsed = false
 
 [sub_resource type="Resource" id="Resource_stmef"]
 script = ExtResource("5_qjtor")
@@ -168,7 +168,7 @@ input = SubResource("Resource_nvx3h")
 script = ExtResource("1_fsfam")
 action = ExtResource("14_v8bqc")
 input_mappings = Array[ExtResource("3_317tt")]([SubResource("Resource_u3fib"), SubResource("Resource_vassk")])
-metadata/_guide_input_mappings_collapsed = false
+metadata/_guide_input_mappings_collapsed = true
 
 [sub_resource type="Resource" id="Resource_77qrc"]
 script = ExtResource("5_qjtor")
@@ -192,7 +192,7 @@ input = SubResource("Resource_jpohk")
 script = ExtResource("1_fsfam")
 action = ExtResource("4_agwxf")
 input_mappings = Array[ExtResource("3_317tt")]([SubResource("Resource_5ibi2"), SubResource("Resource_nlg88")])
-metadata/_guide_input_mappings_collapsed = false
+metadata/_guide_input_mappings_collapsed = true
 
 [sub_resource type="Resource" id="Resource_cjlda"]
 script = ExtResource("5_qjtor")
