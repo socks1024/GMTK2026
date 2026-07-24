@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cnatycbh2lybr"]
 
 [ext_resource type="Texture2D" uid="uid://cbrjb2cs0trl4" path="res://content/art/sprite/2D Pixel Dungeon Asset Pack/items and trap_animation/arrow/arrow_4.png" id="1_ey76e"]
-[ext_resource type="Script" uid="uid://dasw6e1m5imhg" path="res://content/scene/world/magic_missile/magic_missile.gd" id="1_l6gio"]
+[ext_resource type="Script" uid="uid://dasw6e1m5imhg" path="res://content/scene/world/magic/magic_missile/magic_missile.gd" id="1_l6gio"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pooin"]
 atlas = ExtResource("1_ey76e")
@@ -21,7 +21,7 @@ texture = SubResource("AtlasTexture_pooin")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1475079299]
 collision_layer = 16
-collision_mask = 59
+collision_mask = 187
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=460248877]
 shape = SubResource("RectangleShape2D_vkqoe")

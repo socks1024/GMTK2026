@@ -3,6 +3,7 @@ extends Character
 
 signal key_count_changed(value: int)
 signal money_count_changed(value: int)
+signal revive_position_changed(pos: Vector2)
 
 static var instance: Player
 
@@ -19,7 +20,6 @@ var key_count: int:
 		return _key_count
 	set(v):
 		_key_count = maxi(0, v)
-		if saved_key_count: saved_key_count.value = key_count
 		key_count_changed.emit(_key_count)
 
 var _money_count: int = 0
@@ -28,21 +28,33 @@ var money_count: int:
 		return _money_count
 	set(v):
 		_money_count = maxi(0, v)
-		if saved_money_count: saved_money_count.value = money_count
 		money_count_changed.emit(_money_count)
+
+var _revive_position: Vector2 = Vector2.ZERO
+var revive_position: Vector2:
+	get():
+		return _revive_position
+	set(v):
+		_revive_position = v
+		revive_position_changed.emit(_revive_position)
 
 var facing_direction: Vector2 = Vector2.RIGHT
 
-var saved_position: AutoSerializeVector2
 var saved_max_health: AutoSerializeInt
 var saved_money_count: AutoSerializeInt
 var saved_key_count: AutoSerializeInt
+var saved_revive_position: AutoSerializeVector2
 
 @onready var player_controller: PlayerController = $PlayerController
 
 
 static func quick_get_player() -> Player:
 	return instance
+
+
+func on_player_dead() -> void:
+	global_position = revive_position
+	health = max_health
 
 
 # Called when the node enters the scene tree for the first time.
@@ -53,9 +65,13 @@ func _ready() -> void:
 		func(v): facing_direction = v
 	)
 	
+	character_dead.connect(on_player_dead)
+	
 	#region SaveLoad
-	saved_position = AutoSerializeVector2.new("Player","Pos",position,tree_exited)
-	position = saved_position.value
+	saved_revive_position = AutoSerializeVector2.new("Player","RevivePosition",position,tree_exited)
+	revive_position = saved_revive_position.value
+	position = revive_position
+	revive_position_changed.connect(func(v):saved_revive_position.value = v)
 	
 	saved_max_health = AutoSerializeInt.new("Player","MaxHealth",default_max_health,tree_exited)
 	max_health = saved_max_health.value
@@ -89,16 +105,13 @@ func _ready() -> void:
 		.arg("amount", TYPE_INT)\
 		.info("gain health by given amount.")
 	#endregion
+	
+
 
 
 func _physics_process(_delta: float) -> void:
 	velocity = player_controller.move_direction * speed
 	move_and_slide()
-	saved_position.value = position
-
-
-func is_living() -> bool:
-	return health > 0
 
 
 func _on_hit_box_area_entered(area: Area2D) -> void:

@@ -46,7 +46,3 @@ func unlock_region(is_unlock: bool) -> void:
 
 func on_touched_by_player(player: Player) -> void:
 	unlock_region(true)
-
-
-func on_hit_by_sword(player: Player) -> void:
-	unlock_region(true)

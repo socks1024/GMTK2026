@@ -17,7 +17,6 @@ size = Vector2(80, 80)
 collision_layer = 32
 collision_mask = 59
 script = ExtResource("1_d4wip")
-default_max_health = 12
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=542205899]
 shape = SubResource("RectangleShape2D_vkqoe")

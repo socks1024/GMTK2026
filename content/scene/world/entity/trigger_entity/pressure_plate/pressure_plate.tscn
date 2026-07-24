@@ -8,7 +8,7 @@ atlas = ExtResource("2_vtd1e")
 region = Rect2(128, 48, 16, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vkqoe"]
-size = Vector2(80, 80)
+size = Vector2(70, 70)
 
 [node name="PressurePlate" type="Node2D" unique_id=1556116169]
 script = ExtResource("1_v2re7")

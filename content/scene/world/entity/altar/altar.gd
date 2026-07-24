@@ -1,6 +1,8 @@
 class_name Altar
 extends Entity
 
+@export var revive_pos: Marker2D
+
 @onready var sprite: Sprite2D = $Sprite
 @onready var collision_shape_2d: CollisionShape2D = $StaticBody2D/CollisionShape2D
 

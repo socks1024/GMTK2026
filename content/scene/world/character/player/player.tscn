@@ -960,9 +960,9 @@ disabled = true
 debug_color = Color(0.4254151, 0.6030336, 1.92523e-07, 0.41960785)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=632609784]
-scale = Vector2(2, 2)
+scale = Vector2(2.5, 2.5)
 sprite_frames = ExtResource("3_xmv0y")
-animation = &"attack_up"
+animation = &"idle_up"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D" unique_id=2383384]
 libraries/ = SubResource("AnimationLibrary_5xnw5")

@@ -1,5 +1,5 @@
 class_name MissileShooter
-extends Entity
+extends Box
 
 @export_group("Missile")
 @export var p_missile: PackedScene
@@ -49,3 +49,15 @@ func shoot() -> void:
 	get_tree().current_scene.add_child(missile)
 	missile.global_position = position + shoot_direction * shoot_offset
 	missile.look_at(position + shoot_direction * shoot_offset * 2)
+
+
+func on_hit_by_sword(direction: Vector2, player: Player) -> void:
+	push_box(direction)
+
+
+func on_hit_by_explosion(direction: Vector2) -> void:
+	push_box(direction)
+
+
+func on_hit_by_fireball(direction: Vector2) -> void:
+	push_box(direction)

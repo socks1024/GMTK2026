@@ -14,6 +14,10 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body is Player:
-		(body as Player).take_health_damage(damage)
+	if body is Character:
+		(body as Character).take_health_damage(damage)
+	
+	if body.get_parent() is Entity:
+		(body.get_parent() as Entity).on_hit_by_fireball(transform.x)
+	
 	queue_free.call_deferred()

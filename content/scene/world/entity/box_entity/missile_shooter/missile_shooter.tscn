@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://byamdgyw4hhtj"]
+
+[ext_resource type="Script" uid="uid://bjtj73yfad8du" path="res://content/scene/world/entity/box_entity/missile_shooter/missile_shooter.gd" id="1_5xs2h"]
+[ext_resource type="PackedScene" uid="uid://cnatycbh2lybr" path="res://content/scene/world/magic/magic_missile/magic_missile.tscn" id="2_p6wlh"]
+[ext_resource type="Texture2D" uid="uid://bfnoqn7irw1l1" path="res://content/art/sprite/magika/Item.png" id="3_jsw0v"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dcnw5"]
+atlas = ExtResource("3_jsw0v")
+region = Rect2(64, 16, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vkqoe"]
+size = Vector2(80, 80)
+
+[node name="MissileShooter" type="Node2D" unique_id=1556116169]
+script = ExtResource("1_5xs2h")
+p_missile = ExtResource("2_p6wlh")
+shoot_offset = 60.0
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1914353797]
+rotation = 1.5707964
+scale = Vector2(5, 5)
+texture = SubResource("AtlasTexture_dcnw5")
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="." unique_id=1061757544]
+collision_layer = 128
+collision_mask = 251
+sync_to_physics = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D" unique_id=26786171]
+shape = SubResource("RectangleShape2D_vkqoe")
+
+[node name="Timer" type="Timer" parent="." unique_id=72053304]

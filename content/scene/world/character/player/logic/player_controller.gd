@@ -36,16 +36,7 @@ func _physics_process(_delta: float) -> void:
 		#var snapped_vec = round(angle / (PI / 2)) * (PI / 2)
 		#move_direction = Vector2.RIGHT.rotated(snapped_vec).normalized()
 		
-		if abs(move_action.value_axis_2d.x) > abs(move_action.value_axis_2d.y):
-			if move_action.value_axis_2d.x > 0:
-				move_direction = Vector2.RIGHT
-			else:
-				move_direction = Vector2.LEFT
-		else:
-			if move_action.value_axis_2d.y > 0:
-				move_direction = Vector2.DOWN
-			else:
-				move_direction = Vector2.UP
+		move_direction = MathUtils.vector2_to_4_direction(move_action.value_axis_2d)
 		
 		if move_direction != facing_direction:
 			facing_direction = move_direction

@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://cqv43ckfqh5e8"]
+
+[ext_resource type="Script" uid="uid://dgp2jscnhoq25" path="res://content/scene/world/entity/box_entity/explode_barrel/explode_barrel.gd" id="1_7xgj4"]
+[ext_resource type="Texture2D" uid="uid://bfnoqn7irw1l1" path="res://content/art/sprite/magika/Item.png" id="2_5suxp"]
+[ext_resource type="PackedScene" uid="uid://drhubgdeg3ekc" path="res://content/scene/world/magic/explosion/explosion.tscn" id="3_5suxp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_244ww"]
+atlas = ExtResource("2_5suxp")
+region = Rect2(48, 32, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vkqoe"]
+size = Vector2(70, 70)
+
+[node name="ExplodeBarrel" type="Node2D" unique_id=1735990448]
+script = ExtResource("1_7xgj4")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1552300764]
+scale = Vector2(5, 5)
+texture = SubResource("AtlasTexture_244ww")
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="." unique_id=289502258]
+collision_layer = 128
+collision_mask = 251
+sync_to_physics = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D" unique_id=485357244]
+shape = SubResource("RectangleShape2D_vkqoe")
+
+[node name="Explosion" parent="." unique_id=1468624871 instance=ExtResource("3_5suxp")]
+
+[connection signal="explode_finished" from="Explosion" to="." method="destroy"]
