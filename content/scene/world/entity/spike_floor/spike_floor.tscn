@@ -5,11 +5,15 @@
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hm4qd"]
 atlas = ExtResource("2_hm4qd")
-region = Rect2(16, 48, 16, 16)
+region = Rect2(48, 32, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5a3e2"]
 atlas = ExtResource("2_hm4qd")
-region = Rect2(32, 48, 16, 16)
+region = Rect2(64, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g8xh0"]
+atlas = ExtResource("2_hm4qd")
+region = Rect2(0, 48, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vkqoe"]
 animations = [{
@@ -19,8 +23,11 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5a3e2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g8xh0")
 }],
-"loop": 1,
+"loop": 2,
 "name": &"default",
 "speed": 5.0
 }]
@@ -34,7 +41,6 @@ script = ExtResource("1_1h7sj")
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1313711568]
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_vkqoe")
-frame_progress = 0.7365206
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1585098003]
 collision_layer = 2

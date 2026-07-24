@@ -20,11 +20,12 @@ func trigger_explosion(rad: float = 80, dam: int = 4, dur: float = 0.5) -> void:
 	damage = dam
 	duration = dur
 	
-	sprite_2d.scale = Vector2.ONE * radius / 16
+	sprite_2d.scale = Vector2.ONE * radius / 40
 	collision_shape_2d.shape.radius = radius
 	
 	timer.start(duration)
 	_is_exploding = true
+	sprite_2d.play()
 
 
 func on_explosion_finished() -> void:

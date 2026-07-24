@@ -20,26 +20,34 @@ func _ready() -> void:
 	player_controller.attack_power_input.power_completed.connect(
 		func(t): if t < 0.5: _travel_to_animation("Attack")
 	)
-	player_controller.attack_power_input.power_completed.connect(
-		func(t): if t > 0.5: missile_launch()
-	)
 	player_controller.spell_1_power_input.power_completed.connect(
-		func(t): missile_launch()
+		func(t): if t < 0.5: _travel_to_animation("Shoot")
 	)
 	player_controller.spell_2_power_input.power_completed.connect(
-		func(t): self_explode()
+		func(t): if t < 0.5: _travel_to_animation("Magic")
 	)
+	player.get_hurt.connect(
+		func(): _travel_to_animation("Hurt")
+	)
+
+
+func _physics_process(delta: float) -> void:
+	player.velocity = player_controller.move_direction * player.speed
+	player.move_and_slide()
 
 
 func _process(_delta: float) -> void:
-	var dir: Vector2 = Vector2(player.facing_direction.x, -player.facing_direction.y)
+	var dir: Vector2 = Vector2(player_controller.facing_direction.x, -player_controller.facing_direction.y)
 	animation_tree.set("parameters/Idle/blend_position", dir)
 	animation_tree.set("parameters/Move/blend_position", dir)
 	animation_tree.set("parameters/Attack/blend_position", dir)
+	animation_tree.set("parameters/Hurt/blend_position", dir)
+	animation_tree.set("parameters/Magic/blend_position", dir)
+	animation_tree.set("parameters/Shoot/blend_position", dir)
 
 
 func set_sword_hitbox(enable: bool) -> void:
-	match player.facing_direction:
+	match player_controller.facing_direction:
 		Vector2.RIGHT:
 			right_sword_hitbox.disabled = !enable
 		Vector2.LEFT:
@@ -53,7 +61,7 @@ func set_sword_hitbox(enable: bool) -> void:
 			right_sword_hitbox.disabled = !enable
 
 
-func missile_launch():
+func shoot_fireball():
 	var missile: MagicMissile = p_missile.instantiate()
 	missile.damage = 4
 	missile.speed = 300
@@ -64,7 +72,8 @@ func missile_launch():
 
 func self_explode():
 	var explosion: Explosion = p_explosion.instantiate()
-	player.add_child(explosion)
+	player.get_parent().add_child(explosion)
+	explosion.global_position = player.global_position
 	explosion.trigger_explosion.call_deferred()
 
 

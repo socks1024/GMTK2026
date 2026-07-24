@@ -14,7 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://b3tofj61waqlx" path="res://content/scene/world/entity/chest/chest.tscn" id="10_x3vh7"]
 [ext_resource type="PackedScene" uid="uid://byamdgyw4hhtj" path="res://content/scene/world/entity/box_entity/missile_shooter/missile_shooter.tscn" id="11_hgsnx"]
 [ext_resource type="PackedScene" uid="uid://csl5xwxdffsfk" path="res://content/scene/world/entity/spike_floor/spike_floor.tscn" id="13_0r6q7"]
-[ext_resource type="PackedScene" uid="uid://cqp010syu714" path="res://content/scene/world/entity/pickable_entity/heart/heart.tscn" id="14_07gut"]
 [ext_resource type="PackedScene" uid="uid://cejrxyawsm1je" path="res://content/scene/world/entity/box_entity/wood_box/wood_box.tscn" id="16_shtu1"]
 [ext_resource type="PackedScene" uid="uid://dqhs1dg0qxq5o" path="res://content/scene/world/entity/fragile_wall/fragile_wall.tscn" id="17_4n3e3"]
 [ext_resource type="PackedScene" uid="uid://2f3ervqaebt2" path="res://content/scene/world/character/enemy/sprint_enemy/sprint_enemy.tscn" id="22_ibdet"]
@@ -115,15 +114,6 @@ shoot_direction = Vector2(0, -1)
 auto_shoot = true
 auto_shoot_interval = 2.0
 
-[node name="SpikeFloor" parent="Level1" unique_id=305443112 instance=ExtResource("13_0r6q7")]
-position = Vector2(1080, 520)
-
-[node name="Heart" parent="Level1" unique_id=289509822 instance=ExtResource("14_07gut")]
-position = Vector2(1000, 200)
-
-[node name="Heart2" parent="Level1" unique_id=1892817108 instance=ExtResource("14_07gut")]
-position = Vector2(1160, 200)
-
 [node name="WoodBox" parent="Level1" unique_id=1735990448 instance=ExtResource("16_shtu1")]
 position = Vector2(1720, 200)
 
@@ -176,5 +166,8 @@ position = Vector2(1720, 920)
 money = 114514
 
 [node name="Player" parent="." unique_id=1051908149 instance=ExtResource("2_4jt3r")]
-position = Vector2(1480, 360)
+position = Vector2(160, 200)
 speed = 200.0
+
+[node name="SpikeFloor" parent="." unique_id=744211967 instance=ExtResource("13_0r6q7")]
+position = Vector2(600, 280)

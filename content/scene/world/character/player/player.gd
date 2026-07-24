@@ -6,6 +6,8 @@ signal money_count_changed(value: int)
 signal revive_position_changed(value: Vector2)
 signal max_live_time_changed(value: float)
 
+signal get_hurt
+
 static var instance: Player
 
 @export_group("Data")
@@ -48,8 +50,6 @@ var max_live_time: float:
 		_max_live_time = max(v,0)
 		max_live_time_changed.emit(_max_live_time)
 
-var facing_direction: Vector2 = Vector2.RIGHT
-
 var saved_max_health: AutoSerializeInt
 var saved_money_count: AutoSerializeInt
 var saved_key_count: AutoSerializeInt
@@ -79,9 +79,6 @@ func gain_live_time(value: float) -> void:
 func _ready() -> void:
 	instance = self
 	
-	player_controller.facing_direction_changed.connect(
-		func(v): facing_direction = v
-	)
 	live_timer.timeout.connect(
 		func(): take_health_damage(9999)
 	)
@@ -134,11 +131,6 @@ func _ready() -> void:
 	live_timer.start(max_live_time)
 
 
-func _physics_process(_delta: float) -> void:
-	velocity = player_controller.move_direction * speed
-	move_and_slide()
-
-
 func _on_hit_box_area_entered(area: Area2D) -> void:
 	var item: Entity = area.get_parent() as Entity
 	if item: item.on_touched_by_player(self)
@@ -151,8 +143,13 @@ func _on_hit_box_body_entered(body: Node2D) -> void:
 
 func _on_sword_hitbox_body_entered(body: Node2D) -> void:
 	var item: Entity = body.get_parent() as Entity
-	if item: item.on_hit_by_sword(facing_direction, self)
+	if item: item.on_hit_by_sword(player_controller.facing_direction, self)
 	
 	var enemy: Enemy = body as Enemy
 	if enemy:
 		enemy.take_health_damage(melee_damage)
+
+
+func take_health_damage(amount: int) -> void:
+	super.take_health_damage(amount)
+	get_hurt.emit()
