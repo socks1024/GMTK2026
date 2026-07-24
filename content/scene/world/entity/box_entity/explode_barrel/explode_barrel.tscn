@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://dgp2jscnhoq25" path="res://content/scene/world/entity/box_entity/explode_barrel/explode_barrel.gd" id="1_7xgj4"]
 [ext_resource type="Texture2D" uid="uid://bfnoqn7irw1l1" path="res://content/art/sprite/magika/Item.png" id="2_5suxp"]
-[ext_resource type="PackedScene" uid="uid://drhubgdeg3ekc" path="res://content/scene/world/magic/explosion/explosion.tscn" id="3_5suxp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_244ww"]
 atlas = ExtResource("2_5suxp")
@@ -25,7 +24,3 @@ sync_to_physics = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D" unique_id=485357244]
 shape = SubResource("RectangleShape2D_vkqoe")
-
-[node name="Explosion" parent="." unique_id=1468624871 instance=ExtResource("3_5suxp")]
-
-[connection signal="explode_finished" from="Explosion" to="." method="destroy"]

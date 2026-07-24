@@ -4,9 +4,48 @@
 [ext_resource type="PackedScene" uid="uid://cnatycbh2lybr" path="res://content/scene/world/magic/magic_missile/magic_missile.tscn" id="2_p6wlh"]
 [ext_resource type="Texture2D" uid="uid://bfnoqn7irw1l1" path="res://content/art/sprite/magika/Item.png" id="3_jsw0v"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dcnw5"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_fpuko"]
 atlas = ExtResource("3_jsw0v")
 region = Rect2(64, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ib3bd"]
+atlas = ExtResource("3_jsw0v")
+region = Rect2(80, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nj7hj"]
+atlas = ExtResource("3_jsw0v")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u1qt3"]
+atlas = ExtResource("3_jsw0v")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7tml3"]
+atlas = ExtResource("3_jsw0v")
+region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vkqoe"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fpuko")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ib3bd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nj7hj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u1qt3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7tml3")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vkqoe"]
 size = Vector2(80, 80)
@@ -14,12 +53,11 @@ size = Vector2(80, 80)
 [node name="MissileShooter" type="Node2D" unique_id=1556116169]
 script = ExtResource("1_5xs2h")
 p_missile = ExtResource("2_p6wlh")
-shoot_offset = 60.0
 
-[node name="Sprite" type="Sprite2D" parent="." unique_id=1914353797]
-rotation = 1.5707964
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=37870177]
 scale = Vector2(5, 5)
-texture = SubResource("AtlasTexture_dcnw5")
+sprite_frames = SubResource("SpriteFrames_vkqoe")
+frame_progress = 0.12600537
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="." unique_id=1061757544]
 collision_layer = 128

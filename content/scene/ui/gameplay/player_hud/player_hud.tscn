@@ -1,8 +1,11 @@
 [gd_scene format=3 uid="uid://mkdqv2iywvoy"]
 
 [ext_resource type="Script" uid="uid://c6yifr5w5myjv" path="res://content/scene/ui/gameplay/player_hud/player_hud.gd" id="1_07tnl"]
-[ext_resource type="PackedScene" uid="uid://bkqi4nluf1v2n" path="res://content/scene/ui/common/progress_baar/feel_progress_bar.tscn" id="2_w43ji"]
-[ext_resource type="Texture2D" uid="uid://ceakdbvybs0ge" path="res://content/art/sprite/2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png" id="3_w43ji"]
+[ext_resource type="Texture2D" uid="uid://oq5rfyxdgay3" path="res://content/art/sprite/magika/portrait.png" id="2_th7c1"]
+[ext_resource type="Texture2D" uid="uid://pyg57akdeyed" path="res://content/art/sprite/magika/health.png" id="3_th7c1"]
+[ext_resource type="Script" uid="uid://pxcfqpfaxch5" path="res://content/scene/ui/gameplay/player_hud/health_bar.gd" id="3_xcwb2"]
+[ext_resource type="Texture2D" uid="uid://bfnoqn7irw1l1" path="res://content/art/sprite/magika/Item.png" id="4_th7c1"]
+[ext_resource type="Script" uid="uid://cxn4jpcoexqma" path="res://content/scene/ui/gameplay/player_hud/key_bar.gd" id="5_01qjh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w43ji"]
 bg_color = Color(0.0627451, 0.0627451, 0.0627451, 0.8)
@@ -12,15 +15,47 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 corner_detail = 1
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vkqoe"]
-atlas = ExtResource("3_w43ji")
-region = Rect2(96, 128, 16, 16)
+[sub_resource type="LabelSettings" id="LabelSettings_tlavv"]
+font_size = 32
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xcwb2"]
+atlas = ExtResource("3_th7c1")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_01qjh"]
+atlas = ExtResource("3_th7c1")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8u8kk"]
+load_path = "res://.godot/imported/health.png-742b3a04feca5ed20d2e09b60413aa43.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w60hw"]
+atlas = SubResource("CompressedTexture2D_8u8kk")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ho745"]
+load_path = "res://.godot/imported/health.png-742b3a04feca5ed20d2e09b60413aa43.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6apup"]
+atlas = SubResource("CompressedTexture2D_ho745")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_dtjl5"]
+load_path = "res://.godot/imported/health.png-742b3a04feca5ed20d2e09b60413aa43.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m652i"]
+atlas = SubResource("CompressedTexture2D_dtjl5")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_co6qv"]
+atlas = ExtResource("3_th7c1")
+region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_th7c1"]
-atlas = ExtResource("3_w43ji")
-region = Rect2(128, 128, 16, 16)
+atlas = ExtResource("4_th7c1")
+region = Rect2(80, 48, 16, 16)
 
-[node name="PlayerHud" type="Control" unique_id=40743865 node_paths=PackedStringArray("health_progress_bar", "health_value", "max_health_value", "key_count", "money_count", "focus_target")]
+[node name="PlayerHud" type="Control" unique_id=40743865 node_paths=PackedStringArray("hearts", "keys", "focus_target")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -28,11 +63,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_07tnl")
-health_progress_bar = NodePath("MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Health/FeelProgressBar")
-health_value = NodePath("MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Health/FeelProgressBar/HBoxContainer/Value")
-max_health_value = NodePath("MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Health/FeelProgressBar/HBoxContainer/MaxValue")
-key_count = NodePath("MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/KeyCount/Label")
-money_count = NodePath("MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/MoneyCount/Label")
+hearts = NodePath("MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/Hearts")
+keys = NodePath("MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/Keys")
 back_action_enabled = false
 focus_target = NodePath(".")
 
@@ -56,99 +88,112 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer" unique_id=621884316]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer" unique_id=354206968]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Countdown" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer" unique_id=777931194]
+layout_mode = 2
+text = "03:20"
+label_settings = SubResource("LabelSettings_tlavv")
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer" unique_id=1919850180]
+layout_mode = 2
+texture = ExtResource("2_th7c1")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer" unique_id=621884316]
 layout_mode = 2
 
-[node name="Health" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1846641596]
+[node name="Hearts" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1846641596]
+custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
+theme_override_constants/separation = 6
+script = ExtResource("3_xcwb2")
+heart_textures = Array[Texture2D]([SubResource("AtlasTexture_xcwb2"), SubResource("AtlasTexture_01qjh"), SubResource("AtlasTexture_w60hw"), SubResource("AtlasTexture_6apup"), SubResource("AtlasTexture_m652i")])
 
-[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Health" unique_id=1800278375]
+[node name="Heart" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/Hearts" unique_id=201380539]
+self_modulate = Color(0.9628115, 0, 0.19793195, 1)
+layout_mode = 2
+texture = SubResource("AtlasTexture_co6qv")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Heart2" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/Hearts" unique_id=92050922]
+self_modulate = Color(0.9628115, 0, 0.19793195, 1)
+layout_mode = 2
+texture = SubResource("AtlasTexture_co6qv")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Heart3" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/Hearts" unique_id=95292923]
+self_modulate = Color(0.9628115, 0, 0.19793195, 1)
+layout_mode = 2
+texture = SubResource("AtlasTexture_co6qv")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Heart4" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/Hearts" unique_id=1404687729]
 visible = false
+self_modulate = Color(0.9628115, 0, 0.19793195, 1)
 layout_mode = 2
-text = "生命值"
+texture = SubResource("AtlasTexture_co6qv")
+expand_mode = 2
+stretch_mode = 4
 
-[node name="FeelProgressBar" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Health" unique_id=215658329 instance=ExtResource("2_w43ji")]
-custom_minimum_size = Vector2(240, 20)
-layout_mode = 2
-bar_color = Color(0.85784197, 0.24931026, 0.18138245, 1)
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Health/FeelProgressBar" unique_id=152375261]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-alignment = 1
-
-[node name="Value" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Health/FeelProgressBar/HBoxContainer" unique_id=194400999]
-layout_mode = 2
-text = "12"
-
-[node name="Slash" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Health/FeelProgressBar/HBoxContainer" unique_id=1099186519]
-layout_mode = 2
-text = "/"
-
-[node name="MaxValue" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Health/FeelProgressBar/HBoxContainer" unique_id=409633507]
-layout_mode = 2
-text = "12"
-
-[node name="Magic" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1574141798]
+[node name="Heart5" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/Hearts" unique_id=179517189]
 visible = false
+self_modulate = Color(0.9628115, 0, 0.19793195, 1)
 layout_mode = 2
+texture = SubResource("AtlasTexture_co6qv")
+expand_mode = 2
+stretch_mode = 4
 
-[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Magic" unique_id=17912599]
+[node name="Heart6" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/Hearts" unique_id=104236030]
+visible = false
+self_modulate = Color(0.9628115, 0, 0.19793195, 1)
 layout_mode = 2
-text = "献祭值"
+texture = SubResource("AtlasTexture_co6qv")
+expand_mode = 2
+stretch_mode = 4
 
-[node name="FeelProgressBar" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Magic" unique_id=1371102649 instance=ExtResource("2_w43ji")]
+[node name="Keys" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1137983195]
 layout_mode = 2
-bar_color = Color(0.80112565, 0.0011895996, 0.89772606, 1)
+script = ExtResource("5_01qjh")
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Magic/FeelProgressBar" unique_id=1804281203]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-alignment = 1
-
-[node name="Value" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Magic/FeelProgressBar/HBoxContainer2" unique_id=1567746341]
-layout_mode = 2
-text = "9"
-
-[node name="Slash" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Magic/FeelProgressBar/HBoxContainer2" unique_id=860195280]
-layout_mode = 2
-text = "/"
-
-[node name="MaxValue" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Magic/FeelProgressBar/HBoxContainer2" unique_id=479617348]
-layout_mode = 2
-text = "9"
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=47613519]
-layout_mode = 2
-
-[node name="MoneyCount" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1253088673]
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/MoneyCount" unique_id=1505172413]
-custom_minimum_size = Vector2(32, 32)
-layout_mode = 2
-texture = SubResource("AtlasTexture_vkqoe")
-
-[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/MoneyCount" unique_id=623785894]
-layout_mode = 2
-text = "0"
-
-[node name="KeyCount" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1137983195]
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/KeyCount" unique_id=97307085]
-custom_minimum_size = Vector2(32, 32)
+[node name="Key" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/Keys" unique_id=97307085]
+visible = false
+custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 texture = SubResource("AtlasTexture_th7c1")
 
-[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/KeyCount" unique_id=1592091158]
+[node name="Key2" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/Keys" unique_id=300336188]
+visible = false
+custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
-text = "0"
+texture = SubResource("AtlasTexture_th7c1")
+
+[node name="Key3" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/Keys" unique_id=1706133705]
+visible = false
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = SubResource("AtlasTexture_th7c1")
+
+[node name="Key4" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/Keys" unique_id=2096342846]
+visible = false
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = SubResource("AtlasTexture_th7c1")
+
+[node name="Key5" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/Keys" unique_id=1910535023]
+visible = false
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = SubResource("AtlasTexture_th7c1")
+
+[node name="Key6" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/Keys" unique_id=2103265015]
+visible = false
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = SubResource("AtlasTexture_th7c1")

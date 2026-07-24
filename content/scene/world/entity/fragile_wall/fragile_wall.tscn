@@ -1,17 +1,17 @@
-[gd_scene format=3 uid="uid://dayl62ethbi41"]
+[gd_scene format=3 uid="uid://dqhs1dg0qxq5o"]
 
-[ext_resource type="Script" uid="uid://bdbwiwr6ljhek" path="res://content/scene/world/entity/door/door.gd" id="1_jtis2"]
-[ext_resource type="Texture2D" uid="uid://bsdit608hsfnr" path="res://content/art/sprite/magika/WallAndGround.png" id="2_toyte"]
+[ext_resource type="Script" uid="uid://blb26laacxfn7" path="res://content/scene/world/entity/fragile_wall/fragile_wall.gd" id="1_v23r3"]
+[ext_resource type="Texture2D" uid="uid://bsdit608hsfnr" path="res://content/art/sprite/magika/WallAndGround.png" id="2_vivc6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dcnw5"]
-atlas = ExtResource("2_toyte")
-region = Rect2(0, 16, 16, 16)
+atlas = ExtResource("2_vivc6")
+region = Rect2(32, 0, 16, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vkqoe"]
 size = Vector2(80, 80)
 
-[node name="Door" type="Node2D" unique_id=1556116169]
-script = ExtResource("1_jtis2")
+[node name="FragileWall" type="Node2D" unique_id=1556116169]
+script = ExtResource("1_v23r3")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=1914353797]
 scale = Vector2(5, 5)

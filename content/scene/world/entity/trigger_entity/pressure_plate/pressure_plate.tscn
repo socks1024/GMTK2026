@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://t2v7i82oqewe"]
 
 [ext_resource type="Script" uid="uid://wi8t4ie708yf" path="res://content/scene/world/entity/trigger_entity/pressure_plate/pressure_plate.gd" id="1_v2re7"]
-[ext_resource type="Texture2D" uid="uid://ceakdbvybs0ge" path="res://content/art/sprite/2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png" id="2_vtd1e"]
+[ext_resource type="Texture2D" uid="uid://bfnoqn7irw1l1" path="res://content/art/sprite/magika/Item.png" id="2_nedr0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dcnw5"]
-atlas = ExtResource("2_vtd1e")
-region = Rect2(128, 48, 16, 16)
+atlas = ExtResource("2_nedr0")
+region = Rect2(64, 32, 16, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vkqoe"]
 size = Vector2(70, 70)

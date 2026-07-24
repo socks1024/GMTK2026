@@ -5,6 +5,8 @@ extends Node
 @export var player: Player
 @export var player_controller: PlayerController
 @export var animated_sprite_2d: AnimatedSprite2D
+@export var p_missile: PackedScene
+@export var p_explosion: PackedScene
 
 @export_group("CollisionShapes")
 @export var left_sword_hitbox: CollisionShape2D
@@ -16,10 +18,16 @@ extends Node
 
 func _ready() -> void:
 	player_controller.attack_power_input.power_completed.connect(
-		func(t): if t < 0.5: sword_attack()
+		func(t): if t < 0.5: _travel_to_animation("Attack")
 	)
 	player_controller.attack_power_input.power_completed.connect(
 		func(t): if t > 0.5: missile_launch()
+	)
+	player_controller.spell_1_power_input.power_completed.connect(
+		func(t): missile_launch()
+	)
+	player_controller.spell_2_power_input.power_completed.connect(
+		func(t): self_explode()
 	)
 
 
@@ -45,12 +53,19 @@ func set_sword_hitbox(enable: bool) -> void:
 			right_sword_hitbox.disabled = !enable
 
 
-func sword_attack():
-	_travel_to_animation("Attack")
-
-
 func missile_launch():
-	pass
+	var missile: MagicMissile = p_missile.instantiate()
+	missile.damage = 4
+	missile.speed = 300
+	get_tree().current_scene.add_child(missile)
+	missile.global_position = player.position + player.facing_direction * 80
+	missile.look_at(player.position + player.facing_direction * 80 * 2)
+
+
+func self_explode():
+	var explosion: Explosion = p_explosion.instantiate()
+	player.add_child(explosion)
+	explosion.trigger_explosion.call_deferred()
 
 
 func _travel_to_animation(anim_name: String):

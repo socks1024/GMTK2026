@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://hrswpvjhduc7"]
 
 [ext_resource type="Script" uid="uid://5bmslvk745ik" path="res://content/scene/world/entity/teleport_entity/hole/hole.gd" id="1_qs0rd"]
-[ext_resource type="Texture2D" uid="uid://ceakdbvybs0ge" path="res://content/art/sprite/2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png" id="2_m0c3u"]
+[ext_resource type="Texture2D" uid="uid://bsdit608hsfnr" path="res://content/art/sprite/magika/WallAndGround.png" id="2_iomjj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t0815"]
-atlas = ExtResource("2_m0c3u")
-region = Rect2(128, 112, 16, 16)
+atlas = ExtResource("2_iomjj")
+region = Rect2(32, 32, 16, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b7gns"]
 size = Vector2(60, 60)

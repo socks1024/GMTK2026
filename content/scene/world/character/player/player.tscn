@@ -10,6 +10,8 @@
 [ext_resource type="Resource" uid="uid://d23w4yctnt6xy" path="res://content/data/input/guide/player/actions/level/evade.tres" id="7_xmv0y"]
 [ext_resource type="Resource" uid="uid://dhrrne3tqbf7g" path="res://content/data/input/guide/player/actions/level/spell_first.tres" id="8_ki48b"]
 [ext_resource type="Resource" uid="uid://dl7nwui2sjiw6" path="res://content/data/input/guide/player/actions/level/spell_second.tres" id="9_822h6"]
+[ext_resource type="PackedScene" uid="uid://cnatycbh2lybr" path="res://content/scene/world/magic/magic_missile/magic_missile.tscn" id="12_b250j"]
+[ext_resource type="PackedScene" uid="uid://drhubgdeg3ekc" path="res://content/scene/world/magic/explosion/explosion.tscn" id="13_cxflr"]
 [ext_resource type="Script" uid="uid://bss2rdtqssvja" path="res://content/scene/world/character/player/logic/player_animator.gd" id="16_4ivt4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_go70w"]
@@ -931,6 +933,8 @@ player_hud = ExtResource("5_kqb8u")
 position = Vector2(0, 5)
 shape = SubResource("RectangleShape2D_go70w")
 
+[node name="LiveTimer" type="Timer" parent="." unique_id=1297085917]
+
 [node name="SwordHitbox" type="Area2D" parent="." unique_id=1163223206]
 collision_layer = 8
 collision_mask = 190
@@ -991,6 +995,8 @@ animation_tree = NodePath("../AnimationTree")
 player = NodePath("..")
 player_controller = NodePath("../PlayerController")
 animated_sprite_2d = NodePath("../AnimatedSprite2D")
+p_missile = ExtResource("12_b250j")
+p_explosion = ExtResource("13_cxflr")
 left_sword_hitbox = NodePath("../SwordHitbox/LeftCollisionShape2D")
 right_sword_hitbox = NodePath("../SwordHitbox/RightCollisionShape2D")
 down_sword_hitbox = NodePath("../SwordHitbox/DownCollisionShape2D")

@@ -218,7 +218,7 @@ metadata/_guide_input_mappings_collapsed = true
 
 [sub_resource type="Resource" id="Resource_vrt48"]
 script = ExtResource("5_qjtor")
-key = 85
+key = 73
 
 [sub_resource type="Resource" id="Resource_fy5ua"]
 script = ExtResource("3_317tt")
@@ -236,7 +236,7 @@ input = SubResource("Resource_07ucr")
 script = ExtResource("1_fsfam")
 action = ExtResource("17_j3731")
 input_mappings = Array[ExtResource("3_317tt")]([SubResource("Resource_fy5ua"), SubResource("Resource_b0hhu")])
-metadata/_guide_input_mappings_collapsed = true
+metadata/_guide_input_mappings_collapsed = false
 
 [resource]
 script = ExtResource("2_baj0l")

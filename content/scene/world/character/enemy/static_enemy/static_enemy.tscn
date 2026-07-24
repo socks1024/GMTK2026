@@ -1,29 +1,61 @@
 [gd_scene format=3 uid="uid://bsrjiqqiexeoq"]
 
 [ext_resource type="Script" uid="uid://y1yqnwmkmfue" path="res://content/scene/world/character/enemy/static_enemy/static_enemy.gd" id="1_d4wip"]
-[ext_resource type="Texture2D" uid="uid://ceakdbvybs0ge" path="res://content/art/sprite/2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png" id="1_uquw0"]
+[ext_resource type="Texture2D" uid="uid://svqidkvsgmon" path="res://content/art/sprite/magika/monster.png" id="2_0d7qq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vkqoe"]
 size = Vector2(70, 70)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_co6qv"]
-atlas = ExtResource("1_uquw0")
-region = Rect2(112, 112, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ch15"]
+atlas = ExtResource("2_0d7qq")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1jy6j"]
+atlas = ExtResource("2_0d7qq")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t5a4o"]
+atlas = ExtResource("2_0d7qq")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m3qf2"]
+atlas = ExtResource("2_0d7qq")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vkqoe"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ch15")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1jy6j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t5a4o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m3qf2")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 12.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_co6qv"]
 size = Vector2(80, 80)
 
 [node name="StaticEnemy" type="CharacterBody2D" unique_id=1453818196]
 collision_layer = 32
-collision_mask = 59
+collision_mask = 251
 script = ExtResource("1_d4wip")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=542205899]
 shape = SubResource("RectangleShape2D_vkqoe")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=545519280]
-scale = Vector2(5, 5)
-texture = SubResource("AtlasTexture_co6qv")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=2130350534]
+scale = Vector2(2.5, 2.5)
+sprite_frames = SubResource("SpriteFrames_vkqoe")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=657210750]
 

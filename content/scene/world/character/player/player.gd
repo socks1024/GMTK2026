@@ -3,13 +3,15 @@ extends Character
 
 signal key_count_changed(value: int)
 signal money_count_changed(value: int)
-signal revive_position_changed(pos: Vector2)
+signal revive_position_changed(value: Vector2)
+signal max_live_time_changed(value: float)
 
 static var instance: Player
 
 @export_group("Data")
 @export var speed: float = 100
 @export var melee_damage: int = 4
+@export var default_max_live_time = 30
 
 @export_group("Ref")
 @export var player_hud: PackedScene
@@ -38,14 +40,24 @@ var revive_position: Vector2:
 		_revive_position = v
 		revive_position_changed.emit(_revive_position)
 
+var _max_live_time: float = 0
+var max_live_time: float:
+	get():
+		return _max_live_time
+	set(v):
+		_max_live_time = max(v,0)
+		max_live_time_changed.emit(_max_live_time)
+
 var facing_direction: Vector2 = Vector2.RIGHT
 
 var saved_max_health: AutoSerializeInt
 var saved_money_count: AutoSerializeInt
 var saved_key_count: AutoSerializeInt
 var saved_revive_position: AutoSerializeVector2
+var saved_max_live_time: AutoSerializeFloat
 
 @onready var player_controller: PlayerController = $PlayerController
+@onready var live_timer: Timer = $LiveTimer
 
 
 static func quick_get_player() -> Player:
@@ -55,6 +67,12 @@ static func quick_get_player() -> Player:
 func on_player_dead() -> void:
 	global_position = revive_position
 	health = max_health
+	live_timer.start(max_live_time)
+
+
+func gain_live_time(value: float) -> void:
+	max_live_time += value
+	live_timer.start(live_timer.time_left + value)
 
 
 # Called when the node enters the scene tree for the first time.
@@ -63,6 +81,9 @@ func _ready() -> void:
 	
 	player_controller.facing_direction_changed.connect(
 		func(v): facing_direction = v
+	)
+	live_timer.timeout.connect(
+		func(): take_health_damage(9999)
 	)
 	
 	character_dead.connect(on_player_dead)
@@ -85,6 +106,10 @@ func _ready() -> void:
 	saved_money_count = AutoSerializeInt.new("Player","MoneyCount",0,tree_exited)
 	money_count = saved_money_count.value
 	money_count_changed.connect(func(v):saved_money_count.value = v)
+	
+	saved_max_live_time = AutoSerializeFloat.new("Player","MaxLiveTime",default_max_live_time,tree_exited)
+	max_live_time = saved_max_live_time.value
+	max_live_time_changed.connect(func(v):saved_max_live_time.value = v)
 	#endregion
 	
 	#region Command
@@ -106,7 +131,7 @@ func _ready() -> void:
 		.info("gain health by given amount.")
 	#endregion
 	
-
+	live_timer.start(max_live_time)
 
 
 func _physics_process(_delta: float) -> void:

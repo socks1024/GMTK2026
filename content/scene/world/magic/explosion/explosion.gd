@@ -7,7 +7,7 @@ var radius: float = 80
 var damage: int = 4
 var duration: float = 0.5
 
-@onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var sprite_2d: AnimatedSprite2D = $Sprite2D
 @onready var collision_shape_2d: CollisionShape2D = $Area2D/CollisionShape2D
 @onready var timer: Timer = $Timer
 
@@ -22,18 +22,15 @@ func trigger_explosion(rad: float = 80, dam: int = 4, dur: float = 0.5) -> void:
 	
 	sprite_2d.scale = Vector2.ONE * radius / 16
 	collision_shape_2d.shape.radius = radius
-	sprite_2d.show()
-	collision_shape_2d.disabled = false
 	
 	timer.start(duration)
 	_is_exploding = true
 
 
 func on_explosion_finished() -> void:
-	sprite_2d.hide()
-	collision_shape_2d.disabled = true
 	_is_exploding = false
 	explode_finished.emit()
+	queue_free()
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:

@@ -7,6 +7,12 @@ extends Entity
 
 var is_pushing: bool = false
 var push_tween: Tween
+var default_pos: Vector2
+
+
+func _ready() -> void:
+	default_pos = global_position
+
 
 func push_box(direction: Vector2) -> void:
 	if is_pushing: return
@@ -33,4 +39,17 @@ func can_push_to(target_pos: Vector2) -> bool:
 
 
 func destroy() -> void:
-	pass
+	for n in NodeUtils.recursive_get_children(self, true):
+		if n is CollisionShape2D:
+			n.disabled = true
+		if n is Sprite2D or n is AnimatedSprite2D:
+			n.hide()
+
+
+func reset() -> void:
+	position = global_position
+	for n in NodeUtils.recursive_get_children(self, true):
+		if n is CollisionShape2D:
+			n.disabled = false
+		if n is Sprite2D or n is AnimatedSprite2D:
+			n.show()

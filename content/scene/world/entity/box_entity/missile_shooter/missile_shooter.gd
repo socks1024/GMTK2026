@@ -13,8 +13,7 @@ extends Box
 @export var auto_shoot_interval: float = 4
 @export var shoot_trigger: Trigger
 
-@onready var sprite: Sprite2D = $Sprite
-@onready var collision_shape_2d: CollisionShape2D = $StaticBody2D/CollisionShape2D
+@onready var sprite: AnimatedSprite2D = $Sprite
 @onready var timer: Timer = $Timer
 
 # Called when the node enters the scene tree for the first time.
@@ -28,6 +27,10 @@ func _ready() -> void:
 				if b: start_shoot()
 				else: stop_shoot()
 		)
+	
+	sprite.look_at(position + shoot_direction * 100)
+	sprite.rotate(deg_to_rad(90))
+	sprite.play()
 	
 	if auto_shoot:
 		start_shoot()
@@ -61,3 +64,12 @@ func on_hit_by_explosion(direction: Vector2) -> void:
 
 func on_hit_by_fireball(direction: Vector2) -> void:
 	push_box(direction)
+
+
+func on_player_enter_room() -> void:
+	super.on_player_enter_room()
+	start_shoot()
+
+func on_player_leave_room() -> void:
+	super.on_player_leave_room()
+	stop_shoot()

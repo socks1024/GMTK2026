@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://2f3ervqaebt2"]
+
+[ext_resource type="Script" uid="uid://cpm1jwc2af4rc" path="res://content/scene/world/character/enemy/sprint_enemy/sprint_enemy.gd" id="1_2n8nw"]
+[ext_resource type="Texture2D" uid="uid://svqidkvsgmon" path="res://content/art/sprite/magika/monster.png" id="2_yylcf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vkqoe"]
+size = Vector2(70, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i3enw"]
+atlas = ExtResource("2_yylcf")
+region = Rect2(160, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xh3fj"]
+atlas = ExtResource("2_yylcf")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j814g"]
+atlas = ExtResource("2_yylcf")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hr0ef"]
+atlas = ExtResource("2_yylcf")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vkqoe"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i3enw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xh3fj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j814g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hr0ef")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_co6qv"]
+size = Vector2(80, 80)
+
+[node name="SprintEnemy" type="CharacterBody2D" unique_id=1453818196]
+collision_layer = 32
+collision_mask = 251
+script = ExtResource("1_2n8nw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=542205899]
+shape = SubResource("RectangleShape2D_vkqoe")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2130350534]
+scale = Vector2(2.5, 2.5)
+sprite_frames = SubResource("SpriteFrames_vkqoe")
+frame_progress = 0.58939266
+
+[node name="Area2D" type="Area2D" parent="." unique_id=657210750]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1556289908]
+shape = SubResource("RectangleShape2D_co6qv")
+
+[node name="DownRayCast2D" type="RayCast2D" parent="." unique_id=678415435]
+target_position = Vector2(0, 400)
+collision_mask = 161
+
+[node name="LeftRayCast2D" type="RayCast2D" parent="." unique_id=778552444]
+target_position = Vector2(-400, 0)
+collision_mask = 161
+
+[node name="RightRayCast2D" type="RayCast2D" parent="." unique_id=1061285499]
+target_position = Vector2(400, 0)
+collision_mask = 161
+
+[node name="UpRayCast2D" type="RayCast2D" parent="." unique_id=711507262]
+target_position = Vector2(0, -400)
+collision_mask = 161
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_hitbox_body_enter"]

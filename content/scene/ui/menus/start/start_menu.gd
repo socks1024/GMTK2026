@@ -6,7 +6,7 @@ signal continue_clicked
 @export var settings_menu_packed: PackedScene
 @export var credits_menu_packed: PackedScene
 
-@onready var continue_button: CommonButton = $Panel/VBoxContainer/Buttons/Continue
+@export var continue_button: CommonButton
 
 
 func _ready() -> void:

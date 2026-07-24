@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://ibutqbq3jafq"]
 
 [ext_resource type="Script" uid="uid://ckhpuu0ueekfx" path="res://content/scene/world/entity/altar/altar.gd" id="1_q7iqq"]
-[ext_resource type="Texture2D" uid="uid://ceakdbvybs0ge" path="res://content/art/sprite/2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png" id="2_wa8gw"]
+[ext_resource type="Texture2D" uid="uid://bfnoqn7irw1l1" path="res://content/art/sprite/magika/Item.png" id="2_ryclu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dcnw5"]
-atlas = ExtResource("2_wa8gw")
-region = Rect2(48, 144, 16, 16)
+atlas = ExtResource("2_ryclu")
+region = Rect2(64, 48, 16, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vkqoe"]
 size = Vector2(80, 80)
