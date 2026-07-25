@@ -14,7 +14,6 @@ size = Vector2(60, 60)
 script = ExtResource("1_7jggj")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1049853355]
-self_modulate = Color(1, 1, 0, 1)
 scale = Vector2(5, 5)
 texture = SubResource("AtlasTexture_fx883")
 

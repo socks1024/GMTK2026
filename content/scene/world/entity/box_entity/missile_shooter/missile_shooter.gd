@@ -1,15 +1,15 @@
 class_name MissileShooter
 extends Box
 
-@export_group("Missile")
+@export_category("Missile")
 @export var p_missile: PackedScene
 @export var missile_speed: float = 300
 @export var missile_damage: int = 4
 
-@export_group("Shoot")
+@export_category("Shoot")
 @export var shoot_offset: float = 80
-@export var shoot_direction: Vector2 = Vector2.RIGHT
-@export var auto_shoot: bool = false
+@export var shoot_direction: Vector2 = Vector2.UP
+@export var auto_shoot: bool = true
 @export var auto_shoot_interval: float = 4
 @export var shoot_trigger: Trigger
 
@@ -18,22 +18,21 @@ extends Box
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	super._ready()
 	timer.timeout.connect(shoot)
 	timer.wait_time = auto_shoot_interval
 	
 	if shoot_trigger:
+		modulate = shoot_trigger.trigger_color
 		shoot_trigger.trigger_switched.connect(
 			func(b):
 				if b: start_shoot()
 				else: stop_shoot()
 		)
 	
-	sprite.look_at(position + shoot_direction * 100)
-	sprite.rotate(deg_to_rad(90))
+	sprite.look_at(global_position + shoot_direction * 100)
+	sprite.rotate(PI/2)
 	sprite.play()
-	
-	if auto_shoot:
-		start_shoot()
 
 
 func start_shoot() -> void:
@@ -50,8 +49,8 @@ func shoot() -> void:
 	missile.damage = missile_damage
 	missile.speed = missile_speed
 	get_tree().current_scene.add_child(missile)
-	missile.global_position = position + shoot_direction * shoot_offset
-	missile.look_at(position + shoot_direction * shoot_offset * 2)
+	missile.global_position = global_position + shoot_direction * shoot_offset
+	missile.look_at(global_position + shoot_direction * shoot_offset * 2)
 
 
 func on_hit_by_sword(direction: Vector2, player: Player) -> void:
@@ -68,7 +67,8 @@ func on_hit_by_fireball(direction: Vector2) -> void:
 
 func on_player_enter_room() -> void:
 	super.on_player_enter_room()
-	start_shoot()
+	if auto_shoot:
+		start_shoot()
 
 func on_player_leave_room() -> void:
 	super.on_player_leave_room()

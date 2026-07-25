@@ -11,10 +11,10 @@ region = Rect2(0, 16, 16, 16)
 size = Vector2(80, 80)
 
 [node name="MechanicDoor" type="Node2D" unique_id=1556116169]
+modulate = Color(0, 1, 1, 1)
 script = ExtResource("1_5gixe")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=1914353797]
-self_modulate = Color(0, 1, 1, 1)
 scale = Vector2(5, 5)
 texture = SubResource("AtlasTexture_dcnw5")
 

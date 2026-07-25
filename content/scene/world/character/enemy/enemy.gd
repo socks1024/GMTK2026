@@ -16,7 +16,8 @@ func _ready() -> void:
 func _on_hitbox_body_enter(body: Node2D) -> void:
 	if body is Player:
 		var player: Player = body as Player
-		player.take_common_damage(touch_damage)
+		#player.take_health_damage(touch_damage, (player.global_position - self.global_position).normalized())
+		player.take_health_damage(touch_damage)
 
 
 func reset() -> void:

@@ -29,14 +29,19 @@ func _physics_process(delta: float) -> void:
 	if _is_player_in_room:
 		if _is_shooting:
 			return
-		if down_ray_cast_2d.is_colliding():
+		if is_valid_collider(down_ray_cast_2d):
 			shoot.call_deferred(Vector2.DOWN)
-		if left_ray_cast_2d.is_colliding():
+		if is_valid_collider(left_ray_cast_2d):
 			shoot.call_deferred(Vector2.LEFT)
-		if right_ray_cast_2d.is_colliding():
+		if is_valid_collider(right_ray_cast_2d):
 			shoot.call_deferred(Vector2.RIGHT)
-		if up_ray_cast_2d.is_colliding():
+		if is_valid_collider(up_ray_cast_2d):
 			shoot.call_deferred(Vector2.UP)
+
+
+func is_valid_collider(raycast: RayCast2D) -> bool:
+	var collider = raycast.get_collider()
+	return collider && (collider is Character || collider.get_parent() is Entity)
 
 
 func shoot(shoot_direction: Vector2) -> void:
@@ -44,8 +49,8 @@ func shoot(shoot_direction: Vector2) -> void:
 	missile.damage = missile_damage
 	missile.speed = missile_speed
 	get_tree().current_scene.add_child(missile)
-	missile.global_position = position + shoot_direction * shoot_offset
-	missile.look_at(position + shoot_direction * shoot_offset * 2)
+	missile.global_position = global_position + shoot_direction * shoot_offset
+	missile.look_at(global_position + shoot_direction * shoot_offset * 2)
 	timer.start(shoot_interval)
 	_is_shooting = true
 

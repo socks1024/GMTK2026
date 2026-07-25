@@ -15,8 +15,9 @@ static var instance: Player
 @export var melee_damage: int = 4
 @export var default_max_live_time = 30
 
-@export_group("Ref")
+@export_group("Others")
 @export var player_hud: PackedScene
+@export var invincible: bool = false
 
 var _key_count: int = 0
 var key_count: int:
@@ -58,7 +59,6 @@ var saved_max_live_time: AutoSerializeFloat
 
 @onready var player_controller: PlayerController = $PlayerController
 @onready var live_timer: Timer = $LiveTimer
-
 
 static func quick_get_player() -> Player:
 	return instance
@@ -129,9 +129,27 @@ func _ready() -> void:
 	Console.register("gain_health", func(amount:int):health += amount)\
 		.arg("amount", TYPE_INT)\
 		.info("gain health by given amount.")
+	
+	Console.register("gain_live_time", func(amount:float):gain_live_time(amount))\
+		.arg("amount", TYPE_FLOAT)\
+		.info("gain live time by given amount.")
+	
+	Console.register("godmode", func():
+			key_count += 99
+			max_health = 100
+			health = max_health
+			gain_live_time(3600)
+			invincible = true
+			)\
+		.info("GOD MODE!!!")
 	#endregion
 	
 	live_timer.start(max_live_time)
+
+
+func _input(event: InputEvent) -> void:
+	if Input.is_key_pressed(KEY_R):
+		take_health_damage(9999)
 
 
 func _on_hit_box_area_entered(area: Area2D) -> void:
@@ -153,6 +171,12 @@ func _on_sword_hitbox_body_entered(body: Node2D) -> void:
 		enemy.take_health_damage(melee_damage)
 
 
-func take_health_damage(amount: int) -> void:
-	super.take_health_damage(amount)
-	get_hurt.emit()
+func take_health_damage(amount: int, knock_back: Vector2 = Vector2.ZERO) -> void:
+	if !invincible:
+		super.take_health_damage(amount)
+		get_hurt.emit()
+		var push_tween = create_tween()\
+			.set_trans(Tween.TRANS_CUBIC)\
+			.set_ease(Tween.EASE_OUT)\
+			.set_process_mode(Tween.TWEEN_PROCESS_PHYSICS)
+		push_tween.tween_property(self, "global_position", global_position + knock_back * 40, 0.3)

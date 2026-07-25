@@ -50,19 +50,19 @@ shape = SubResource("RectangleShape2D_co6qv")
 
 [node name="DownRayCast2D" type="RayCast2D" parent="." unique_id=678415435]
 target_position = Vector2(0, 400)
-collision_mask = 161
+collision_mask = 163
 
 [node name="LeftRayCast2D" type="RayCast2D" parent="." unique_id=778552444]
 target_position = Vector2(-400, 0)
-collision_mask = 161
+collision_mask = 163
 
 [node name="RightRayCast2D" type="RayCast2D" parent="." unique_id=1061285499]
 target_position = Vector2(400, 0)
-collision_mask = 161
+collision_mask = 163
 
 [node name="UpRayCast2D" type="RayCast2D" parent="." unique_id=711507262]
 target_position = Vector2(0, -400)
-collision_mask = 161
+collision_mask = 163
 
 [node name="Timer" type="Timer" parent="." unique_id=1433615314]
 one_shot = true

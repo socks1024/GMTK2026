@@ -9,6 +9,7 @@ func _ready() -> void:
 	sprite.play()
 
 
-func on_touched_by_player(player: Player) -> void:
-	player.take_health_damage(damage)
-	player.move_and_collide((player.global_position - self.global_position).normalized() * 80)
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body is Player:
+		var player: Player = body as Player
+		player.take_health_damage(damage, (player.global_position - self.global_position).normalized())

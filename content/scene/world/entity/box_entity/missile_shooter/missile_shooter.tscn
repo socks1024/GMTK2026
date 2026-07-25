@@ -48,7 +48,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vkqoe"]
-size = Vector2(80, 80)
+size = Vector2(70, 70)
 
 [node name="MissileShooter" type="Node2D" unique_id=1556116169]
 script = ExtResource("1_5xs2h")

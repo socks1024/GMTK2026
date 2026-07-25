@@ -2,6 +2,25 @@
 
 [ext_resource type="Texture2D" uid="uid://drl15orjiygrk" path="res://content/art/sprite/dungeon_old/dungeon_/dungeon_.png" id="1_4jtkm"]
 [ext_resource type="Texture2D" uid="uid://bsdit608hsfnr" path="res://content/art/sprite/magika/WallAndGround.png" id="2_8eldt"]
+[ext_resource type="PackedScene" uid="uid://ibutqbq3jafq" path="res://content/scene/world/entity/altar/altar.tscn" id="3_r8iek"]
+[ext_resource type="PackedScene" uid="uid://b28cplo5qguxq" path="res://content/scene/world/entity/pickable_entity/key/key.tscn" id="4_eamim"]
+[ext_resource type="PackedScene" uid="uid://csl5xwxdffsfk" path="res://content/scene/world/entity/spike_floor/spike_floor.tscn" id="5_xhnjs"]
+[ext_resource type="PackedScene" uid="uid://hrswpvjhduc7" path="res://content/scene/world/entity/teleport_entity/hole/hole.tscn" id="6_c6ghn"]
+[ext_resource type="PackedScene" uid="uid://cho17x2fn4qh3" path="res://content/scene/world/entity/teleport_entity/ladder/ladder.tscn" id="7_8w4q4"]
+[ext_resource type="PackedScene" uid="uid://dx2co7htn3cui" path="res://content/scene/world/entity/trigger_entity/lever/lever.tscn" id="8_ts72y"]
+[ext_resource type="PackedScene" uid="uid://t2v7i82oqewe" path="res://content/scene/world/entity/trigger_entity/pressure_plate/pressure_plate.tscn" id="9_uihw0"]
+[ext_resource type="PackedScene" uid="uid://dj1nohuk1h77s" path="res://content/scene/world/character/enemy/move_enemy/move_enemy.tscn" id="10_2npb6"]
+[ext_resource type="PackedScene" uid="uid://bf1072lqocq0m" path="res://content/scene/world/character/enemy/shoot_enemy/shoot_enemy.tscn" id="11_w1m1g"]
+[ext_resource type="PackedScene" uid="uid://2f3ervqaebt2" path="res://content/scene/world/character/enemy/sprint_enemy/sprint_enemy.tscn" id="12_8patv"]
+[ext_resource type="PackedScene" uid="uid://bsrjiqqiexeoq" path="res://content/scene/world/character/enemy/static_enemy/static_enemy.tscn" id="13_qwk0v"]
+[ext_resource type="PackedScene" uid="uid://cqv43ckfqh5e8" path="res://content/scene/world/entity/box_entity/explode_barrel/explode_barrel.tscn" id="14_55wfw"]
+[ext_resource type="PackedScene" uid="uid://byamdgyw4hhtj" path="res://content/scene/world/entity/box_entity/missile_shooter/missile_shooter.tscn" id="15_vvrik"]
+[ext_resource type="PackedScene" uid="uid://cejrxyawsm1je" path="res://content/scene/world/entity/box_entity/wood_box/wood_box.tscn" id="16_8uoiq"]
+[ext_resource type="PackedScene" uid="uid://dayl62ethbi41" path="res://content/scene/world/entity/door/door.tscn" id="17_5xrft"]
+[ext_resource type="PackedScene" uid="uid://dqhs1dg0qxq5o" path="res://content/scene/world/entity/fragile_wall/fragile_wall.tscn" id="18_oa8yn"]
+[ext_resource type="PackedScene" uid="uid://bt2kmq76nh8n6" path="res://content/scene/world/entity/mechanic_door/mechanic_door.tscn" id="19_60rdg"]
+[ext_resource type="PackedScene" uid="uid://bdrqv008e5e0s" path="res://content/scene/world/entity/pickable_entity/clock/clock.tscn" id="20_lhhy7"]
+[ext_resource type="PackedScene" uid="uid://cqp010syu714" path="res://content/scene/world/entity/pickable_entity/heart/heart.tscn" id="21_easvp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rlldm"]
 texture = ExtResource("1_4jtkm")
@@ -509,6 +528,27 @@ texture = ExtResource("2_8eldt")
 0:4/0 = 0
 1:4/0 = 0
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_8eldt"]
+scenes/1/scene = ExtResource("3_r8iek")
+scenes/2/scene = ExtResource("14_55wfw")
+scenes/3/scene = ExtResource("15_vvrik")
+scenes/4/scene = ExtResource("16_8uoiq")
+scenes/5/scene = ExtResource("17_5xrft")
+scenes/6/scene = ExtResource("18_oa8yn")
+scenes/7/scene = ExtResource("19_60rdg")
+scenes/8/scene = ExtResource("20_lhhy7")
+scenes/9/scene = ExtResource("21_easvp")
+scenes/10/scene = ExtResource("4_eamim")
+scenes/11/scene = ExtResource("5_xhnjs")
+scenes/12/scene = ExtResource("6_c6ghn")
+scenes/13/scene = ExtResource("7_8w4q4")
+scenes/14/scene = ExtResource("8_ts72y")
+scenes/15/scene = ExtResource("9_uihw0")
+scenes/16/scene = ExtResource("10_2npb6")
+scenes/17/scene = ExtResource("11_w1m1g")
+scenes/18/scene = ExtResource("12_8patv")
+scenes/19/scene = ExtResource("13_qwk0v")
+
 [resource]
 physics_layer_0/collision_layer = 2
 terrain_set_0/mode = 0
@@ -516,3 +556,4 @@ terrain_set_0/terrain_0/name = "Walls"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_rlldm")
 sources/1 = SubResource("TileSetAtlasSource_nvto6")
+sources/2 = SubResource("TileSetScenesCollectionSource_8eldt")

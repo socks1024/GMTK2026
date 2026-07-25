@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cekupg66h8yi6"]
+
+[ext_resource type="Script" uid="uid://cw1f6irdrslf7" path="res://content/scene/world/entity/pickable_entity/heart_container/heart_container.gd" id="1_8e52l"]
+[ext_resource type="Texture2D" uid="uid://bfnoqn7irw1l1" path="res://content/art/sprite/magika/Item.png" id="2_ov8se"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_otnv7"]
+atlas = ExtResource("2_ov8se")
+region = Rect2(16, 64, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vkqoe"]
+size = Vector2(50, 50)
+
+[node name="HeartContainer" type="Node2D" unique_id=1987198981]
+script = ExtResource("1_8e52l")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=407573481]
+self_modulate = Color(0.9628115, 0, 0.19793195, 1)
+scale = Vector2(4, 4)
+texture = SubResource("AtlasTexture_otnv7")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2063938649]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=475542684]
+shape = SubResource("RectangleShape2D_vkqoe")

@@ -11,7 +11,7 @@ var default_pos: Vector2
 
 
 func _ready() -> void:
-	default_pos = global_position
+	default_pos = position
 
 
 func push_box(direction: Vector2) -> void:
@@ -28,7 +28,7 @@ func push_box(direction: Vector2) -> void:
 		.set_trans(Tween.TRANS_QUAD)\
 		.set_ease(Tween.EASE_OUT)\
 		.set_process_mode(Tween.TWEEN_PROCESS_PHYSICS)
-	push_tween.tween_property(self, "position", target_pos, push_duration)
+	push_tween.tween_property(self, "global_position", target_pos, push_duration)
 	push_tween.tween_callback(func():is_pushing = false)
 
 
@@ -47,7 +47,7 @@ func destroy() -> void:
 
 
 func reset() -> void:
-	position = global_position
+	position = default_pos
 	for n in NodeUtils.recursive_get_children(self, true):
 		if n is CollisionShape2D:
 			n.disabled = false

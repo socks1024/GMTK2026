@@ -33,10 +33,11 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vkqoe"]
-size = Vector2(80, 80)
+size = Vector2(60, 60)
 
 [node name="SpikeFloor" type="Node2D" unique_id=1556116169]
 script = ExtResource("1_1h7sj")
+damage = 2
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1313711568]
 scale = Vector2(5, 5)
@@ -47,3 +48,5 @@ collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=26786171]
 shape = SubResource("RectangleShape2D_vkqoe")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

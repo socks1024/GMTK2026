@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://8s0ncdawvmb3"]
+
+[ext_resource type="Texture2D" uid="uid://bgyp864482p2j" path="res://content/art/sprite/magika/Boss.png" id="1_paqwf"]
+[ext_resource type="Script" uid="uid://c6575mng32ejc" path="res://content/scene/world/magic/demon/demon.gd" id="2_fs681"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_shtu1"]
+atlas = ExtResource("1_paqwf")
+region = Rect2(264, 264, 132, 132)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4n3e3"]
+atlas = ExtResource("1_paqwf")
+region = Rect2(396, 264, 132, 132)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_om36p"]
+atlas = ExtResource("1_paqwf")
+region = Rect2(528, 264, 132, 132)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5sgv4"]
+atlas = ExtResource("1_paqwf")
+region = Rect2(0, 396, 132, 132)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vkqoe"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_shtu1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4n3e3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_om36p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5sgv4")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="DEMON" type="AnimatedSprite2D" unique_id=32650893]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_vkqoe")
+frame_progress = 0.59742856
+script = ExtResource("2_fs681")
