@@ -25,4 +25,5 @@ func on_touched_by_player(player: Player) -> void:
 
 
 func on_hit_by_sword(direction: Vector2, player: Player) -> void:
-	open_with_player_key(player)
+	if player:
+		open_with_player_key(player)

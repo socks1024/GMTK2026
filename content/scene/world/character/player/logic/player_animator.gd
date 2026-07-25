@@ -4,7 +4,7 @@ extends Node
 @export var animation_tree: AnimationTree
 @export var player: Player
 @export var player_controller: PlayerController
-@export var animated_sprite_2d: AnimatedSprite2D
+@export var magic_animation: AnimatedSprite2D
 @export var p_missile: PackedScene
 @export var p_explosion: PackedScene
 
@@ -17,14 +17,15 @@ extends Node
 @onready var state_machine: AnimationNodeStateMachinePlayback = animation_tree["parameters/playback"]
 
 func _ready() -> void:
+	player_controller.attack_power_input.power_started.connect(
+		func(): magic_animation.play()
+	)
 	player_controller.attack_power_input.power_completed.connect(
-		func(t): if t < 0.5: _travel_to_animation("Attack")
-	)
-	player_controller.spell_1_power_input.power_completed.connect(
-		func(t): if t < 0.5: _travel_to_animation("Shoot")
-	)
-	player_controller.spell_2_power_input.power_completed.connect(
-		func(t): if t < 0.5: _travel_to_animation("Magic")
+		func(t):
+			magic_animation.stop()
+			if t < 0.3: _travel_to_animation("Attack")
+			elif t < 0.7: _travel_to_animation("Shoot")
+			else: _travel_to_animation("Magic")
 	)
 	player.get_hurt.connect(
 		func(): _travel_to_animation("Hurt")
@@ -66,8 +67,8 @@ func shoot_fireball():
 	missile.damage = 4
 	missile.speed = 300
 	get_tree().current_scene.add_child(missile)
-	missile.global_position = player.position + player.facing_direction * 80
-	missile.look_at(player.position + player.facing_direction * 80 * 2)
+	missile.global_position = player.position + player_controller.facing_direction * 80
+	missile.look_at(player.position + player_controller.facing_direction * 80 * 2)
 
 
 func self_explode():

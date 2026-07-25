@@ -45,6 +45,18 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_co6qv"]
 size = Vector2(80, 80)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xh3fj"]
+size = Vector2(80, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j814g"]
+size = Vector2(80, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hr0ef"]
+size = Vector2(40, 80)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i3enw"]
+size = Vector2(40, 80)
+
 [node name="SprintEnemy" type="CharacterBody2D" unique_id=1453818196]
 collision_layer = 32
 collision_mask = 251
@@ -63,6 +75,30 @@ frame_progress = 0.58939266
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1556289908]
 shape = SubResource("RectangleShape2D_co6qv")
 
+[node name="PushArea2D" type="Area2D" parent="." unique_id=62604419]
+collision_layer = 16
+collision_mask = 160
+
+[node name="DownCollisionShape2D" type="CollisionShape2D" parent="PushArea2D" unique_id=17314954]
+position = Vector2(0, 60)
+shape = SubResource("RectangleShape2D_xh3fj")
+disabled = true
+
+[node name="UpCollisionShape2D" type="CollisionShape2D" parent="PushArea2D" unique_id=883247846]
+position = Vector2(0, -60)
+shape = SubResource("RectangleShape2D_j814g")
+disabled = true
+
+[node name="LeftCollisionShape2D" type="CollisionShape2D" parent="PushArea2D" unique_id=274549393]
+position = Vector2(-60, 0)
+shape = SubResource("RectangleShape2D_hr0ef")
+disabled = true
+
+[node name="RightCollisionShape2D" type="CollisionShape2D" parent="PushArea2D" unique_id=692545123]
+position = Vector2(60, 0)
+shape = SubResource("RectangleShape2D_i3enw")
+disabled = true
+
 [node name="DownRayCast2D" type="RayCast2D" parent="." unique_id=678415435]
 target_position = Vector2(0, 400)
 collision_mask = 161
@@ -80,3 +116,4 @@ target_position = Vector2(0, -400)
 collision_mask = 161
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_hitbox_body_enter"]
+[connection signal="body_entered" from="PushArea2D" to="." method="_on_push_area_2d_body_entered"]

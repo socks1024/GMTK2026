@@ -11,7 +11,7 @@ var _opened: bool
 
 
 func on_hit_by_sword(direction: Vector2, player: Player) -> void:
-	if !_opened:
+	if !_opened and player:
 		sprite.self_modulate.a = 0.5
 		player.money_count += money
 		player.key_count += key

@@ -48,3 +48,19 @@ func shoot(shoot_direction: Vector2) -> void:
 	missile.look_at(position + shoot_direction * shoot_offset * 2)
 	timer.start(shoot_interval)
 	_is_shooting = true
+
+
+func _on_enemy_died() -> void:
+	super._on_enemy_died()
+	down_ray_cast_2d.enabled = false
+	left_ray_cast_2d.enabled = false
+	right_ray_cast_2d.enabled = false
+	up_ray_cast_2d.enabled = false
+
+
+func reset() -> void:
+	super.reset()
+	down_ray_cast_2d.enabled = true
+	left_ray_cast_2d.enabled = true
+	right_ray_cast_2d.enabled = true
+	up_ray_cast_2d.enabled = true

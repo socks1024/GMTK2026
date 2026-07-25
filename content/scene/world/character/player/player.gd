@@ -65,9 +65,12 @@ static func quick_get_player() -> Player:
 
 
 func on_player_dead() -> void:
-	global_position = revive_position
-	health = max_health
-	live_timer.start(max_live_time)
+	get_tree().create_timer(0.45).timeout.connect(
+		func():
+			global_position = revive_position
+			health = max_health
+			live_timer.start(max_live_time)
+	)
 
 
 func gain_live_time(value: float) -> void:

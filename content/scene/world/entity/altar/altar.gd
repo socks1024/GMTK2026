@@ -12,7 +12,8 @@ func _ready() -> void:
 
 
 func on_hit_by_sword(direction: Vector2, player: Player) -> void:
-	player.max_health = player.default_max_health
-	player.health = player.max_health
-	player.revive_position = revive_pos.global_position
-	player.live_timer.start(player.max_live_time)
+	if player:
+		player.max_health = player.default_max_health
+		player.health = player.max_health
+		player.revive_position = revive_pos.global_position
+		player.live_timer.start(player.max_live_time)
