@@ -1,15 +1,11 @@
-[gd_scene format=4 uid="uid://b350sxue7g686"]
+[gd_scene format=3 uid="uid://b350sxue7g686"]
 
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_x51ot"]
 [ext_resource type="PackedScene" uid="uid://btemjkkjcgi21" path="res://content/scene/world/character/player/player.tscn" id="2_4jt3r"]
-[ext_resource type="PackedScene" uid="uid://bkrrhl582620g" path="res://content/scene/world/room_area/room_area.tscn" id="2_6ugpd"]
-[ext_resource type="TileSet" uid="uid://bx3upxfac3mlx" path="res://content/art/sprite/dungeon_old/dungeon_/dungeon_tiles.tres" id="3_apdbo"]
 [ext_resource type="PackedScene" uid="uid://3kkubgrh5w7h" path="res://content/scene/world/level_1.tscn" id="4_x51ot"]
-[ext_resource type="PackedScene" uid="uid://8s0ncdawvmb3" path="res://content/scene/world/magic/demon/demon.tscn" id="7_x51ot"]
+[ext_resource type="PackedScene" uid="uid://cgelljdkcrjdd" path="res://content/scene/world/level_2.tscn" id="5_6ugpd"]
+[ext_resource type="PackedScene" uid="uid://dr863ay45gx2n" path="res://content/scene/world/level_3.tscn" id="6_apdbo"]
 [ext_resource type="PackedScene" uid="uid://cho17x2fn4qh3" path="res://content/scene/world/entity/teleport_entity/ladder/ladder.tscn" id="10_wa43y"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_biapd"]
-size = Vector2(1280, 720)
 
 [node name="DefaultWorld" type="Node2D" unique_id=128507855]
 
@@ -23,169 +19,29 @@ script = ExtResource("1_x51ot")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="Player" parent="." unique_id=1051908149 instance=ExtResource("2_4jt3r")]
-position = Vector2(920, 360)
+position = Vector2(3320, 1000)
 speed = 200.0
-
-[node name="Ladder1to2" parent="." unique_id=454613580 node_paths=PackedStringArray("to") instance=ExtResource("10_wa43y")]
-position = Vector2(2760, 1000)
-to = NodePath("../Ladder2to1")
 
 [node name="Level1" parent="." unique_id=432088751 instance=ExtResource("4_x51ot")]
 
+[node name="Ladder1to2" parent="." unique_id=454613580 node_paths=PackedStringArray("to") instance=ExtResource("10_wa43y")]
+position = Vector2(2760, 920)
+to = NodePath("../Ladder2to1")
+
 [node name="Ladder2to1" parent="." unique_id=1746925659 node_paths=PackedStringArray("to") instance=ExtResource("10_wa43y")]
-position = Vector2(2760, 3400)
+position = Vector2(2760, 3320)
 to = NodePath("../Ladder1to2")
 
-[node name="Level2" type="Node2D" parent="." unique_id=656420966]
+[node name="Level2" parent="." unique_id=1562805339 instance=ExtResource("5_6ugpd")]
 position = Vector2(0, 2400)
 
-[node name="Walls" type="TileMapLayer" parent="Level2" unique_id=1397763919]
-scale = Vector2(5, 5)
-tile_map_data = PackedByteArray("AAAAAA0AAQAAAAAAAAAAAAwAAQAAAAAAAAAAAAsAAQAAAAAAAAAAAAoAAQAAAAAAAAAAAAkAAQAAAAAAAAAAAAgAAQAAAAAAAAAAAAcAAQAAAAAAAAAAAAYAAQAAAAAAAAAAAAUAAQAAAAAAAAAAAAQAAQAAAAAAAAAAAAMAAQAAAAAAAAAAAAIAAQAAAAAAAAAAAAEAAQAAAAAAAAADAAgAAQAAAAAAAAAKAAgAAQAAAAAAAAACAAgAAQAAAAAAAAALAAgAAQAAAAAAAAAAAA4AAQAAAAAAAAAAAA8AAQAAAAAAAAAAABAAAQAAAAAAAAABAAgAAQAAAAAAAAAGAAgAAQAAAAAAAAAFAAgAAQAAAAAAAAAEAAgAAQAAAAAAAAAHAAgAAQAAAAAAAAAIAAgAAQAAAAAAAAAJAAgAAQAAAAAAAAAPAAgAAQAAAAAAAAANAAgAAQAAAAAAAAAMAAgAAQAAAAAAAAAPAAkAAQAAAAAAAAAPAAEAAQAAAAAAAAAPAAIAAQAAAAAAAAAPAAMAAQAAAAAAAAAPAAQAAQAAAAAAAAAPAAUAAQAAAAAAAAAPAAYAAQAAAAAAAAAQABAAAQAAAAAAAAAPABAAAQAAAAAAAAAPAA8AAQAAAAAAAAAOAAgAAQAAAAAAAAAPAAoAAQAAAAAAAAAPAAwAAQAAAAAAAAAAAAAAAQAAAAAAAAABAAAAAQAAAAAAAAACAAAAAQAAAAAAAAADAAAAAQAAAAAAAAAEAAAAAQAAAAAAAAAFAAAAAQAAAAAAAAAGAAAAAQAAAAAAAAAHAAAAAQAAAAAAAAAIAAAAAQAAAAAAAAAJAAAAAQAAAAAAAAAKAAAAAQAAAAAAAAALAAAAAQAAAAAAAAAMAAAAAQAAAAAAAAANAAAAAQAAAAAAAAAOAAAAAQAAAAAAAAAPAAAAAQAAAAAAAAAeAAgAAQAAAAAAAAAeAAkAAQAAAAAAAAAeAAoAAQAAAAAAAAAeAAsAAQAAAAAAAAAeAAwAAQAAAAAAAAAeAA0AAQAAAAAAAAAeAA4AAQAAAAAAAAAeAA8AAQAAAAAAAAAeABAAAQAAAAAAAAABABAAAQAAAAAAAAACABAAAQAAAAAAAAADABAAAQAAAAAAAAAEABAAAQAAAAAAAAAFABAAAQAAAAAAAAAGABAAAQAAAAAAAAAHABAAAQAAAAAAAAAIABAAAQAAAAAAAAAJABAAAQAAAAAAAAAKABAAAQAAAAAAAAALABAAAQAAAAAAAAAMABAAAQAAAAAAAAANABAAAQAAAAAAAAAOABAAAQAAAAAAAAARABAAAQAAAAAAAAASABAAAQAAAAAAAAATABAAAQAAAAAAAAAUABAAAQAAAAAAAAAVABAAAQAAAAAAAAAWABAAAQAAAAAAAAAXABAAAQAAAAAAAAAYABAAAQAAAAAAAAAZABAAAQAAAAAAAAAaABAAAQAAAAAAAAAbABAAAQAAAAAAAAAcABAAAQAAAAAAAAAdABAAAQAAAAAAAAAPAA4AAQAAAAAAAAAQAAgAAQAAAAAAAAARAAgAAQAAAAAAAAASAAgAAQAAAAAAAAATAAgAAQAAAAAAAAAUAAgAAQAAAAAAAAAVAAgAAQAAAAAAAAAWAAgAAQAAAAAAAAAXAAgAAQAAAAAAAAAYAAgAAQAAAAAAAAAZAAgAAQAAAAAAAAAaAAgAAQAAAAAAAAAbAAgAAQAAAAAAAAAcAAgAAQAAAAAAAAAdAAgAAQAAAAAAAAAfAAAAAQAAAAAAAAAgAAAAAQAAAAAAAAAhAAAAAQAAAAAAAAAiAAAAAQAAAAAAAAAjAAAAAQAAAAAAAAAlAAAAAQAAAAAAAAAkAAAAAQAAAAAAAAAQAAAAAQAAAAAAAAARAAAAAQAAAAAAAAASAAAAAQAAAAAAAAATAAAAAQAAAAAAAAAUAAAAAQAAAAAAAAAVAAAAAQAAAAAAAAAWAAAAAQAAAAAAAAAXAAAAAQAAAAAAAAAYAAAAAQAAAAAAAAAZAAAAAQAAAAAAAAAaAAAAAQAAAAAAAAAbAAAAAQAAAAAAAAAcAAAAAQAAAAAAAAAdAAAAAQAAAAAAAAAeAAAAAQAAAAAAAAAeAAEAAQAAAAAAAAAeAAIAAQAAAAAAAAAeAAMAAQAAAAAAAAAeAAQAAQAAAAAAAAAeAAUAAQAAAAAAAAAeAAYAAQAAAAAAAAAeAAcAAQAAAAAAAAAmAAAAAQAAAAAAAAAnAAAAAQAAAAAAAAAoAAAAAQAAAAAAAAApAAAAAQAAAAAAAAAqAAAAAQAAAAAAAAArAAAAAQAAAAAAAAAsAAAAAQAAAAAAAAAtAAAAAQAAAAAAAAAtAAEAAQAAAAAAAAAtAAIAAQAAAAAAAAAtAAMAAQAAAAAAAAAtAAQAAQAAAAAAAAAtAAUAAQAAAAAAAAAtAAYAAQAAAAAAAAAtAAcAAQAAAAAAAAAfAAgAAQAAAAAAAAAgAAgAAQAAAAAAAAAhAAgAAQAAAAAAAAAiAAgAAQAAAAAAAAAjAAgAAQAAAAAAAAAkAAgAAQAAAAAAAAAlAAgAAQAAAAAAAAAmAAgAAQAAAAAAAAAnAAgAAQAAAAAAAAAoAAgAAQAAAAAAAAApAAgAAQAAAAAAAAAqAAgAAQAAAAAAAAArAAgAAQAAAAAAAAAsAAgAAQAAAAAAAAAtAAgAAQAAAAAAAAAtAAkAAQAAAAAAAAAtAAoAAQAAAAAAAAAtAAsAAQAAAAAAAAAtAAwAAQAAAAAAAAAtAA0AAQAAAAAAAAAtAA4AAQAAAAAAAAAtAA8AAQAAAAAAAAAfABAAAQAAAAAAAAAgABAAAQAAAAAAAAAhABAAAQAAAAAAAAAiABAAAQAAAAAAAAAjABAAAQAAAAAAAAAkABAAAQAAAAAAAAAlABAAAQAAAAAAAAAmABAAAQAAAAAAAAAnABAAAQAAAAAAAAAoABAAAQAAAAAAAAApABAAAQAAAAAAAAAqABAAAQAAAAAAAAArABAAAQAAAAAAAAAsABAAAQAAAAAAAAAtABAAAQAAAAAAAAAtABEAAQAAAAAAAAAtABIAAQAAAAAAAAAtABMAAQAAAAAAAAAtABQAAQAAAAAAAAAtABUAAQAAAAAAAAAtABYAAQAAAAAAAAAtABcAAQAAAAAAAAAPABEAAQAAAAAAAAAPABIAAQAAAAAAAAAPABMAAQAAAAAAAAAPABQAAQAAAAAAAAAPABUAAQAAAAAAAAAPABYAAQAAAAAAAAAPABcAAQAAAAAAAAAeABEAAQAAAAAAAAAeABIAAQAAAAAAAAAeABMAAQAAAAAAAAAeABQAAQAAAAAAAAAeABUAAQAAAAAAAAAeABYAAQAAAAAAAAAeABcAAQAAAAAAAAABABgAAQAAAAAAAAACABgAAQAAAAAAAAADABgAAQAAAAAAAAAEABgAAQAAAAAAAAAFABgAAQAAAAAAAAAGABgAAQAAAAAAAAAHABgAAQAAAAAAAAAIABgAAQAAAAAAAAAJABgAAQAAAAAAAAAKABgAAQAAAAAAAAALABgAAQAAAAAAAAAMABgAAQAAAAAAAAANABgAAQAAAAAAAAAOABgAAQAAAAAAAAAPABgAAQAAAAAAAAAQABgAAQAAAAAAAAARABgAAQAAAAAAAAASABgAAQAAAAAAAAATABgAAQAAAAAAAAAUABgAAQAAAAAAAAAVABgAAQAAAAAAAAAWABgAAQAAAAAAAAAXABgAAQAAAAAAAAAYABgAAQAAAAAAAAAZABgAAQAAAAAAAAAaABgAAQAAAAAAAAAbABgAAQAAAAAAAAAcABgAAQAAAAAAAAAdABgAAQAAAAAAAAAeABgAAQAAAAAAAAAfABgAAQAAAAAAAAAgABgAAQAAAAAAAAAhABgAAQAAAAAAAAAiABgAAQAAAAAAAAAjABgAAQAAAAAAAAAkABgAAQAAAAAAAAAlABgAAQAAAAAAAAAmABgAAQAAAAAAAAAnABgAAQAAAAAAAAAoABgAAQAAAAAAAAApABgAAQAAAAAAAAAqABgAAQAAAAAAAAArABgAAQAAAAAAAAAsABgAAQAAAAAAAAAtABgAAQAAAAAAAAAuAAAAAQAAAAAAAAAvAAAAAQAAAAAAAAAwAAAAAQAAAAAAAAAxAAAAAQAAAAAAAAAyAAAAAQAAAAAAAAAzAAAAAQAAAAAAAAA0AAAAAQAAAAAAAAA1AAAAAQAAAAAAAAA2AAAAAQAAAAAAAAA3AAAAAQAAAAAAAAA4AAAAAQAAAAAAAAA5AAAAAQAAAAAAAAA6AAAAAQAAAAAAAAA7AAAAAQAAAAAAAAA8AAAAAQAAAAAAAAA8AAEAAQAAAAAAAAA8AAIAAQAAAAAAAAA8AAMAAQAAAAAAAAA8AAQAAQAAAAAAAAA8AAUAAQAAAAAAAAA8AAYAAQAAAAAAAAA8AAcAAQAAAAAAAAAAABEAAQAAAAAAAAAAABIAAQAAAAAAAAAAABMAAQAAAAAAAAAAABQAAQAAAAAAAAAAABUAAQAAAAAAAAAAABYAAQAAAAAAAAAAABcAAQAAAAAAAAAAABgAAQAAAAAAAAAuAAgAAQAAAAAAAAAvAAgAAQAAAAAAAAAwAAgAAQAAAAAAAAAxAAgAAQAAAAAAAAAyAAgAAQAAAAAAAAAzAAgAAQAAAAAAAAA0AAgAAQAAAAAAAAA1AAgAAQAAAAAAAAA2AAgAAQAAAAAAAAA3AAgAAQAAAAAAAAA4AAgAAQAAAAAAAAA5AAgAAQAAAAAAAAA6AAgAAQAAAAAAAAA7AAgAAQAAAAAAAAA8AAgAAQAAAAAAAAAuABAAAQAAAAAAAAAvABAAAQAAAAAAAAAwABAAAQAAAAAAAAAxABAAAQAAAAAAAAAyABAAAQAAAAAAAAAzABAAAQAAAAAAAAA0ABAAAQAAAAAAAAA1ABAAAQAAAAAAAAA2ABAAAQAAAAAAAAA3ABAAAQAAAAAAAAA4ABAAAQAAAAAAAAA5ABAAAQAAAAAAAAA6ABAAAQAAAAAAAAA7ABAAAQAAAAAAAAA8ABAAAQAAAAAAAAA8AAkAAQAAAAAAAAA8AAoAAQAAAAAAAAA8AAsAAQAAAAAAAAA8AAwAAQAAAAAAAAA8AA0AAQAAAAAAAAA8AA4AAQAAAAAAAAA8AA8AAQAAAAAAAAA8ABEAAQAAAAAAAAA8ABIAAQAAAAAAAAA8ABMAAQAAAAAAAAA8ABQAAQAAAAAAAAA8ABUAAQAAAAAAAAA8ABYAAQAAAAAAAAA8ABcAAQAAAAAAAAA8ABgAAQAAAAAAAAAuABgAAQAAAAAAAAAvABgAAQAAAAAAAAAwABgAAQAAAAAAAAAxABgAAQAAAAAAAAAyABgAAQAAAAAAAAAzABgAAQAAAAAAAAA0ABgAAQAAAAAAAAA1ABgAAQAAAAAAAAA2ABgAAQAAAAAAAAA3ABgAAQAAAAAAAAA4ABgAAQAAAAAAAAA5ABgAAQAAAAAAAAA6ABgAAQAAAAAAAAA7ABgAAQAAAAAAAAAPAAcAAQAAAAAAAAAPAAsAAQAAAAAAAAAPAA0AAQAAAAAAAAA=")
-tile_set = ExtResource("3_apdbo")
+[node name="Ladder2to3" parent="." unique_id=1402526694 node_paths=PackedStringArray("to") instance=ExtResource("10_wa43y")]
+position = Vector2(2760, 3480)
+to = NodePath("../Ladder3to2")
 
-[node name="1-1" type="Node2D" parent="Level2" unique_id=406656522]
+[node name="Ladder3to2" parent="." unique_id=601951083 node_paths=PackedStringArray("to") instance=ExtResource("10_wa43y")]
+position = Vector2(2760, 5880)
+to = NodePath("../Ladder2to3")
 
-[node name="RoomArea" parent="Level2/1-1" unique_id=1132949607 instance=ExtResource("2_6ugpd")]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Level2/1-1/RoomArea" unique_id=1746252783]
-visible = false
-z_index = -1
-position = Vector2(640, 360)
-shape = SubResource("RectangleShape2D_biapd")
-debug_color = Color(0.62352943, 0.57254905, 0.2901961, 0)
-
-[node name="1-2" type="Node2D" parent="Level2" unique_id=1669659853]
-position = Vector2(0, 640)
-
-[node name="RoomArea" parent="Level2/1-2" unique_id=726206700 instance=ExtResource("2_6ugpd")]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Level2/1-2/RoomArea" unique_id=151682255]
-visible = false
-z_index = -1
-position = Vector2(640, 360)
-shape = SubResource("RectangleShape2D_biapd")
-debug_color = Color(0.62352943, 0.57254905, 0.2901961, 0)
-
-[node name="1-3" type="Node2D" parent="Level2" unique_id=1757694551]
-position = Vector2(0, 1280)
-
-[node name="RoomArea" parent="Level2/1-3" unique_id=815667645 instance=ExtResource("2_6ugpd")]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Level2/1-3/RoomArea" unique_id=361511283]
-visible = false
-z_index = -1
-position = Vector2(640, 360)
-shape = SubResource("RectangleShape2D_biapd")
-debug_color = Color(0.62352943, 0.57254905, 0.2901961, 0)
-
-[node name="2-1" type="Node2D" parent="Level2" unique_id=578714781]
-position = Vector2(1200, 0)
-
-[node name="RoomArea" parent="Level2/2-1" unique_id=461123681 instance=ExtResource("2_6ugpd")]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Level2/2-1/RoomArea" unique_id=422732802]
-visible = false
-z_index = -1
-position = Vector2(640, 360)
-shape = SubResource("RectangleShape2D_biapd")
-debug_color = Color(0.62352943, 0.57254905, 0.2901961, 0)
-
-[node name="2-2" type="Node2D" parent="Level2" unique_id=284518300]
-position = Vector2(1200, 640)
-
-[node name="RoomArea" parent="Level2/2-2" unique_id=36015273 instance=ExtResource("2_6ugpd")]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Level2/2-2/RoomArea" unique_id=1398334238]
-visible = false
-z_index = -1
-position = Vector2(640, 360)
-shape = SubResource("RectangleShape2D_biapd")
-debug_color = Color(0.62352943, 0.57254905, 0.2901961, 0)
-
-[node name="2-3" type="Node2D" parent="Level2" unique_id=2024290788]
-position = Vector2(1200, 1280)
-
-[node name="RoomArea" parent="Level2/2-3" unique_id=1330043509 instance=ExtResource("2_6ugpd")]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Level2/2-3/RoomArea" unique_id=203281348]
-visible = false
-z_index = -1
-position = Vector2(640, 360)
-shape = SubResource("RectangleShape2D_biapd")
-debug_color = Color(0.62352943, 0.57254905, 0.2901961, 0)
-
-[node name="3-1" type="Node2D" parent="Level2" unique_id=1283208129]
-position = Vector2(2400, 0)
-
-[node name="RoomArea" parent="Level2/3-1" unique_id=1769239556 instance=ExtResource("2_6ugpd")]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Level2/3-1/RoomArea" unique_id=1935046578]
-visible = false
-z_index = -1
-position = Vector2(640, 360)
-shape = SubResource("RectangleShape2D_biapd")
-debug_color = Color(0.62352943, 0.57254905, 0.2901961, 0)
-
-[node name="3-2" type="Node2D" parent="Level2" unique_id=1792568911]
-position = Vector2(2400, 640)
-
-[node name="RoomArea" parent="Level2/3-2" unique_id=681575623 instance=ExtResource("2_6ugpd")]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Level2/3-2/RoomArea" unique_id=1553249878]
-visible = false
-z_index = -1
-position = Vector2(640, 360)
-shape = SubResource("RectangleShape2D_biapd")
-debug_color = Color(0.62352943, 0.57254905, 0.2901961, 0)
-
-[node name="DEMON" parent="Level2/3-2" unique_id=32650893 instance=ExtResource("7_x51ot")]
-position = Vector2(640, 360)
-
-[node name="3-3" type="Node2D" parent="Level2" unique_id=623413050]
-position = Vector2(2400, 1280)
-
-[node name="RoomArea" parent="Level2/3-3" unique_id=1665120258 instance=ExtResource("2_6ugpd")]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Level2/3-3/RoomArea" unique_id=435802309]
-visible = false
-z_index = -1
-position = Vector2(640, 360)
-shape = SubResource("RectangleShape2D_biapd")
-debug_color = Color(0.62352943, 0.57254905, 0.2901961, 0)
-
-[node name="4-1" type="Node2D" parent="Level2" unique_id=1982555108]
-position = Vector2(3600, 0)
-
-[node name="RoomArea" parent="Level2/4-1" unique_id=787748363 instance=ExtResource("2_6ugpd")]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Level2/4-1/RoomArea" unique_id=1245275936]
-visible = false
-z_index = -1
-position = Vector2(640, 360)
-shape = SubResource("RectangleShape2D_biapd")
-debug_color = Color(0.62352943, 0.57254905, 0.2901961, 0)
-
-[node name="4-2" type="Node2D" parent="Level2" unique_id=927320598]
-position = Vector2(3600, 640)
-
-[node name="RoomArea" parent="Level2/4-2" unique_id=1491365424 instance=ExtResource("2_6ugpd")]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Level2/4-2/RoomArea" unique_id=599864220]
-visible = false
-z_index = -1
-position = Vector2(640, 360)
-shape = SubResource("RectangleShape2D_biapd")
-debug_color = Color(0.62352943, 0.57254905, 0.2901961, 0)
-
-[node name="4-3" type="Node2D" parent="Level2" unique_id=56823909]
-position = Vector2(3600, 1280)
-
-[node name="RoomArea" parent="Level2/4-3" unique_id=1184582264 instance=ExtResource("2_6ugpd")]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Level2/4-3/RoomArea" unique_id=63263982]
-visible = false
-z_index = -1
-position = Vector2(640, 360)
-shape = SubResource("RectangleShape2D_biapd")
-debug_color = Color(0.62352943, 0.57254905, 0.2901961, 0)
+[node name="Level3" parent="." unique_id=1083241817 instance=ExtResource("6_apdbo")]
+position = Vector2(0, 4800)

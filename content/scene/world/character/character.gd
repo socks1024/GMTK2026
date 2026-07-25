@@ -35,6 +35,12 @@ func _ready() -> void:
 
 func take_health_damage(amount: int) -> void:
 	health -= amount
+	# 受击后所有子Sprite2D和AnimatedSprite2D通过Tween播放闪红动画
+	for child in NodeUtils.recursive_get_children(self, true):
+		if child is Sprite2D or child is AnimatedSprite2D:
+			child.modulate = Color(1, 0, 0)
+			var tween: Tween = get_tree().create_tween()
+			tween.tween_property(child, "modulate", Color(1, 1, 1), 0.25)
 
 
 func take_max_health_damage(amount: int) -> void:
