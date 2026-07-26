@@ -169,9 +169,6 @@ position = Vector2(920, 440)
 [node name="SpikeFloor12" parent="2-1" unique_id=590673145 instance=ExtResource("8_pvsxa")]
 position = Vector2(1000, 360)
 
-[node name="SpikeFloor13" parent="2-1" unique_id=741691470 instance=ExtResource("8_pvsxa")]
-position = Vector2(920, 360)
-
 [node name="2-2" type="Node2D" parent="." unique_id=2115577509]
 position = Vector2(1200, 640)
 
@@ -370,3 +367,6 @@ label_settings = SubResource("LabelSettings_yddip")
 
 [node name="Clock" parent="." unique_id=149721365 instance=ExtResource("16_xalqa")]
 position = Vector2(2040, 1000)
+
+[node name="HeartContainer" parent="." unique_id=486131089 instance=ExtResource("7_y34oo")]
+position = Vector2(2120, 360)

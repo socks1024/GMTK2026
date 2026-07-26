@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://3kkubgrh5w7h" path="res://content/scene/world/level_1.tscn" id="4_x51ot"]
 [ext_resource type="PackedScene" uid="uid://cgelljdkcrjdd" path="res://content/scene/world/level_2.tscn" id="5_6ugpd"]
 [ext_resource type="PackedScene" uid="uid://dr863ay45gx2n" path="res://content/scene/world/level_3.tscn" id="6_apdbo"]
+[ext_resource type="PackedScene" uid="uid://hrswpvjhduc7" path="res://content/scene/world/entity/teleport_entity/hole/hole.tscn" id="7_x51ot"]
 [ext_resource type="PackedScene" uid="uid://cho17x2fn4qh3" path="res://content/scene/world/entity/teleport_entity/ladder/ladder.tscn" id="10_wa43y"]
 
 [node name="DefaultWorld" type="Node2D" unique_id=128507855]
@@ -19,29 +20,42 @@ script = ExtResource("1_x51ot")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="Player" parent="." unique_id=1051908149 instance=ExtResource("2_4jt3r")]
-position = Vector2(3760, 3400)
+position = Vector2(4200, 3800)
 speed = 200.0
 
 [node name="Level1" parent="." unique_id=432088751 instance=ExtResource("4_x51ot")]
 
-[node name="Ladder1to2" parent="." unique_id=454613580 node_paths=PackedStringArray("to") instance=ExtResource("10_wa43y")]
+[node name="Ladder1to2" parent="Level1" unique_id=454613580 node_paths=PackedStringArray("to") instance=ExtResource("10_wa43y")]
 position = Vector2(2760, 920)
-to = NodePath("../Ladder2to1")
+to = NodePath("../../Level2/Ladder2to1")
 
-[node name="Ladder2to1" parent="." unique_id=1746925659 node_paths=PackedStringArray("to") instance=ExtResource("10_wa43y")]
-position = Vector2(2760, 3320)
-to = NodePath("../Ladder1to2")
+[node name="Marker2D" type="Marker2D" parent="Level1" unique_id=86318278]
+position = Vector2(2120, 360)
 
 [node name="Level2" parent="." unique_id=1562805339 instance=ExtResource("5_6ugpd")]
 position = Vector2(0, 2400)
 
-[node name="Ladder2to3" parent="." unique_id=1402526694 node_paths=PackedStringArray("to") instance=ExtResource("10_wa43y")]
-position = Vector2(2760, 3480)
-to = NodePath("../Ladder3to2")
+[node name="Ladder2to1" parent="Level2" unique_id=1746925659 node_paths=PackedStringArray("to") instance=ExtResource("10_wa43y")]
+position = Vector2(2760, 920)
+to = NodePath("../../Level1/Ladder1to2")
 
-[node name="Ladder3to2" parent="." unique_id=601951083 node_paths=PackedStringArray("to") instance=ExtResource("10_wa43y")]
-position = Vector2(2760, 5880)
-to = NodePath("../Ladder2to3")
+[node name="Ladder2to3" parent="Level2" unique_id=1402526694 node_paths=PackedStringArray("to") instance=ExtResource("10_wa43y")]
+position = Vector2(2760, 1080)
+to = NodePath("../../Level3/Ladder3to2")
+
+[node name="Hole2to1" parent="Level2" unique_id=1679444749 instance=ExtResource("7_x51ot")]
+position = Vector2(2120, 360)
+
+[node name="Marker2D" type="Marker2D" parent="Level2" unique_id=1923875148]
+position = Vector2(440, 360)
 
 [node name="Level3" parent="." unique_id=1083241817 instance=ExtResource("6_apdbo")]
 position = Vector2(0, 4800)
+
+[node name="Ladder3to2" parent="Level3" unique_id=601951083 node_paths=PackedStringArray("to") instance=ExtResource("10_wa43y")]
+position = Vector2(2760, 1080)
+to = NodePath("../../Level2/Ladder2to3")
+
+[node name="Hole3to2" parent="Level3" unique_id=1373932065 node_paths=PackedStringArray("to") instance=ExtResource("7_x51ot")]
+position = Vector2(440, 360)
+to = NodePath("../../Level2/Marker2D")
