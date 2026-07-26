@@ -43,20 +43,6 @@ func take_health_damage(amount: int) -> void:
 			tween.tween_property(child, "modulate", Color(1, 1, 1), 0.25)
 
 
-func take_max_health_damage(amount: int) -> void:
-	max_health -= amount
-
-
-func take_common_damage(amount: int) -> void:
-	#if amount <= health:
-		#take_health_damage(amount)
-	#else:
-		#var max_health_damage: int = amount - health
-		#take_health_damage(health)
-		#take_max_health_damage(max_health_damage)
-	take_health_damage(amount)
-
-
 func heal_health(amount: int) -> void:
 	health += amount
 

@@ -9,8 +9,8 @@ signal continue_clicked
 @export var continue_button: CommonButton
 
 
-func _ready() -> void:
-	continue_button.visible = SaveServer.is_save_exists("001")
+#func _ready() -> void:
+	#continue_button.visible = SaveServer.is_save_exists("001")
 
 
 func _on_new_game_button_anim_finish() -> void:

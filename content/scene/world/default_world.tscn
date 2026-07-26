@@ -19,7 +19,7 @@ script = ExtResource("1_x51ot")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="Player" parent="." unique_id=1051908149 instance=ExtResource("2_4jt3r")]
-position = Vector2(3320, 1000)
+position = Vector2(3760, 3400)
 speed = 200.0
 
 [node name="Level1" parent="." unique_id=432088751 instance=ExtResource("4_x51ot")]

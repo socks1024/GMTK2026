@@ -8,6 +8,12 @@
 [sub_resource type="LabelSettings" id="LabelSettings_title"]
 font_size = 36
 
+[sub_resource type="Curve" id="Curve_mjgms"]
+resource_local_to_scene = true
+_limits = [-0.5, 0.5, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.2, 0.4), 0.0, 0.0, 0, 0, Vector2(0.6, -0.15), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
 [sub_resource type="Curve" id="Curve_3yq31"]
 resource_local_to_scene = true
 _limits = [-0.5, 0.5, 0.0, 1.0]
@@ -27,12 +33,6 @@ _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.2, 0.4), 0.0, 0.0, 0, 0, Vecto
 point_count = 4
 
 [sub_resource type="Curve" id="Curve_l3om0"]
-resource_local_to_scene = true
-_limits = [-0.5, 0.5, 0.0, 1.0]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.2, 0.4), 0.0, 0.0, 0, 0, Vector2(0.6, -0.15), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 4
-
-[sub_resource type="Curve" id="Curve_ie260"]
 resource_local_to_scene = true
 _limits = [-0.5, 0.5, 0.0, 1.0]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.2, 0.4), 0.0, 0.0, 0, 0, Vector2(0.6, -0.15), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -89,27 +89,28 @@ theme_override_constants/separation = 20
 [node name="Resume" parent="MainPanel/VBoxContainer/Buttons" unique_id=1769110768 instance=ExtResource("1_btn")]
 layout_mode = 2
 text = "RESUME"
-ease_curve = SubResource("Curve_3yq31")
+ease_curve = SubResource("Curve_mjgms")
 
 [node name="SaveGame" parent="MainPanel/VBoxContainer/Buttons" unique_id=962221927 instance=ExtResource("1_btn")]
+visible = false
 layout_mode = 2
 text = "SAVE_GAME"
-ease_curve = SubResource("Curve_7tbfl")
+ease_curve = SubResource("Curve_3yq31")
 
 [node name="Settings" parent="MainPanel/VBoxContainer/Buttons" unique_id=2084197765 instance=ExtResource("1_btn")]
 layout_mode = 2
 text = "SETTINGS"
-ease_curve = SubResource("Curve_sy466")
+ease_curve = SubResource("Curve_7tbfl")
 
 [node name="Help" parent="MainPanel/VBoxContainer/Buttons" unique_id=1700443550 instance=ExtResource("1_btn")]
 layout_mode = 2
 text = "HELP"
-ease_curve = SubResource("Curve_l3om0")
+ease_curve = SubResource("Curve_sy466")
 
 [node name="BackToStart" parent="MainPanel/VBoxContainer/Buttons" unique_id=1928213011 instance=ExtResource("1_btn")]
 layout_mode = 2
 text = "BACK_TO_START"
-ease_curve = SubResource("Curve_ie260")
+ease_curve = SubResource("Curve_l3om0")
 
 [connection signal="button_anim_finish" from="MainPanel/VBoxContainer/Buttons/Resume" to="." method="_on_resume_anim_finish"]
 [connection signal="button_anim_finish" from="MainPanel/VBoxContainer/Buttons/SaveGame" to="." method="_on_save_game_button_anim_finish"]

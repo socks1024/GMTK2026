@@ -27,7 +27,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if _is_player_in_room:
-		if _is_shooting:
+		if _is_shooting || health <= 0:
 			return
 		if is_valid_collider(down_ray_cast_2d):
 			shoot.call_deferred(Vector2.DOWN)

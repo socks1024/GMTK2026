@@ -80,6 +80,7 @@ func gain_live_time(value: float) -> void:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	super._ready()
 	instance = self
 	
 	live_timer.timeout.connect(

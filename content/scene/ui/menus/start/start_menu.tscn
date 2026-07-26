@@ -6,6 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://cmfy2e20lt70m" path="res://content/scene/ui/menus/credit/credit_menu.tscn" id="3_334q3"]
 [ext_resource type="Texture2D" uid="uid://dmvanhuv4h2sm" path="res://content/art/sprite/magika/Title.png" id="4_334q3"]
 
+[sub_resource type="Curve" id="Curve_334q3"]
+resource_local_to_scene = true
+_limits = [-0.5, 0.5, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.2, 0.4), 0.0, 0.0, 0, 0, Vector2(0.6, -0.15), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
 [sub_resource type="Curve" id="Curve_vdbsm"]
 resource_local_to_scene = true
 _limits = [-0.5, 0.5, 0.0, 1.0]
@@ -25,12 +31,6 @@ _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.2, 0.4), 0.0, 0.0, 0, 0, Vecto
 point_count = 4
 
 [sub_resource type="Curve" id="Curve_b73sj"]
-resource_local_to_scene = true
-_limits = [-0.5, 0.5, 0.0, 1.0]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.2, 0.4), 0.0, 0.0, 0, 0, Vector2(0.6, -0.15), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 4
-
-[sub_resource type="Curve" id="Curve_b34fd"]
 resource_local_to_scene = true
 _limits = [-0.5, 0.5, 0.0, 1.0]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.2, 0.4), 0.0, 0.0, 0, 0, Vector2(0.6, -0.15), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -82,27 +82,29 @@ theme_override_constants/separation = 20
 [node name="NewGame" parent="Panel/Buttons" unique_id=962221927 instance=ExtResource("1_i6emh")]
 layout_mode = 2
 text = "NEW_GAME"
-ease_curve = SubResource("Curve_vdbsm")
+ease_curve = SubResource("Curve_334q3")
 
 [node name="Continue" parent="Panel/Buttons" unique_id=132687649 instance=ExtResource("1_i6emh")]
+visible = false
 layout_mode = 2
 text = "CONTINUE_GAME"
-ease_curve = SubResource("Curve_ldejh")
+ease_curve = SubResource("Curve_vdbsm")
 
 [node name="Settings" parent="Panel/Buttons" unique_id=966228876 instance=ExtResource("1_i6emh")]
+visible = false
 layout_mode = 2
 text = "SETTINGS"
-ease_curve = SubResource("Curve_iok7d")
+ease_curve = SubResource("Curve_ldejh")
 
 [node name="Credits" parent="Panel/Buttons" unique_id=819866585 instance=ExtResource("1_i6emh")]
 layout_mode = 2
 text = "CREDITS"
-ease_curve = SubResource("Curve_b73sj")
+ease_curve = SubResource("Curve_iok7d")
 
 [node name="Exit" parent="Panel/Buttons" unique_id=792682864 instance=ExtResource("1_i6emh")]
 layout_mode = 2
 text = "EXIT_GAME"
-ease_curve = SubResource("Curve_b34fd")
+ease_curve = SubResource("Curve_b73sj")
 
 [connection signal="button_anim_finish" from="Panel/Buttons/NewGame" to="." method="_on_new_game_button_anim_finish"]
 [connection signal="button_anim_finish" from="Panel/Buttons/Continue" to="." method="_on_continue_button_anim_finish"]
