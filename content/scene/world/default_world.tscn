@@ -20,7 +20,7 @@ script = ExtResource("1_x51ot")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="Player" parent="." unique_id=1051908149 instance=ExtResource("2_4jt3r")]
-position = Vector2(4200, 3800)
+position = Vector2(1000, 360)
 speed = 200.0
 
 [node name="Level1" parent="." unique_id=432088751 instance=ExtResource("4_x51ot")]
@@ -43,11 +43,15 @@ to = NodePath("../../Level1/Ladder1to2")
 position = Vector2(2760, 1080)
 to = NodePath("../../Level3/Ladder3to2")
 
-[node name="Hole2to1" parent="Level2" unique_id=1679444749 instance=ExtResource("7_x51ot")]
+[node name="Hole2to1" parent="Level2" unique_id=1679444749 node_paths=PackedStringArray("to") instance=ExtResource("7_x51ot")]
 position = Vector2(2120, 360)
+to = NodePath("../../Level1/Marker2D")
 
 [node name="Marker2D" type="Marker2D" parent="Level2" unique_id=1923875148]
-position = Vector2(440, 360)
+position = Vector2(120, 360)
+
+[node name="Marker2D2" type="Marker2D" parent="Level2" unique_id=376808572]
+position = Vector2(3400, 1080)
 
 [node name="Level3" parent="." unique_id=1083241817 instance=ExtResource("6_apdbo")]
 position = Vector2(0, 4800)
@@ -57,5 +61,9 @@ position = Vector2(2760, 1080)
 to = NodePath("../../Level2/Ladder2to3")
 
 [node name="Hole3to2" parent="Level3" unique_id=1373932065 node_paths=PackedStringArray("to") instance=ExtResource("7_x51ot")]
-position = Vector2(440, 360)
+position = Vector2(120, 360)
 to = NodePath("../../Level2/Marker2D")
+
+[node name="Hole3to2(2)" parent="Level3" unique_id=1086720313 node_paths=PackedStringArray("to") instance=ExtResource("7_x51ot")]
+position = Vector2(3400, 1080)
+to = NodePath("../../Level2/Marker2D2")

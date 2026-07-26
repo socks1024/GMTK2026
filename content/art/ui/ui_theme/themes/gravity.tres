@@ -1,5 +1,7 @@
 [gd_resource type="Theme" format=3 uid="uid://2qh3aix7i37a"]
 
+[ext_resource type="FontFile" uid="uid://b5vcqkghf8aw4" path="res://content/art/retro-pixel-font-ttf-v2026.07.01/arcade/retro-pixel-arcade.ttf" id="1_fdywf"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w50h3"]
 content_margin_left = 16.0
 content_margin_top = 4.0
@@ -100,11 +102,13 @@ Button/colors/font_color = Color(0.95, 0.95, 0.95, 1)
 Button/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
 Button/colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
 Button/colors/font_pressed_color = Color(0.125911, 0.125911, 0.125911, 1)
+Button/fonts/font = ExtResource("1_fdywf")
 Button/styles/disabled = null
 Button/styles/focus = SubResource("StyleBoxFlat_w50h3")
 Button/styles/hover = SubResource("StyleBoxFlat_w50h3")
 Button/styles/normal = SubResource("StyleBoxFlat_6tkof")
 Button/styles/pressed = SubResource("StyleBoxFlat_ftays")
+Label/fonts/font = ExtResource("1_fdywf")
 Panel/styles/panel = SubResource("StyleBoxFlat_sucf2")
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_sucf2")
 TabContainer/colors/font_hovered_color = Color(0.945281, 0.945281, 0.945281, 1)

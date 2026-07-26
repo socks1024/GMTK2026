@@ -42,6 +42,9 @@ func exit_room(player: Player) -> void:
 		if e: e.on_player_leave_room.call_deferred()
 	for e in entities:
 		if e: e.on_player_leave_room.call_deferred()
+	for n in NodeUtils.recursive_get_children(get_parent(), true):
+		if n is Heart:
+			n.queue_free()
 
 
 func _on_body_entered(body: Node2D) -> void:

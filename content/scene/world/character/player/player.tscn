@@ -15,20 +15,21 @@
 [ext_resource type="PackedScene" uid="uid://drhubgdeg3ekc" path="res://content/scene/world/magic/explosion/explosion.tscn" id="13_cxflr"]
 [ext_resource type="Script" uid="uid://bss2rdtqssvja" path="res://content/scene/world/character/player/logic/player_animator.gd" id="16_4ivt4"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_go70w"]
-size = Vector2(45, 60)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ie260"]
+radius = 21.0
+height = 62.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ab5xs"]
-size = Vector2(48, 80)
+size = Vector2(48, 60)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p765g"]
-size = Vector2(48, 80)
+size = Vector2(48, 60)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2jxm5"]
-size = Vector2(80, 48)
+size = Vector2(60, 48)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2blu0"]
-size = Vector2(80, 48)
+size = Vector2(60, 48)
 
 [sub_resource type="Animation" id="Animation_ywj0m"]
 length = 0.001
@@ -1659,8 +1660,8 @@ script = ExtResource("2_dc5l6")
 player_hud = ExtResource("5_kqb8u")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1904063568]
-position = Vector2(0, 5)
-shape = SubResource("RectangleShape2D_go70w")
+position = Vector2(0, 8)
+shape = SubResource("CapsuleShape2D_ie260")
 
 [node name="LiveTimer" type="Timer" parent="." unique_id=1297085917]
 

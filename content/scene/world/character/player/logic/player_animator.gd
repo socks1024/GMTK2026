@@ -17,15 +17,17 @@ extends Node
 @onready var state_machine: AnimationNodeStateMachinePlayback = animation_tree["parameters/playback"]
 
 func _ready() -> void:
-	player_controller.attack_power_input.power_started.connect(
+	player_controller.attack_power_input.power_completed.connect(
+		func(t):if t < 0.3: _travel_to_animation("Attack")
+	)
+	player_controller.evade_power_input.power_started.connect(
 		func(): magic_animation.play()
 	)
-	player_controller.attack_power_input.power_completed.connect(
+	player_controller.evade_power_input.power_completed.connect(
 		func(t):
 			magic_animation.stop()
-			if t < 0.3: _travel_to_animation("Attack")
-			elif t < 0.7: _travel_to_animation("Shoot")
-			else: _travel_to_animation("Magic")
+			if t > 0.3 && t <= 1: _travel_to_animation("Shoot")
+			elif t > 1: _travel_to_animation("Magic")
 	)
 	player.get_hurt.connect(
 		func(): _travel_to_animation("Hurt")

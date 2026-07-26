@@ -2,16 +2,98 @@
 
 [ext_resource type="TileSet" uid="uid://bx3upxfac3mlx" path="res://content/art/sprite/dungeon_old/dungeon_/dungeon_tiles.tres" id="1_gsmpr"]
 [ext_resource type="PackedScene" uid="uid://bkrrhl582620g" path="res://content/scene/world/room_area/room_area.tscn" id="2_c154t"]
+[ext_resource type="PackedScene" uid="uid://dayl62ethbi41" path="res://content/scene/world/entity/door/door.tscn" id="3_ivsf0"]
 [ext_resource type="PackedScene" uid="uid://8s0ncdawvmb3" path="res://content/scene/world/magic/demon/demon.tscn" id="3_ke2fa"]
+[ext_resource type="PackedScene" uid="uid://cqv43ckfqh5e8" path="res://content/scene/world/entity/box_entity/explode_barrel/explode_barrel.tscn" id="4_c154t"]
+[ext_resource type="PackedScene" uid="uid://ibutqbq3jafq" path="res://content/scene/world/entity/altar/altar.tscn" id="5_ke2fa"]
+[ext_resource type="Script" uid="uid://bddjowj78qh44" path="res://content/scene/world/timer_label.gd" id="6_8sx7u"]
+[ext_resource type="Script" uid="uid://cwd6qk4edmxae" path="res://content/scene/world/complement.gd" id="6_njsrl"]
+[ext_resource type="Texture2D" uid="uid://bsdit608hsfnr" path="res://content/art/sprite/magika/WallAndGround.png" id="7_hxudo"]
+[ext_resource type="PackedScene" uid="uid://byamdgyw4hhtj" path="res://content/scene/world/entity/box_entity/missile_shooter/missile_shooter.tscn" id="7_wjh31"]
+[ext_resource type="PackedScene" uid="uid://t2v7i82oqewe" path="res://content/scene/world/entity/trigger_entity/pressure_plate/pressure_plate.tscn" id="8_jhinw"]
+[ext_resource type="PackedScene" uid="uid://bt2kmq76nh8n6" path="res://content/scene/world/entity/mechanic_door/mechanic_door.tscn" id="9_jhinw"]
+[ext_resource type="PackedScene" uid="uid://2f3ervqaebt2" path="res://content/scene/world/character/enemy/sprint_enemy/sprint_enemy.tscn" id="10_up4nc"]
+[ext_resource type="PackedScene" uid="uid://csl5xwxdffsfk" path="res://content/scene/world/entity/spike_floor/spike_floor.tscn" id="11_wb4yq"]
+[ext_resource type="PackedScene" uid="uid://cejrxyawsm1je" path="res://content/scene/world/entity/box_entity/wood_box/wood_box.tscn" id="12_b3adf"]
+[ext_resource type="PackedScene" uid="uid://cekupg66h8yi6" path="res://content/scene/world/entity/pickable_entity/heart_container/heart_container.tscn" id="13_b3adf"]
+[ext_resource type="PackedScene" uid="uid://bsrjiqqiexeoq" path="res://content/scene/world/character/enemy/static_enemy/static_enemy.tscn" id="14_1vbf3"]
+[ext_resource type="PackedScene" uid="uid://dx2co7htn3cui" path="res://content/scene/world/entity/trigger_entity/lever/lever.tscn" id="14_fpa1i"]
+[ext_resource type="PackedScene" uid="uid://dqhs1dg0qxq5o" path="res://content/scene/world/entity/fragile_wall/fragile_wall.tscn" id="16_gbhlb"]
+[ext_resource type="PackedScene" uid="uid://bdrqv008e5e0s" path="res://content/scene/world/entity/pickable_entity/clock/clock.tscn" id="16_i41kq"]
+[ext_resource type="Texture2D" uid="uid://bgyp864482p2j" path="res://content/art/sprite/magika/Boss.png" id="17_67g8x"]
+[ext_resource type="PackedScene" uid="uid://b28cplo5qguxq" path="res://content/scene/world/entity/pickable_entity/key/key.tscn" id="17_i41kq"]
+[ext_resource type="Script" uid="uid://b8kfww43c5211" path="res://content/scene/world/final_demon.gd" id="18_b1548"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_biapd"]
 size = Vector2(1280, 720)
+
+[sub_resource type="LabelSettings" id="LabelSettings_co6qv"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_b1548"]
+font_size = 64
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vkqoe"]
+size = Vector2(160, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vkqoe"]
+atlas = ExtResource("7_hxudo")
+region = Rect2(48, 0, 32, 16)
+
+[sub_resource type="LabelSettings" id="LabelSettings_gjxql"]
+font_size = 32
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b1548"]
+atlas = ExtResource("17_67g8x")
+region = Rect2(0, 0, 132, 132)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_njsrl"]
+atlas = ExtResource("17_67g8x")
+region = Rect2(132, 0, 132, 132)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hxudo"]
+atlas = ExtResource("17_67g8x")
+region = Rect2(264, 0, 132, 132)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1vbf3"]
+atlas = ExtResource("17_67g8x")
+region = Rect2(396, 0, 132, 132)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g1bn1"]
+atlas = ExtResource("17_67g8x")
+region = Rect2(528, 0, 132, 132)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vkqoe"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b1548")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_njsrl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hxudo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1vbf3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g1bn1")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vkqoe"]
+font_size = 64
 
 [node name="Level3" type="Node2D" unique_id=1083241817]
 
 [node name="Walls" type="TileMapLayer" parent="." unique_id=1126212293]
 scale = Vector2(5, 5)
-tile_map_data = PackedByteArray("AAAAAA0AAQAAAAAAAAAAAAwAAQAAAAAAAAAAAAsAAQAAAAAAAAAAAAoAAQAAAAAAAAAAAAkAAQAAAAAAAAAAAAgAAQAAAAAAAAAAAAcAAQAAAAAAAAAAAAYAAQAAAAAAAAAAAAUAAQAAAAAAAAAAAAQAAQAAAAAAAAAAAAMAAQAAAAAAAAAAAAIAAQAAAAAAAAAAAAEAAQAAAAAAAAADAAgAAQAAAAAAAAAKAAgAAQAAAAAAAAACAAgAAQAAAAAAAAALAAgAAQAAAAAAAAAAAA4AAQAAAAAAAAAAAA8AAQAAAAAAAAAAABAAAQAAAAAAAAABAAgAAQAAAAAAAAAGAAgAAQAAAAAAAAAFAAgAAQAAAAAAAAAEAAgAAQAAAAAAAAAHAAgAAQAAAAAAAAAIAAgAAQAAAAAAAAAJAAgAAQAAAAAAAAAPAAgAAQAAAAAAAAANAAgAAQAAAAAAAAAMAAgAAQAAAAAAAAAPAAkAAQAAAAAAAAAPAAEAAQAAAAAAAAAPAAIAAQAAAAAAAAAPAAMAAQAAAAAAAAAPAAQAAQAAAAAAAAAPAAUAAQAAAAAAAAAPAAYAAQAAAAAAAAAQABAAAQAAAAAAAAAPABAAAQAAAAAAAAAPAA8AAQAAAAAAAAAOAAgAAQAAAAAAAAAPAAoAAQAAAAAAAAAPAAwAAQAAAAAAAAAAAAAAAQAAAAAAAAABAAAAAQAAAAAAAAACAAAAAQAAAAAAAAADAAAAAQAAAAAAAAAEAAAAAQAAAAAAAAAFAAAAAQAAAAAAAAAGAAAAAQAAAAAAAAAHAAAAAQAAAAAAAAAIAAAAAQAAAAAAAAAJAAAAAQAAAAAAAAAKAAAAAQAAAAAAAAALAAAAAQAAAAAAAAAMAAAAAQAAAAAAAAANAAAAAQAAAAAAAAAOAAAAAQAAAAAAAAAPAAAAAQAAAAAAAAAeAAgAAQAAAAAAAAAeAAkAAQAAAAAAAAAeAAoAAQAAAAAAAAAeAAsAAQAAAAAAAAAeAA0AAQAAAAAAAAAeAA4AAQAAAAAAAAAeAA8AAQAAAAAAAAAeABAAAQAAAAAAAAABABAAAQAAAAAAAAACABAAAQAAAAAAAAADABAAAQAAAAAAAAAEABAAAQAAAAAAAAAFABAAAQAAAAAAAAAGABAAAQAAAAAAAAAHABAAAQAAAAAAAAAIABAAAQAAAAAA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AAAyABAAAQAAAAAAAAAzABAAAQAAAAAAAAA0ABAAAQAAAAAAAAA1ABAAAQAAAAAAAAA2ABAAAQAAAAAAAAA3ABAAAQAAAAAAAAA4ABAAAQAAAAAAAAA5ABAAAQAAAAAAAAA6ABAAAQAAAAAAAAA7ABAAAQAAAAAAAAA8ABAAAQAAAAAAAAA8AAkAAQAAAAAAAAA8AAoAAQAAAAAAAAA8AAsAAQAAAAAAAAA8AAwAAQAAAAAAAAA8AA0AAQAAAAAAAAA8AA4AAQAAAAAAAAA8AA8AAQAAAAAAAAA8ABEAAQAAAAAAAAA8ABIAAQAAAAAAAAA8ABMAAQAAAAAAAAA8ABQAAQAAAAAAAAA8ABUAAQAAAAAAAAA8ABYAAQAAAAAAAAA8ABcAAQAAAAAAAAA8ABgAAQAAAAAAAAAuABgAAQAAAAAAAAAvABgAAQAAAAAAAAAwABgAAQAAAAAAAAAxABgAAQAAAAAAAAAyABgAAQAAAAAAAAAzABgAAQAAAAAAAAA0ABgAAQAAAAAAAAA1ABgAAQAAAAAAAAA2ABgAAQAAAAAAAAA3ABgAAQAAAAAAAAA4ABgAAQAAAAAAAAA5ABgAAQAAAAAAAAA6ABgAAQAAAAAAAAA7ABgAAQAAAAAAAAAPAAcAAQAAAAAAAAAPAAsAAQAAAAAAAAAPAA0AAQAAAAAAAAApAAoAAQAAAAAAAAAqAAoAAQAAAAAAAAArAAoAAQAAAAAAAAArAAsAAQAAAAAAAAArAAwAAQAAAAAAAAAqAAwAAQAAAAAAAAApAAwAAQAAAAAAAAArAA0AAQAAAAAAAAArAA4AAQAAAAAAAAAqAA4AAQAAAAAAAAApAA4AAQAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAAAA0AAQAAAAAAAAAAAAwAAQAAAAAAAAAAAAsAAQAAAAAAAAAAAAoAAQAAAAAAAAAAAAkAAQAAAAAAAAAAAAgAAQAAAAAAAAAAAAcAAQAAAAAAAAAAAAYAAQAAAAAAAAAAAAUAAQAAAAAAAAAAAAQAAQAAAAAAAAAAAAMAAQAAAAAAAAAAAAIAAQAAAAAAAAAAAAEAAQAAAAAAAAADAAgAAQAAAAAAAAAKAAgAAQAAAAAAAAACAAgAAQAAAAAAAAALAAgAAQAAAAAAAAAAAA4AAQAAAAAAAAAAAA8AAQAAAAAAAAAAABAAAQAAAAAAAAABAAgAAQAAAAAAAAAGAAgAAQAAAAAAAAAFAAgAAQAAAAAAAAAEAAgAAQAAAAAAAAAHAAgAAQAAAAAAAAAIAAgAAQAAAAAAAAAJAAgAAQAAAAAAAAAPAAgAAQAAAAAAAAANAAgAAQAAAAAAAAAMAAgAAQAAAAAAAAAPAAkAAQAAAAAAAAAPAAEAAQAAAAAAAAAPAAIAAQAAAAAAAAAPAAMAAQAAAAAAAAAPAAUAAQAAAAAAAAAPAAYAAQAAAAAAAAAQABAAAQAAAAAAAAAPABAAAQAAAAAAAAAPAA8AAQAAAAAAAAAOAAgAAQAAAAAAAAAPAAoAAQAAAAAAAAAAAAAAAQAAAAAAAAABAAAAAQAAAAAAAAACAAAAAQAAAAAAAAADAAAAAQAAAAAAAAAEAAAAAQAAAAAAAAAFAAAAAQAAAAAAAAAGAAAAAQAAAAAAAAAHAAAAAQAAAAAAAAAIAAAAAQAAAAAAAAAJAAAAAQAAAAAAAAAKAAAAAQAAAAAAAAALAAAAAQAAAAAAAAAMAAAAAQAAAAAAAAANAAAAAQAAAAAAAAAOAAAAAQAAAAAAAAAPAAAAAQAAAAAAAAAeAAgAAQAAAAAAAAAeAAkAAQAAAAAAAAAeAAoAAQAAAAAAAAAeAAsAAQAAAAAAAAAeAA0AAQAAAAAAAAAeAA4AAQAAAAAAAAAeAA8AAQAAAAAAAAAeABAAAQAAAAAAAAABABAAAQAAAAAAAAAEABAAAQAAAAAAAAAKABAAAQAAAAAAAAALABAAAQAAAAAAAAANABAAAQAAAAAAAAAOABAAAQAAAAAAAAARABAAAQAAAAAAAAASABAAAQAAAAAAAAATABAAAQAAAAAAAAAUABAAAQAAAAAAAAAVABAAAQAAAAAAAAAXABAAAQAAAAAAAAAYABAAAQAAAAAAAAAZABAAAQAAAAAAAAAaABAAAQAAAAAAAAAbABAAAQAAAAAAAAAcABAAAQAAAAAAAAAdABAAAQAAAAAAAAAPAA4AAQAAAAAAAAAQAAgAAQAAAAAAAAARAAgAAQAAAAAAAAASAAgAAQAAAAAAAAATAAgAAQAAAAAAAAAUAAgAAQAAAAAAAAAVAAgAAQAAAAAAAAAYAAgAAQAAAAAAAAAZAAgAAQAAAAAAAAAaAAgAAQAAAAAAAAAbAAgAAQAAAAAAAAAcAAgAAQAAAAAAAAAdAAgAAQAAAAAAAAAfAAAAAQAAAAAAAAAgAAAAAQAAAAAAAAAhAAAAAQAAAAAAAAAiAAAAAQAAAAAAAAAjAAAAAQAAAAAAAAAlAAAAAQAAAAAAAAAkAAAAAQAAAAAAAAAQAAAAAQAAAAAAAAARAAAAAQAAAAAAAAASAAAAAQAAAAAAAAATAAAAAQAAAAAAAAAUAAAAAQAAAAAAAAAVAAAAAQAAAAAAAAAWAAAAAQAAAAAAAAAXAAAAAQAAAAAAAAAYAAAAAQAAAAAAAAAZAAAAAQAAAAAAAAAaAAAAAQAAAAAAAAAbAAAAAQAAAAAAAAAcAAAAAQAAAAAAAAAdAAAAAQAAAAAAAAAeAAAAAQAAAAAAAAAeAAEAAQAAAAAAAAAeAAIAAQAAAAAAAAAeAAMAAQAAAAAAAAAeAAUAAQAAAAAAAAAeAAYAAQAAAAAAAAAeAAcAAQAAAAAAAAAmAAAAAQAAAAAAAAAnAAAAAQAAAAAAAAAoAAAAAQAAAAAAAAApAAAAAQAAAAAAAAAqAAAAAQAAAAAAAAArAAAAAQAAAAAAAAAsAAAAAQAAAAAAAAAtAAAAAQAAAAAAAAAtAAEAAQAAAAAAAAAtAAIAAQAAAAAAAAAtAAMAAQAAAAAAAAAtAAUAAQAAAAAAAAAfAAgAAQAAAAAAAAAgAAgAAQAAAAAAAAAhAAgAAQAAAAAAAAAiAAgAAQAAAAAAAAAjAAgAAQAAAAAAAAAkAAgAAQAAAAAAAAAnAAgAAQAAAAAAAAAoAAgAAQAAAAAAAAApAAgAAQAAAAAAAAAqAAgAAQAAAAAAAAAtAAgAAQAAAAAAAAAtAAkAAQAAAAAAAAAtAAoAAQAAAAAAAAAtAAsAAQAAAAAAAAAtAA0AAQAAAAAAAAAtAA4AAQAAAAAAAAAtAA8AAQAAAAAAAAAfABAAAQAAAAAAAAAgABAAAQAAAAAAAAAhABAAAQAAAAAAAAAiABAAAQAAAAAAAAAjABAAAQAAAAAAAAAkABAAAQAAAAAAAAAnABAAAQAAAAAAAAAoABAAAQAAAAAAAAApABAAAQAAAAAAAAAqABAAAQAAAAAAAAArABAAAQAAAAAAAAAsABAAAQAAAAAAAAAtABAAAQAAAAAAAAAtABEAAQAAAAAAAAAtABIAAQAAAAAAAAAtABMAAQAAAAAAAAAtABYAAQAAAAAAAAAtABcAAQAAAAAAAAAPABEAAQAAAAAAAAAPABIAAQAAAAAAAAAPABMAAQAAAAAAAAAPABQAAQAAAAAAAAAPABUAAQAAAAAAAAAPABYAAQAAAAAAAAAPABcAAQAAAAAAAAAeABEAAQAAAAAAAAAeABIAAQAAAAAAAAAeABMAAQAAAAAAAAAeABUAAQAAAAAAAAAeABYAAQAAAAAAAAAeABcAAQAAAAAAAAABABgAAQAAAAAAAAACABgAAQAAAAAAAAADABgAAQAAAAAAAAAEABgAAQAAAAAAAAAFABgAAQAAAAAAAAAGABgAAQAAAAAAAAAHABgAAQAAAAAAAAAIABgAAQAAAAAAAAAJABgAAQAAAAAAAAAKABgAAQAAAAAAAAALABgAAQAAAAAAAAAMABgAAQAAAAAAAAANABgAAQAAAAAAAAAOABgAAQAAAAAAAAAPABgAAQAAAAAAAAAQABgAAQAAAAAAAAARABgAAQAAAAAAAAASABgAAQAAAAAAAAATABgAAQAAAAAAAAAUABgAAQAAAAAAAAAVABgAAQAAAAAAAAAWABgAAQAAAAAAAAAXABgAAQAAAAAAAAAYABgAAQAAAAAAAAAZABgAAQAAAAAAAAAaABgAAQAAAAAAAAAbABgAAQAAAAAAAAAcABgAAQAAAAAAAAAdABgAAQAAAAAAAAAeABgAAQAAAAAAAAAfABgAAQAAAAAAAAAgABgAAQAAAAAAAAAhABgAAQAAAAAAAAAiABgAAQAAAAAAAAAjABgAAQAAAAAAAAAkABgAAQAAAAAAAAAlABgAAQAAAAAAAAAmABgAAQAAAAAAAAAnABgAAQAAAAAAAAAoABgAAQAAAAAAAAApABgAAQAAAAAAAAAqABgAAQAAAAAAAAArABgAAQAAAAAAAAAsABgAAQAAAAAAAAAtABgAAQAAAAAAAAAuAAAAAQAAAAAAAAAvAAAAAQAAAAAAAAAwAAAAAQAAAAAAAAAxAAAAAQAAAAAAAAAyAAAAAQAAAAAAAAAzAAAAAQAAAAAAAAA0AAAAAQAAAAAAAAA1AAAAAQAAAAAAAAA2AAAAAQAAAAAAAAA3AAAAAQAAAAAAAAA4AAAAAQAAAAAAAAA5AAAAAQAAAAAAAAA6AAAAAQAAAAAAAAA7AAAAAQAAAAAAAAA8AAAAAQAAAAAAAAA8AAEAAQAAAAAAAAA8AAIAAQAAAAAAAAA8AAMAAQAAAAAAAAA8AAQAAQAAAAAAAAA8AAUAAQAAAAAAAAA8AAYAAQAAAAAAAAA8AAcAAQAAAAAAAAAAABEAAQAAAAAAAAAAABIAAQAAAAAAAAAAABMAAQAAAAAAAAAAABQAAQAAAAAAAAAAABUAAQAAAAAAAAAAABYAAQAAAAAAAAAAABcAAQAAAAAAAAAAABgAAQAAAAAAAAAuAAgAAQAAAAAAAAAvAAgAAQAAAAAAAAAwAAgAAQAAAAAAAAAyAAgAAQAAAAAAAAA2AAgAAQAAAAAAAAA3AAgAAQAAAAAAAAA4AAgAAQAAAAAAAAA5AAgAAQAAAAAAAAA6AAgAAQAAAAAAAAA7AAgAAQAAAAAAAAA8AAgAAQAAAAAAAAAuABAAAQAAAAAAAAAvABAAAQAAAAAAAAAwABAAAQAAAAAAAAAxABAAAQAAAAAAAAAyABAAAQAAAAAAAAAzABAAAQAAAAAAAAA0ABAAAQAAAAAAAAA1ABAAAQAAAAAAAAA2ABAAAQAAAAAAAAA3ABAAAQAAAAAAAAA4ABAAAQAAAAAAAAA5ABAAAQAAAAAAAAA6ABAAAQAAAAAAAAA7ABAAAQAAAAAAAAA8ABAAAQAAAAAAAAA8AAkAAQAAAAAAAAA8AAoAAQAAAAAAAAA8AAsAAQAAAAAAAAA8AAwAAQAAAAAAAAA8AA0AAQAAAAAAAAA8AA4AAQAAAAAAAAA8AA8AAQAAAAAAAAA8ABEAAQAAAAAAAAA8ABIAAQAAAAAAAAA8ABMAAQAAAAAAAAA8ABQAAQAAAAAAAAA8ABUAAQAAAAAAAAA8ABYAAQAAAAAAAAA8ABcAAQAAAAAAAAA8ABgAAQAAAAAA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")
 tile_set = ExtResource("1_gsmpr")
 
 [node name="1-1" type="Node2D" parent="." unique_id=2006956326]
@@ -25,6 +107,54 @@ position = Vector2(640, 360)
 shape = SubResource("RectangleShape2D_biapd")
 debug_color = Color(0.62352943, 0.57254905, 0.2901961, 0)
 
+[node name="MissileShooter" parent="1-1" unique_id=435939612 instance=ExtResource("7_wjh31")]
+position = Vector2(680, 280)
+shoot_direction = Vector2(1, 0)
+
+[node name="MissileShooter2" parent="1-1" unique_id=917138880 instance=ExtResource("7_wjh31")]
+position = Vector2(920, 360)
+shoot_direction = Vector2(1, 0)
+
+[node name="MissileShooter3" parent="1-1" unique_id=726233171 instance=ExtResource("7_wjh31")]
+position = Vector2(680, 440)
+shoot_direction = Vector2(1, 0)
+
+[node name="PressurePlate" parent="1-1" unique_id=1816935773 instance=ExtResource("8_jhinw")]
+position = Vector2(840, 360)
+trigger_color = Color(0.68235296, 0, 0, 1)
+
+[node name="PressurePlate2" parent="1-1" unique_id=322380917 instance=ExtResource("8_jhinw")]
+position = Vector2(680, 520)
+trigger_color = Color(0.31982023, 0.5272513, 1, 1)
+
+[node name="PressurePlate3" parent="1-1" unique_id=531030986 instance=ExtResource("8_jhinw")]
+position = Vector2(680, 200)
+trigger_color = Color(0, 0.7529412, 0, 1)
+
+[node name="MissileShooter4" parent="1-1" unique_id=37180395 instance=ExtResource("7_wjh31")]
+position = Vector2(1160, 200)
+shoot_direction = Vector2(-1, 0)
+
+[node name="MissileShooter5" parent="1-1" unique_id=1247803861 instance=ExtResource("7_wjh31")]
+position = Vector2(1000, 360)
+shoot_direction = Vector2(-1, 0)
+
+[node name="MissileShooter6" parent="1-1" unique_id=318069449 instance=ExtResource("7_wjh31")]
+position = Vector2(1160, 520)
+shoot_direction = Vector2(-1, 0)
+
+[node name="MechanicDoor" parent="1-1" unique_id=1556116169 node_paths=PackedStringArray("trigger") instance=ExtResource("9_jhinw")]
+position = Vector2(440, 360)
+trigger = NodePath("../PressurePlate")
+
+[node name="MechanicDoor2" parent="1-1" unique_id=1071225483 node_paths=PackedStringArray("trigger") instance=ExtResource("9_jhinw")]
+position = Vector2(360, 360)
+trigger = NodePath("../PressurePlate2")
+
+[node name="MechanicDoor3" parent="1-1" unique_id=2144670164 node_paths=PackedStringArray("trigger") instance=ExtResource("9_jhinw")]
+position = Vector2(280, 360)
+trigger = NodePath("../PressurePlate3")
+
 [node name="1-2" type="Node2D" parent="." unique_id=579320781]
 position = Vector2(0, 640)
 
@@ -36,6 +166,44 @@ z_index = -1
 position = Vector2(640, 360)
 shape = SubResource("RectangleShape2D_biapd")
 debug_color = Color(0.62352943, 0.57254905, 0.2901961, 0)
+
+[node name="Label" type="Label" parent="1-2" unique_id=1902590549]
+offset_left = 200.0
+offset_top = 200.0
+offset_right = 1096.0
+offset_bottom = 401.0
+text = "Collect all
+CLOCKs & HEART CONTAINERs
+to open this Door
+"
+label_settings = SubResource("LabelSettings_co6qv")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Complement" type="Label" parent="1-2" unique_id=1927781500 node_paths=PackedStringArray("door")]
+offset_left = 200.0
+offset_top = 360.0
+offset_right = 1096.0
+offset_bottom = 561.0
+text = "9/9
+"
+label_settings = SubResource("LabelSettings_b1548")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("6_njsrl")
+door = NodePath("../Door")
+
+[node name="Door" type="StaticBody2D" parent="1-2" unique_id=872709162]
+position = Vector2(640, 600)
+collision_layer = 2
+collision_mask = 187
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="1-2/Door" unique_id=788022185]
+shape = SubResource("RectangleShape2D_vkqoe")
+
+[node name="Sprite2D" type="Sprite2D" parent="1-2/Door" unique_id=2018501928]
+scale = Vector2(5, 5)
+texture = SubResource("AtlasTexture_vkqoe")
 
 [node name="1-3" type="Node2D" parent="." unique_id=2003600095]
 position = Vector2(0, 1280)
@@ -49,6 +217,20 @@ position = Vector2(640, 360)
 shape = SubResource("RectangleShape2D_biapd")
 debug_color = Color(0.62352943, 0.57254905, 0.2901961, 0)
 
+[node name="Label2" type="Label" parent="1-3" unique_id=1153903895]
+offset_left = 200.0
+offset_top = 240.0
+offset_right = 1096.0
+offset_bottom = 492.0
+text = "Thanks for playing!
+
+created by:
+socks1024
+LeoHeren"
+label_settings = SubResource("LabelSettings_co6qv")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="2-1" type="Node2D" parent="." unique_id=1226845783]
 position = Vector2(1200, 0)
 
@@ -60,6 +242,44 @@ z_index = -1
 position = Vector2(640, 360)
 shape = SubResource("RectangleShape2D_biapd")
 debug_color = Color(0.62352943, 0.57254905, 0.2901961, 0)
+
+[node name="ExplodeBarrel" parent="2-1" unique_id=1735990448 instance=ExtResource("4_c154t")]
+position = Vector2(840, 200)
+
+[node name="MechanicDoor" parent="2-1" unique_id=739228467 node_paths=PackedStringArray("trigger") instance=ExtResource("9_jhinw")]
+position = Vector2(1080, 520)
+trigger = NodePath("../Lever")
+
+[node name="Lever" parent="2-1" unique_id=214097314 instance=ExtResource("14_fpa1i")]
+position = Vector2(1160, 120)
+trigger_color = Color(0, 0.7529412, 0, 1)
+
+[node name="SpikeFloor" parent="2-1" unique_id=1480594516 instance=ExtResource("11_wb4yq")]
+position = Vector2(760, 200)
+
+[node name="SpikeFloor6" parent="2-1" unique_id=1823676763 instance=ExtResource("11_wb4yq")]
+position = Vector2(760, 120)
+
+[node name="SpikeFloor2" parent="2-1" unique_id=705953163 instance=ExtResource("11_wb4yq")]
+position = Vector2(760, 280)
+
+[node name="SpikeFloor3" parent="2-1" unique_id=1651309640 instance=ExtResource("11_wb4yq")]
+position = Vector2(840, 280)
+
+[node name="SpikeFloor4" parent="2-1" unique_id=2138692110 instance=ExtResource("11_wb4yq")]
+position = Vector2(920, 280)
+
+[node name="SpikeFloor5" parent="2-1" unique_id=1322274497 instance=ExtResource("11_wb4yq")]
+position = Vector2(1000, 280)
+
+[node name="SprintEnemy" parent="2-1" unique_id=1453818196 instance=ExtResource("10_up4nc")]
+position = Vector2(200, 200)
+
+[node name="Door" parent="2-1" unique_id=48051199 instance=ExtResource("3_ivsf0")]
+position = Vector2(1240, 360)
+
+[node name="Key" parent="2-1" unique_id=1987198981 instance=ExtResource("17_i41kq")]
+position = Vector2(1160, 520)
 
 [node name="2-2" type="Node2D" parent="." unique_id=251374804]
 position = Vector2(1200, 640)
@@ -73,6 +293,26 @@ position = Vector2(640, 360)
 shape = SubResource("RectangleShape2D_biapd")
 debug_color = Color(0.62352943, 0.57254905, 0.2901961, 0)
 
+[node name="Label" type="Label" parent="2-2" unique_id=1114285647]
+offset_left = 120.0
+offset_top = 320.0
+offset_right = 728.0
+offset_bottom = 368.0
+text = "<-- Mysterious Room"
+label_settings = SubResource("LabelSettings_gjxql")
+
+[node name="StaticEnemy" parent="2-2" unique_id=47785223 instance=ExtResource("14_1vbf3")]
+position = Vector2(360, 200)
+
+[node name="StaticEnemy2" parent="2-2" unique_id=1772093507 instance=ExtResource("14_1vbf3")]
+position = Vector2(920, 200)
+
+[node name="StaticEnemy3" parent="2-2" unique_id=1333504833 instance=ExtResource("14_1vbf3")]
+position = Vector2(360, 520)
+
+[node name="StaticEnemy4" parent="2-2" unique_id=636771888 instance=ExtResource("14_1vbf3")]
+position = Vector2(920, 520)
+
 [node name="2-3" type="Node2D" parent="." unique_id=967151468]
 position = Vector2(1200, 1280)
 
@@ -85,6 +325,176 @@ position = Vector2(640, 360)
 shape = SubResource("RectangleShape2D_biapd")
 debug_color = Color(0.62352943, 0.57254905, 0.2901961, 0)
 
+[node name="SpikeFloor2" parent="2-3" unique_id=214464897 instance=ExtResource("11_wb4yq")]
+position = Vector2(1080, 280)
+
+[node name="SpikeFloor3" parent="2-3" unique_id=1233812074 instance=ExtResource("11_wb4yq")]
+position = Vector2(1080, 440)
+
+[node name="SpikeFloor4" parent="2-3" unique_id=2138097952 instance=ExtResource("11_wb4yq")]
+position = Vector2(1080, 360)
+
+[node name="PressurePlate" parent="2-3" unique_id=1125830810 instance=ExtResource("8_jhinw")]
+position = Vector2(1160, 120)
+trigger_color = Color(0, 0.7529412, 0, 1)
+
+[node name="MechanicDoor" parent="2-3" unique_id=407430900 node_paths=PackedStringArray("trigger") instance=ExtResource("9_jhinw")]
+position = Vector2(1160, 520)
+trigger = NodePath("../PressurePlate")
+
+[node name="HeartContainer" parent="2-3" unique_id=900647117 instance=ExtResource("13_b3adf")]
+position = Vector2(1160, 600)
+
+[node name="ExplodeBarrel" parent="2-3" unique_id=84390498 instance=ExtResource("4_c154t")]
+position = Vector2(840, 440)
+
+[node name="ExplodeBarrel2" parent="2-3" unique_id=1743274040 instance=ExtResource("4_c154t")]
+position = Vector2(760, 440)
+
+[node name="ExplodeBarrel3" parent="2-3" unique_id=1657124068 instance=ExtResource("4_c154t")]
+position = Vector2(680, 440)
+
+[node name="ExplodeBarrel4" parent="2-3" unique_id=1329274821 instance=ExtResource("4_c154t")]
+position = Vector2(600, 440)
+
+[node name="ExplodeBarrel5" parent="2-3" unique_id=917378062 instance=ExtResource("4_c154t")]
+position = Vector2(520, 440)
+
+[node name="ExplodeBarrel6" parent="2-3" unique_id=586535469 instance=ExtResource("4_c154t")]
+position = Vector2(440, 440)
+
+[node name="ExplodeBarrel7" parent="2-3" unique_id=1527784048 instance=ExtResource("4_c154t")]
+position = Vector2(360, 440)
+
+[node name="ExplodeBarrel8" parent="2-3" unique_id=2115433849 instance=ExtResource("4_c154t")]
+position = Vector2(280, 440)
+
+[node name="MissileShooter5" parent="2-3" unique_id=154626258 instance=ExtResource("7_wjh31")]
+position = Vector2(280, 600)
+
+[node name="WoodBox5" parent="2-3" unique_id=416785752 instance=ExtResource("12_b3adf")]
+position = Vector2(280, 520)
+
+[node name="MissileShooter6" parent="2-3" unique_id=799464090 instance=ExtResource("7_wjh31")]
+position = Vector2(360, 600)
+
+[node name="WoodBox6" parent="2-3" unique_id=1907218516 instance=ExtResource("12_b3adf")]
+position = Vector2(360, 520)
+
+[node name="MissileShooter7" parent="2-3" unique_id=1496098308 instance=ExtResource("7_wjh31")]
+position = Vector2(440, 600)
+
+[node name="WoodBox7" parent="2-3" unique_id=1997420814 instance=ExtResource("12_b3adf")]
+position = Vector2(440, 520)
+
+[node name="MissileShooter8" parent="2-3" unique_id=1652820635 instance=ExtResource("7_wjh31")]
+position = Vector2(520, 600)
+
+[node name="WoodBox8" parent="2-3" unique_id=1998004214 instance=ExtResource("12_b3adf")]
+position = Vector2(520, 520)
+
+[node name="MissileShooter9" parent="2-3" unique_id=830958993 instance=ExtResource("7_wjh31")]
+position = Vector2(600, 600)
+
+[node name="WoodBox9" parent="2-3" unique_id=1630703921 instance=ExtResource("12_b3adf")]
+position = Vector2(600, 520)
+
+[node name="MissileShooter10" parent="2-3" unique_id=1528969235 instance=ExtResource("7_wjh31")]
+position = Vector2(680, 600)
+
+[node name="WoodBox10" parent="2-3" unique_id=130426093 instance=ExtResource("12_b3adf")]
+position = Vector2(680, 520)
+
+[node name="MissileShooter11" parent="2-3" unique_id=839325691 instance=ExtResource("7_wjh31")]
+position = Vector2(760, 600)
+
+[node name="WoodBox11" parent="2-3" unique_id=6296080 instance=ExtResource("12_b3adf")]
+position = Vector2(760, 520)
+
+[node name="MissileShooter12" parent="2-3" unique_id=260939943 instance=ExtResource("7_wjh31")]
+position = Vector2(840, 600)
+
+[node name="WoodBox12" parent="2-3" unique_id=463371006 instance=ExtResource("12_b3adf")]
+position = Vector2(840, 520)
+
+[node name="MissileShooter" parent="2-3" unique_id=1679807020 instance=ExtResource("7_wjh31")]
+position = Vector2(280, 360)
+shoot_direction = Vector2(1, 0)
+
+[node name="MissileShooter2" parent="2-3" unique_id=1150481324 instance=ExtResource("7_wjh31")]
+position = Vector2(440, 360)
+shoot_direction = Vector2(1, 0)
+
+[node name="MissileShooter3" parent="2-3" unique_id=1419535648 instance=ExtResource("7_wjh31")]
+position = Vector2(600, 360)
+shoot_direction = Vector2(1, 0)
+
+[node name="MissileShooter4" parent="2-3" unique_id=24047962 instance=ExtResource("7_wjh31")]
+position = Vector2(760, 360)
+shoot_direction = Vector2(1, 0)
+
+[node name="WoodBox" parent="2-3" unique_id=1821860434 instance=ExtResource("12_b3adf")]
+position = Vector2(360, 360)
+
+[node name="ExplodeBarrel9" parent="2-3" unique_id=422432788 instance=ExtResource("4_c154t")]
+position = Vector2(200, 440)
+
+[node name="ExplodeBarrel10" parent="2-3" unique_id=1255701860 instance=ExtResource("4_c154t")]
+position = Vector2(120, 440)
+
+[node name="MissileShooter13" parent="2-3" unique_id=344067248 instance=ExtResource("7_wjh31")]
+position = Vector2(120, 600)
+
+[node name="WoodBox13" parent="2-3" unique_id=431231588 instance=ExtResource("12_b3adf")]
+position = Vector2(120, 520)
+
+[node name="MissileShooter14" parent="2-3" unique_id=1175115550 instance=ExtResource("7_wjh31")]
+position = Vector2(200, 600)
+
+[node name="WoodBox14" parent="2-3" unique_id=246611157 instance=ExtResource("12_b3adf")]
+position = Vector2(200, 520)
+
+[node name="MissileShooter15" parent="2-3" unique_id=1227653716 instance=ExtResource("7_wjh31")]
+position = Vector2(120, 360)
+shoot_direction = Vector2(1, 0)
+
+[node name="WoodBox15" parent="2-3" unique_id=1883282585 instance=ExtResource("12_b3adf")]
+position = Vector2(200, 360)
+
+[node name="ExplodeBarrel11" parent="2-3" unique_id=557940223 instance=ExtResource("4_c154t")]
+position = Vector2(200, 440)
+
+[node name="ExplodeBarrel12" parent="2-3" unique_id=1443341481 instance=ExtResource("4_c154t")]
+position = Vector2(120, 440)
+
+[node name="MissileShooter16" parent="2-3" unique_id=112611905 instance=ExtResource("7_wjh31")]
+position = Vector2(120, 600)
+
+[node name="WoodBox16" parent="2-3" unique_id=487210924 instance=ExtResource("12_b3adf")]
+position = Vector2(120, 520)
+
+[node name="MissileShooter17" parent="2-3" unique_id=1641079061 instance=ExtResource("7_wjh31")]
+position = Vector2(200, 600)
+
+[node name="WoodBox17" parent="2-3" unique_id=1563162405 instance=ExtResource("12_b3adf")]
+position = Vector2(200, 520)
+
+[node name="MissileShooter18" parent="2-3" unique_id=1665454229 instance=ExtResource("7_wjh31")]
+position = Vector2(120, 360)
+shoot_direction = Vector2(1, 0)
+
+[node name="WoodBox18" parent="2-3" unique_id=1394688100 instance=ExtResource("12_b3adf")]
+position = Vector2(200, 360)
+
+[node name="WoodBox2" parent="2-3" unique_id=161144788 instance=ExtResource("12_b3adf")]
+position = Vector2(520, 360)
+
+[node name="WoodBox3" parent="2-3" unique_id=1563487434 instance=ExtResource("12_b3adf")]
+position = Vector2(680, 360)
+
+[node name="WoodBox4" parent="2-3" unique_id=278369464 instance=ExtResource("12_b3adf")]
+position = Vector2(840, 360)
+
 [node name="3-1" type="Node2D" parent="." unique_id=957604931]
 position = Vector2(2400, 0)
 
@@ -96,6 +506,56 @@ z_index = -1
 position = Vector2(640, 360)
 shape = SubResource("RectangleShape2D_biapd")
 debug_color = Color(0.62352943, 0.57254905, 0.2901961, 0)
+
+[node name="Key" parent="3-1" unique_id=316089544 instance=ExtResource("17_i41kq")]
+position = Vector2(520, 120)
+
+[node name="WoodBox" parent="3-1" unique_id=1204777088 instance=ExtResource("12_b3adf")]
+position = Vector2(440, 440)
+
+[node name="WoodBox2" parent="3-1" unique_id=1829722941 instance=ExtResource("12_b3adf")]
+position = Vector2(280, 440)
+
+[node name="PressurePlate" parent="3-1" unique_id=1462498812 instance=ExtResource("8_jhinw")]
+position = Vector2(920, 120)
+trigger_color = Color(0, 0.7529412, 0, 1)
+
+[node name="SprintEnemy" parent="3-1" unique_id=1217954285 instance=ExtResource("10_up4nc")]
+position = Vector2(1160, 120)
+
+[node name="SpikeFloor2" parent="3-1" unique_id=844797383 instance=ExtResource("11_wb4yq")]
+position = Vector2(840, 120)
+
+[node name="SpikeFloor3" parent="3-1" unique_id=1955875488 instance=ExtResource("11_wb4yq")]
+position = Vector2(840, 200)
+
+[node name="SpikeFloor4" parent="3-1" unique_id=1236857895 instance=ExtResource("11_wb4yq")]
+position = Vector2(920, 440)
+
+[node name="SpikeFloor6" parent="3-1" unique_id=991538 instance=ExtResource("11_wb4yq")]
+position = Vector2(840, 280)
+
+[node name="SpikeFloor8" parent="3-1" unique_id=1243621819 instance=ExtResource("11_wb4yq")]
+position = Vector2(1080, 440)
+
+[node name="SpikeFloor10" parent="3-1" unique_id=1013847608 instance=ExtResource("11_wb4yq")]
+position = Vector2(1000, 440)
+
+[node name="SpikeFloor13" parent="3-1" unique_id=1918809842 instance=ExtResource("11_wb4yq")]
+position = Vector2(1160, 440)
+
+[node name="SpikeFloor14" parent="3-1" unique_id=1685589377 instance=ExtResource("11_wb4yq")]
+position = Vector2(840, 440)
+
+[node name="SpikeFloor15" parent="3-1" unique_id=1947526330 instance=ExtResource("11_wb4yq")]
+position = Vector2(840, 360)
+
+[node name="Door" parent="3-1" unique_id=1972263252 instance=ExtResource("3_ivsf0")]
+position = Vector2(1240, 600)
+
+[node name="MechanicDoor" parent="3-1" unique_id=1633909473 node_paths=PackedStringArray("trigger") instance=ExtResource("9_jhinw")]
+position = Vector2(520, 200)
+trigger = NodePath("../PressurePlate")
 
 [node name="3-2" type="Node2D" parent="." unique_id=711410767]
 position = Vector2(2400, 640)
@@ -112,8 +572,47 @@ debug_color = Color(0.62352943, 0.57254905, 0.2901961, 0)
 [node name="DEMON" parent="3-2" unique_id=32650893 instance=ExtResource("3_ke2fa")]
 position = Vector2(640, 360)
 
+[node name="ExplodeBarrel" parent="3-2" unique_id=2023708065 instance=ExtResource("4_c154t")]
+position = Vector2(360, 520)
+
+[node name="ExplodeBarrel2" parent="3-2" unique_id=306010480 instance=ExtResource("4_c154t")]
+position = Vector2(280, 440)
+
+[node name="ExplodeBarrel3" parent="3-2" unique_id=1500755113 instance=ExtResource("4_c154t")]
+position = Vector2(360, 360)
+
+[node name="ExplodeBarrel4" parent="3-2" unique_id=1623769386 instance=ExtResource("4_c154t")]
+position = Vector2(440, 440)
+
+[node name="Altar" parent="3-2" unique_id=1495590940 instance=ExtResource("5_ke2fa")]
+position = Vector2(640, 520)
+
 [node name="3-3" type="Node2D" parent="." unique_id=749898250]
 position = Vector2(2400, 1280)
+
+[node name="FragileWall" parent="3-3" unique_id=1927832947 instance=ExtResource("16_gbhlb")]
+position = Vector2(40, 360)
+
+[node name="FragileWall2" parent="3-3" unique_id=811074713 instance=ExtResource("16_gbhlb")]
+position = Vector2(1240, 360)
+
+[node name="ExplodeBarrel" parent="3-3" unique_id=1630155144 instance=ExtResource("4_c154t")]
+position = Vector2(200, 360)
+
+[node name="ExplodeBarrel2" parent="3-3" unique_id=564130103 instance=ExtResource("4_c154t")]
+position = Vector2(1080, 360)
+
+[node name="ExplodeBarrel3" parent="3-3" unique_id=876328353 instance=ExtResource("4_c154t")]
+position = Vector2(440, 440)
+
+[node name="ExplodeBarrel4" parent="3-3" unique_id=1779707264 instance=ExtResource("4_c154t")]
+position = Vector2(840, 440)
+
+[node name="ExplodeBarrel5" parent="3-3" unique_id=2012008408 instance=ExtResource("4_c154t")]
+position = Vector2(440, 280)
+
+[node name="ExplodeBarrel6" parent="3-3" unique_id=229076309 instance=ExtResource("4_c154t")]
+position = Vector2(840, 280)
 
 [node name="RoomArea" parent="3-3" unique_id=665492566 instance=ExtResource("2_c154t")]
 
@@ -136,6 +635,43 @@ position = Vector2(640, 360)
 shape = SubResource("RectangleShape2D_biapd")
 debug_color = Color(0.62352943, 0.57254905, 0.2901961, 0)
 
+[node name="ExplodeBarrel" parent="4-1" unique_id=970602309 instance=ExtResource("4_c154t")]
+position = Vector2(760, 360)
+
+[node name="WoodBox" parent="4-1" unique_id=283145602 instance=ExtResource("12_b3adf")]
+position = Vector2(1080, 360)
+
+[node name="PressurePlate" parent="4-1" unique_id=1337519787 instance=ExtResource("8_jhinw")]
+position = Vector2(1080, 360)
+trigger_color = Color(0, 0.7529412, 0, 1)
+
+[node name="MechanicDoor" parent="4-1" unique_id=2038361754 node_paths=PackedStringArray("trigger") instance=ExtResource("9_jhinw")]
+position = Vector2(360, 520)
+trigger = NodePath("../PressurePlate")
+
+[node name="SuperShooter" parent="4-1" unique_id=454752322 instance=ExtResource("7_wjh31")]
+visible = false
+modulate = Color(1, 0.12941177, 0.09803922, 1)
+position = Vector2(360, 360)
+missile_speed = 600.0
+missile_damage = 24
+shoot_direction = Vector2(0, 1)
+auto_shoot_interval = 0.5
+
+[node name="MissileShooter" parent="4-1" unique_id=1493837302 instance=ExtResource("7_wjh31")]
+position = Vector2(1080, 600)
+
+[node name="MissileShooter2" parent="4-1" unique_id=536059182 instance=ExtResource("7_wjh31")]
+position = Vector2(1080, 440)
+shoot_direction = Vector2(0, 1)
+
+[node name="FINAL DEMON" type="AnimatedSprite2D" parent="4-1" unique_id=1653719144]
+position = Vector2(360, 360)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_vkqoe")
+frame_progress = 0.52265245
+script = ExtResource("18_b1548")
+
 [node name="4-2" type="Node2D" parent="." unique_id=1861465030]
 position = Vector2(3600, 640)
 
@@ -148,6 +684,34 @@ position = Vector2(640, 360)
 shape = SubResource("RectangleShape2D_biapd")
 debug_color = Color(0.62352943, 0.57254905, 0.2901961, 0)
 
+[node name="Label" type="Label" parent="4-2" unique_id=554010465]
+offset_left = 280.0
+offset_top = 200.0
+offset_right = 984.0
+offset_bottom = 395.0
+text = "YOU WIN!!!
+TOTAL TIME:"
+label_settings = SubResource("LabelSettings_vkqoe")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="4-2" unique_id=1017319823]
+offset_left = 440.0
+offset_top = 400.0
+offset_right = 825.0
+offset_bottom = 579.0
+text = "00:00"
+label_settings = SubResource("LabelSettings_vkqoe")
+horizontal_alignment = 1
+script = ExtResource("6_8sx7u")
+
+[node name="MechanicDoor" parent="4-2" unique_id=683663493 node_paths=PackedStringArray("trigger") instance=ExtResource("9_jhinw")]
+position = Vector2(40, 360)
+trigger = NodePath("../Lever")
+
+[node name="Lever" parent="4-2" unique_id=1505830223 instance=ExtResource("14_fpa1i")]
+position = Vector2(120, 280)
+trigger_color = Color(0, 0.7529412, 0, 1)
+
 [node name="4-3" type="Node2D" parent="." unique_id=1888134518]
 position = Vector2(3600, 1280)
 
@@ -159,3 +723,77 @@ z_index = -1
 position = Vector2(640, 360)
 shape = SubResource("RectangleShape2D_biapd")
 debug_color = Color(0.62352943, 0.57254905, 0.2901961, 0)
+
+[node name="SpikeFloor" parent="4-3" unique_id=1585273590 instance=ExtResource("11_wb4yq")]
+position = Vector2(1000, 360)
+
+[node name="SpikeFloor2" parent="4-3" unique_id=554143557 instance=ExtResource("11_wb4yq")]
+position = Vector2(1000, 280)
+
+[node name="SpikeFloor3" parent="4-3" unique_id=1076351681 instance=ExtResource("11_wb4yq")]
+position = Vector2(1160, 280)
+
+[node name="SpikeFloor4" parent="4-3" unique_id=1690750440 instance=ExtResource("11_wb4yq")]
+position = Vector2(1160, 360)
+
+[node name="SpikeFloor5" parent="4-3" unique_id=2131901991 instance=ExtResource("11_wb4yq")]
+position = Vector2(1160, 440)
+
+[node name="SpikeFloor6" parent="4-3" unique_id=986892542 instance=ExtResource("11_wb4yq")]
+position = Vector2(1000, 440)
+
+[node name="SpikeFloor7" parent="4-3" unique_id=1498238723 instance=ExtResource("11_wb4yq")]
+position = Vector2(920, 280)
+
+[node name="SpikeFloor8" parent="4-3" unique_id=81584054 instance=ExtResource("11_wb4yq")]
+position = Vector2(840, 280)
+
+[node name="SpikeFloor9" parent="4-3" unique_id=1606524844 instance=ExtResource("11_wb4yq")]
+position = Vector2(760, 280)
+
+[node name="SpikeFloor10" parent="4-3" unique_id=1561047729 instance=ExtResource("11_wb4yq")]
+position = Vector2(680, 280)
+
+[node name="SpikeFloor11" parent="4-3" unique_id=992845795 instance=ExtResource("11_wb4yq")]
+position = Vector2(600, 280)
+
+[node name="SpikeFloor12" parent="4-3" unique_id=184233109 instance=ExtResource("11_wb4yq")]
+position = Vector2(920, 440)
+
+[node name="SpikeFloor13" parent="4-3" unique_id=2044303812 instance=ExtResource("11_wb4yq")]
+position = Vector2(840, 440)
+
+[node name="SpikeFloor14" parent="4-3" unique_id=1176945307 instance=ExtResource("11_wb4yq")]
+position = Vector2(760, 440)
+
+[node name="SpikeFloor15" parent="4-3" unique_id=2066440790 instance=ExtResource("11_wb4yq")]
+position = Vector2(680, 440)
+
+[node name="SpikeFloor16" parent="4-3" unique_id=612413001 instance=ExtResource("11_wb4yq")]
+position = Vector2(600, 440)
+
+[node name="MissileShooter3" parent="4-3" unique_id=1673041430 instance=ExtResource("7_wjh31")]
+position = Vector2(680, 360)
+shoot_direction = Vector2(0, 1)
+
+[node name="MissileShooter5" parent="4-3" unique_id=2052158003 instance=ExtResource("7_wjh31")]
+position = Vector2(840, 360)
+
+[node name="MissileShooter4" parent="4-3" unique_id=995438616 instance=ExtResource("7_wjh31")]
+position = Vector2(200, 200)
+shoot_direction = Vector2(1, 0)
+
+[node name="MissileShooter6" parent="4-3" unique_id=171183277 instance=ExtResource("7_wjh31")]
+position = Vector2(200, 520)
+shoot_direction = Vector2(1, 0)
+
+[node name="MechanicDoor" parent="4-3" unique_id=1760837765 node_paths=PackedStringArray("trigger") instance=ExtResource("9_jhinw")]
+position = Vector2(1000, 600)
+trigger = NodePath("../Lever")
+
+[node name="Lever" parent="4-3" unique_id=1893305286 instance=ExtResource("14_fpa1i")]
+position = Vector2(1080, 120)
+trigger_color = Color(0, 0.7529412, 0, 1)
+
+[node name="Clock" parent="4-3" unique_id=1156578247 instance=ExtResource("16_i41kq")]
+position = Vector2(1080, 200)

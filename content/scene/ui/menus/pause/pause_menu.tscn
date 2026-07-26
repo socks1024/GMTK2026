@@ -98,11 +98,13 @@ text = "SAVE_GAME"
 ease_curve = SubResource("Curve_3yq31")
 
 [node name="Settings" parent="MainPanel/VBoxContainer/Buttons" unique_id=2084197765 instance=ExtResource("1_btn")]
+visible = false
 layout_mode = 2
 text = "SETTINGS"
 ease_curve = SubResource("Curve_7tbfl")
 
 [node name="Help" parent="MainPanel/VBoxContainer/Buttons" unique_id=1700443550 instance=ExtResource("1_btn")]
+visible = false
 layout_mode = 2
 text = "HELP"
 ease_curve = SubResource("Curve_sy466")
