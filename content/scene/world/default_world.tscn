@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://cgelljdkcrjdd" path="res://content/scene/world/level_2.tscn" id="5_6ugpd"]
 [ext_resource type="PackedScene" uid="uid://dr863ay45gx2n" path="res://content/scene/world/level_3.tscn" id="6_apdbo"]
 [ext_resource type="PackedScene" uid="uid://hrswpvjhduc7" path="res://content/scene/world/entity/teleport_entity/hole/hole.tscn" id="7_x51ot"]
+[ext_resource type="PackedScene" uid="uid://cekupg66h8yi6" path="res://content/scene/world/entity/pickable_entity/heart_container/heart_container.tscn" id="8_jau6q"]
+[ext_resource type="PackedScene" uid="uid://bdrqv008e5e0s" path="res://content/scene/world/entity/pickable_entity/clock/clock.tscn" id="9_biapd"]
 [ext_resource type="PackedScene" uid="uid://cho17x2fn4qh3" path="res://content/scene/world/entity/teleport_entity/ladder/ladder.tscn" id="10_wa43y"]
 
 [node name="DefaultWorld" type="Node2D" unique_id=128507855]
@@ -20,7 +22,7 @@ script = ExtResource("1_x51ot")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="Player" parent="." unique_id=1051908149 instance=ExtResource("2_4jt3r")]
-position = Vector2(1000, 360)
+position = Vector2(2760, 5640)
 speed = 200.0
 
 [node name="Level1" parent="." unique_id=432088751 instance=ExtResource("4_x51ot")]
@@ -67,3 +69,27 @@ to = NodePath("../../Level2/Marker2D")
 [node name="Hole3to2(2)" parent="Level3" unique_id=1086720313 node_paths=PackedStringArray("to") instance=ExtResource("7_x51ot")]
 position = Vector2(3400, 1080)
 to = NodePath("../../Level2/Marker2D2")
+
+[node name="HeartContainer" parent="." unique_id=1987198981 instance=ExtResource("8_jau6q")]
+position = Vector2(2920, 5640)
+
+[node name="HeartContainer2" parent="." unique_id=175036743 instance=ExtResource("8_jau6q")]
+position = Vector2(3000, 5640)
+
+[node name="HeartContainer3" parent="." unique_id=1975365319 instance=ExtResource("8_jau6q")]
+position = Vector2(3080, 5640)
+
+[node name="Clock" parent="." unique_id=216977065 instance=ExtResource("9_biapd")]
+position = Vector2(2920, 5560)
+
+[node name="Clock2" parent="." unique_id=1454253950 instance=ExtResource("9_biapd")]
+position = Vector2(3000, 5560)
+
+[node name="Clock3" parent="." unique_id=1386155097 instance=ExtResource("9_biapd")]
+position = Vector2(3080, 5560)
+
+[node name="Clock4" parent="." unique_id=413654335 instance=ExtResource("9_biapd")]
+position = Vector2(3160, 5560)
+
+[node name="HeartContainer4" parent="." unique_id=1217669132 instance=ExtResource("8_jau6q")]
+position = Vector2(3160, 5640)

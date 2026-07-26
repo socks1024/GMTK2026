@@ -72,10 +72,10 @@ stretch_mode = 4
 [node name="Buttons" type="VBoxContainer" parent="Panel" unique_id=709712620]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 0
-offset_left = 838.0
-offset_top = 237.0
-offset_right = 1085.0
-offset_bottom = 472.0
+offset_left = 848.0
+offset_top = 316.0
+offset_right = 1095.0
+offset_bottom = 551.0
 size_flags_horizontal = 3
 theme_override_constants/separation = 20
 
@@ -97,6 +97,7 @@ text = "SETTINGS"
 ease_curve = SubResource("Curve_ldejh")
 
 [node name="Credits" parent="Panel/Buttons" unique_id=819866585 instance=ExtResource("1_i6emh")]
+visible = false
 layout_mode = 2
 text = "CREDITS"
 ease_curve = SubResource("Curve_iok7d")
