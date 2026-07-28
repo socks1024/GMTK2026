@@ -14,3 +14,14 @@ export_credentials.cfg
 .mono/
 data_*/
 mono_crash.*.json
+build/ProjectDungeon.pck
+build/ProjectDungeon.exe
+build/ProjectDungeon.console.zip
+build/ProjectDungeon.console.exe
+build/DeepDarkFiresy.zip
+build/DeepDarkFiresy.pck
+build/DeepDarkFiresy.exe
+build/ProjectDungeon.pck
+build/ProjectDungeon.exe
+build/ProjectDungeon.console.zip
+build/ProjectDungeon.console.exe

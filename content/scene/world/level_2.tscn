@@ -176,6 +176,12 @@ trigger = NodePath("../PressurePlate")
 [node name="Clock" parent="1-3" unique_id=1987198981 instance=ExtResource("8_pfdu8")]
 position = Vector2(760, 120)
 
+[node name="WoodBox" parent="1-3" unique_id=1735990448 instance=ExtResource("4_iakkb")]
+position = Vector2(1000, 360)
+
+[node name="WoodBox2" parent="1-3" unique_id=917979445 instance=ExtResource("4_iakkb")]
+position = Vector2(360, 440)
+
 [node name="2-1" type="Node2D" parent="." unique_id=1501511725]
 position = Vector2(1200, 0)
 
@@ -446,9 +452,6 @@ trigger = NodePath("../Lever")
 [node name="Door" parent="3-2" unique_id=1251774651 instance=ExtResource("10_jbkx5")]
 position = Vector2(40, 360)
 
-[node name="Door2" parent="3-2" unique_id=884908071 instance=ExtResource("10_jbkx5")]
-position = Vector2(1240, 360)
-
 [node name="Altar" parent="3-2" unique_id=759660035 instance=ExtResource("12_jbkx5")]
 position = Vector2(640, 520)
 
@@ -573,9 +576,6 @@ debug_color = Color(0.62352943, 0.57254905, 0.2901961, 0)
 [node name="ShootEnemy" parent="4-3" unique_id=1965940146 instance=ExtResource("15_hyk74")]
 position = Vector2(840, 360)
 
-[node name="Key" parent="4-3" unique_id=1000808483 instance=ExtResource("6_hrb7k")]
-position = Vector2(1160, 360)
-
 [node name="WoodBox" parent="4-3" unique_id=1598949123 instance=ExtResource("4_iakkb")]
 position = Vector2(360, 360)
 
@@ -596,8 +596,5 @@ position = Vector2(520, 360)
 [node name="SpikeFloor3" parent="4-3" unique_id=787685337 instance=ExtResource("5_rkhtm")]
 position = Vector2(520, 280)
 
-[node name="WoodBox" parent="." unique_id=1735990448 instance=ExtResource("4_iakkb")]
-position = Vector2(1000, 1640)
-
-[node name="WoodBox2" parent="." unique_id=917979445 instance=ExtResource("4_iakkb")]
-position = Vector2(360, 1720)
+[node name="Clock" parent="4-3" unique_id=433993796 instance=ExtResource("8_pfdu8")]
+position = Vector2(1160, 360)
